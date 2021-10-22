@@ -57,7 +57,7 @@ a {
     align-items: flex-start;
     position: fixed;
     left: -100%;
-    top: 4.8rem;
+    top: 5.5rem;
     flex-direction: column;
     background-color: #aea2cd;
     width: 90%;
@@ -73,6 +73,10 @@ a {
 
   .nav-item {
     margin: 2rem 0;
+  }
+
+  .nav-logo {
+    width: 100px;
   }
 
   .hamburger {

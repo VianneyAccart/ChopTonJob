@@ -12,7 +12,7 @@ export class NavbarTransparentComponent implements OnInit {
 
   constructor() { 
     this.openedMobileMenu = false
-    this.imageSource = "src/assets/img/logo.png"
+    this.imageSource = "assets/img/logo.png"
   }
 
   mobileMenu() {
