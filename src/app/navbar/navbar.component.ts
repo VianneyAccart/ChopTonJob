@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  openedMobileMenu:boolean
+  imageSource: string
+
+  constructor() { 
+    this.openedMobileMenu = false
+    this.imageSource = ""
+  }
+
+  mobileMenu() {
+    this.openedMobileMenu = !this.openedMobileMenu
+  }
 
   ngOnInit(): void {
   }
