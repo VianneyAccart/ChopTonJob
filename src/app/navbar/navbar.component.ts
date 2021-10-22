@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   constructor() { 
     this.openedMobileMenu = false
-    this.imageSource = ""
+    this.imageSource = "src/assets/img/logo.png"
   }
 
   mobileMenu() {
