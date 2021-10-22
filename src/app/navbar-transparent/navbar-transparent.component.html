@@ -1,0 +1,25 @@
+<header class="header">
+    <nav class="navbar">
+        <a href="#"><img [src]="imageSource" alt="logo" class="nav-logo"></a>
+        <ul [ngClass]="{'active' : openedMobileMenu === true}" class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Guide</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">L'équipe</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div [ngClass]="{'active' : openedMobileMenu === true}"  (click)="mobileMenu()" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+
