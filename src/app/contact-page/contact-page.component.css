@@ -1,0 +1,9 @@
+span {
+  color: #aea2cd;
+}
+
+@media screen and (max-width: 960px) {
+  .hidePicture {
+    display: none;
+  }
+}
