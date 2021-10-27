@@ -1,0 +1,90 @@
+.container-fluid{
+    background-color: whitesmoke;
+    height: 100vh;
+}
+/* Colonne contenant les options de nouvelle recherche */
+.col-md-4 {
+    background-color: whitesmoke;
+    height: 100vh;
+    border-right: solid .1px rgb(218, 216, 216);
+}
+
+#newSearchBtn { /* Le bouton de nouvelle recherche est masqué sur desktop */
+    display: none;
+}
+
+.logoPoleEmploi {
+    width: 100px;
+    display: none;
+}
+
+.row.p-3 {
+    display: none;
+}
+
+#newSearchTitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-left: 20%;
+}
+
+.highlightWord {
+    color: #aea2cd;
+    font-weight: 600;
+}
+
+.resultOfCompanies {
+    margin: 50px 0 0 50px;
+    font-size: 1.2rem;
+}
+
+.numberOfCompanies {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+
+    .col-md-4 {
+        height: 90px;
+        border: none;
+    }
+
+    .col-md-8 {
+        height: 30px;
+    }
+
+    .row.p-3 {
+        display: flex;
+    }
+
+    /* Titre */
+    #newSearchTitle {
+        display: none;
+    }
+
+    /* Bouton de nouvelle recherche */
+    #newSearchBtn {
+        display: block;
+    }
+
+    .newSearch {
+        background-color: #AEA1CD;
+        height: 35px;
+        width: 11rem;
+        border-radius: 50px;
+        color: white;
+        font-size: .8rem;
+    }
+
+    .logoPoleEmploi {
+        display: block;
+        width: 100px;
+    }
+
+    /* Autre élément */
+    .resultOfCompanies {
+        margin-top: 0;
+        margin-left: 20px;
+        font-size: 0.8rem;
+    }
+}

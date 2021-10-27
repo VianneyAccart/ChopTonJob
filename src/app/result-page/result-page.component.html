@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Row contenant le bouton de nouvelle recherche sur mobile, masqué sur desktop -->
+            <div class="row p-3">
+                <div class="col-8 d-flex justify-content-start align-items-center">
+                    <button id="newSearchBtn" type="button" class="btn newSearch">Nouvelle recherche</button>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <img class="logoPoleEmploi" src="assets/img/logo-pole-emploi.png" alt="Logo de Pôle Emploi">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-8">
+                    <h2 id="newSearchTitle">Tu <span class="highlightWord">changes</span><br> d'horizon ?</h2>
+                </div>
+            </div>
+            <!-- Insertion ici du composant de recherche de Karim -->
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <p class="resultOfCompanies"><span class="numberOfCompanies">29</span> entreprises correspondent à votre recherche</p>
+            </div>
+        </div>
+    </div>
+</div>
