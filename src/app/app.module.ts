@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarTransparentComponent } from './navbar-transparent/navbar-transparent.component';
 import { ResultPageComponent } from './result-page/result-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NavbarTransparentComponent,
-    ResultPageComponent
+    ResultPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
