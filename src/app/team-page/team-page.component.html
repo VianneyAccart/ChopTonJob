@@ -1,0 +1,31 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col my-5">
+      <h1>Découvre notre <span>équipe</span></h1>
+    </div>
+  </div>
+  <div *ngFor="let teamMember of members" class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          src="{{ teamMember.imgSrc }}"
+          alt="{{ teamMember.imgAlt }}"
+          class="rounded-circle"
+        />
+        <h5>{{ teamMember.name }} {{ teamMember.lastname }}</h5>
+        <img
+          src="/assets/img/icons/github.svg"
+          alt="github icon"
+          width="32"
+          height="32"
+        />
+        <img
+          src="/assets/img/icons/linkedin.svg"
+          alt="linkedin icon"
+          width="32"
+          height="32"
+        />
+      </div>
+    </div>
+  </div>
+</div>
