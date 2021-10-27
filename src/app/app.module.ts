@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarTransparentComponent } from './navbar-transparent/navbar-transparent.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavbarTransparentComponent
+    NavbarTransparentComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
