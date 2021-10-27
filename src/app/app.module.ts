@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarTransparentComponent } from './navbar-transparent/navbar-transparent.component';
 import { TeamPageComponent } from './team-page/team-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TeamPageComponent } from './team-page/team-page.component';
     NavbarComponent,
     NavbarTransparentComponent,
     TeamPageComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
