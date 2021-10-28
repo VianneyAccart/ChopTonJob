@@ -16,7 +16,7 @@ export class TeamPageComponent implements OnInit {
 
   //generate team members and push them in the array 'members'
   ngOnInit(): void {
-    this.setTitle("Découvrez notre équipe !")
+    this.setTitle('Découvrez notre équipe !');
     const memberBrice = new teamMember(
       'Brice',
       'Ducroux',
