@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,10 +8,10 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
   contactForm = this.formBuilder.group({
-    userFirstname: ['Prénom'],
-    userLastname: ['Nom'],
-    userEmail: ['Email'],
-    userMessage: ['Message...'],
+    userFirstname: ['', Validators.required],
+    userLastname: ['', Validators.required],
+    userEmail: ['', [Validators.required, Validators.email]],
+    userMessage: ['', Validators.required],
   });
   constructor(private formBuilder: FormBuilder) {}
 
