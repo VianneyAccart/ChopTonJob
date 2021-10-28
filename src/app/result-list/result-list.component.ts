@@ -13,7 +13,7 @@ export class ResultListComponent implements OnInit {
 
   public isCollapsed = true;
   public buttonText: string = 'Plus d\'infos';
-  currentRate = 2;
+  currentRate = 4.2;
 
   // Bouton pour changer le texte à l'intérieur du bouton.
   buttonName():void{
@@ -24,8 +24,6 @@ export class ResultListComponent implements OnInit {
       this.buttonText = 'Moins d\'infos'
     }
   }
-
-
 
   // variable qui servira à stocker les valeurs pour chaque variable de chaque entreprise sous forme d'objets dans un tableau'.
   cards : Card[] 
