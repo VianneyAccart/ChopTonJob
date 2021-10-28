@@ -7,6 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./contact-form.component.css'],
 })
 export class ContactFormComponent implements OnInit {
+  //Form validators for each input
   contactForm = this.formBuilder.group({
     userFirstname: ['', Validators.required],
     userLastname: ['', Validators.required],
@@ -15,8 +16,8 @@ export class ContactFormComponent implements OnInit {
   });
   constructor(private formBuilder: FormBuilder) {}
 
-  onSubmit() {
-    console.log(this.contactForm.value);
+  onSubmit(): void {
+    alert('valid');
   }
 
   ngOnInit(): void {}

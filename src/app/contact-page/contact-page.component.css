@@ -1,7 +1,9 @@
+/* color span word on title */
 span {
   color: #aea2cd;
 }
 
+/* picture disapear on mobile-phone */
 @media screen and (max-width: 960px) {
   .hidePicture {
     display: none;

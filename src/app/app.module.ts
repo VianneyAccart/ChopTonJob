@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { NavbarTransparentComponent } from './navbar-transparent/navbar-transpar
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResultPageComponent } from './result-page/result-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarTransparentComponent,
     ContactPageComponent,
     ContactFormComponent,
+    ResultPageComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
