@@ -25,7 +25,16 @@
     border-radius: 50px;
     color: white;
     font-size: 0.9rem;
-    border-color: transparent;
+    border: none
+}
+
+.newSearch:hover {
+    height: 35px;
+    width: 11rem;
+    border-radius: 50px;
+    background-color: transparent;
+    border: solid 1px #aea2cd;
+    color: #aea2cd;
 }
 
 .cardTemplate {
@@ -47,6 +56,18 @@
     .alignRight {
         text-align: left;
     }
+
+    .newSearch:hover {
+        background-color: #aea1cd;
+        height: 35px;
+        width: 11rem;
+        border-radius: 50px;
+        color: white;
+        font-size: 0.9rem;
+        border: none
+    }
+
+
   }
 
 
