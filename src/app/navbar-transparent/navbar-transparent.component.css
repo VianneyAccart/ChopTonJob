@@ -55,7 +55,7 @@ a {
 @media screen and (max-width: 768px) {
   .nav-menu {
     align-items: flex-start;
-    position: fixed;
+    position: absolute;
     left: -100%;
     top: 5.5rem;
     flex-direction: column;
