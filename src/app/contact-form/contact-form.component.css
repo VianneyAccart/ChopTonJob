@@ -1,0 +1,17 @@
+/* input form style */
+.form-rounded {
+  border-radius: 1rem;
+  box-shadow: 0px 4px 5px #cec4e9;
+}
+
+/* button style */
+.buttonStyle {
+  background-color: #aea2cd;
+  color: white;
+  box-shadow: 0px 4px 5px #cec4e9;
+}
+
+.buttonStyle:hover {
+  background-color: white;
+  color: #aea2cd;
+}

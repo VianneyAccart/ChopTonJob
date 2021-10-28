@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarTransparentComponent } from './navbar-transparent/navbar-transparent.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
@@ -15,16 +18,19 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     AppComponent,
     NavbarComponent,
     NavbarTransparentComponent,
+    ContactPageComponent,
+    ContactFormComponent,
     ResultPageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [Title],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
