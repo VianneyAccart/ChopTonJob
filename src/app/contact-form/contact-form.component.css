@@ -1,0 +1,19 @@
+/* input form style */
+.form-rounded {
+  border-radius: 1rem;
+}
+/* Bouton d'envoi du formulaire */
+.submitBtn {
+  height: 50px;
+  width: 20rem;
+  border-radius: 50px;
+  border: none;
+  background-color: #aea2cd;
+  color: white;
+}
+
+.submitBtn:hover {
+  background-color: transparent;
+  border: solid 1px #aea2cd;
+  color: #aea2cd;
+}
