@@ -27,7 +27,7 @@ export class ResultListComponent implements OnInit {
 
 
 
-
+  // variable qui servira à stocker les valeurs pour chaque variable de chaque entreprise sous forme d'objets dans un tableau'.
   cards : Card[] 
 
   constructor(config: NgbRatingConfig) {
