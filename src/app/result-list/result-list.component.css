@@ -1,0 +1,37 @@
+.bold {
+    font-weight: bold;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+
+.endAlign {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.btnPurple {
+    color: white;
+    background-color:#aea2cd ;
+}
+
+.newSearch {
+    background-color: #aea1cd;
+    height: 35px;
+    width: 11rem;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.9rem;
+    border-color: transparent;
+}
+
+.cardTemplate {
+    border-radius: 10%;
+    box-shadow: black 10px 3px 3px;
+}
+
+
+  
