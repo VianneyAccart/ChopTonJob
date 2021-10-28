@@ -7,12 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarTransparentComponent } from './navbar-transparent/navbar-transparent.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavbarTransparentComponent
+    NavbarTransparentComponent,
+    HomepageComponent,
+    FormulaireComponent,
+   
   ],
   imports: [
     BrowserModule,
