@@ -6,7 +6,6 @@
     font-weight: normal;
 }
 
-
 .endAlign {
     display: flex;
     justify-content: flex-end;
@@ -50,9 +49,6 @@
   .alignRight {
       text-align: right;
   }
-
-
-
 
   @media screen and (max-width: 768px){
     .alignRight {

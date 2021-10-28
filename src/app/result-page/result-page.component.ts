@@ -13,8 +13,9 @@ export class ResultPageComponent implements OnInit {
     this.openedNewSearchMenu = false;
   }
 
+  // Remplacer X par la longueur du tableau cards
   ngOnInit(): void {
-    this.setTitle("Résultat de recherche : les entreprises qui recrutent autour de chez vous !")
+    this.setTitle("X entreprises correspondent à votre recherche !")
   }
 
   // Permet d'afficher/masquer le volet de nouvelle recherche sur mobile
