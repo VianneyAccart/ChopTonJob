@@ -1,6 +1,6 @@
 /* Colonne contenant les options de nouvelle recherche */
 .col-md-4 {
-  height: 100vh;
+  height: auto;
   border-right: solid 0.1px rgb(218, 216, 216);
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-result-page',
@@ -8,14 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class ResultPageComponent implements OnInit {
   openedNewSearchMenu;
 
-  constructor() {
+  constructor(private titleService: Title) {
     this.openedNewSearchMenu = false;
   }
 
-  ngOnInit(): void {}
+  // Remplacer X par la longueur du tableau cards
+  ngOnInit(): void {
+    this.setTitle("X entreprises correspondent à votre recherche !")
+  }
 
   // Permet d'afficher/masquer le volet de nouvelle recherche sur mobile
   openNewSearchMenu() {
     this.openedNewSearchMenu = !this.openedNewSearchMenu;
+  }
+
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }
