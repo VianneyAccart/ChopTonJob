@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { teamMember } from '../shared/models/teamMember.model';
 
 @Component({
@@ -9,12 +10,13 @@ import { teamMember } from '../shared/models/teamMember.model';
 export class TeamPageComponent implements OnInit {
   members: teamMember[];
 
-  constructor() {
+  constructor(private titleService: Title) {
     this.members = new Array();
   }
 
   //generate team members and push them in the array 'members'
   ngOnInit(): void {
+    this.setTitle("Découvrez notre équipe !")
     const memberBrice = new teamMember(
       'Brice',
       'Ducroux',
@@ -63,5 +65,9 @@ export class TeamPageComponent implements OnInit {
       memberCamille,
       memberAdam
     );
+  }
+
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }
