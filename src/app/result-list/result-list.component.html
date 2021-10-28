@@ -1,0 +1,101 @@
+<div class="container col-md-6 form-rounded">
+    <div class=" mb-3 ">
+        <!-- PARTIE VISIBLE -->
+        <div class="card-body bg-white ">
+            <div class="container row">
+
+                <div class="container col">
+                    <div class="row">
+                        <div class="card-title row bold ">
+                            Nom de l'entreprise 
+                        </div>
+
+                        <div class="card-title row normal ">
+                            Secteur d'activité ou raison sociale
+                        </div>
+
+                        <div class="card-title row normal">
+                            Ville
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="  normal ">
+                            Alternance: Oui
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class=" bold alignRight">
+                            Potentiel d'embauche
+                        </div>
+
+                        <div class="  normal alignRight">
+                            <ngb-rating [rate]="currentRate" ></ngb-rating>
+                            <span> Rate : {{currentRate}}</span>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
+            <p>
+                <button type="button" class="newSearch  mt-4" (click)="collapse.toggle()" (click)='buttonName()'
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                    {{ buttonText }}
+                </button>
+
+            </p>
+
+            <!-- PARTIE PLUS D'INFOS ( cachée ) -->
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-5">
+                <div class="row">
+
+                    <div class=" col-md-6">
+
+                        <div class="card-title  bold "> Raison Sociale
+                            <p class="card-text  normal ">Blalala</p>
+                        </div>
+
+                        <div class="card-title bold "> SIRET
+                            <p class="card-text  normal">86784799900035</p>
+                        </div>
+
+                        <div class="card-title  bold"> Adresse
+                            <p class="card-text  normal">Adresse complète <br>XXXXX - Ville</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 ">
+
+                        <div class="card-title bold alignRight"> Nombre de salariés
+                            <p class="card-text  normal ">5 à 10 salariés</p>
+                        </div>
+
+                        <div class="card-title  bold alignRight"> Téléphone
+                            <p class="card-text  normal ">04 56 78 90 12</p>
+                        </div>
+
+                        <div class="card-title  bold alignRight"> Site web
+                            <p class="card-text  normal ">https://exemple.fr</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
