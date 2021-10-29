@@ -24,8 +24,13 @@ const routes: Routes = [
     component: ResultPageComponent
   },
   {
-    path: '**',
+    path: '404',
     component: ErrorPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404',
+    pathMatch: 'full'
   }
 ];
 

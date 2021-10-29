@@ -8,7 +8,11 @@ import { Title } from '@angular/platform-browser';
 })
 export class ErrorPageComponent implements OnInit {
 
-  constructor(private titleService: Title) { }
+  transparentNavbar: boolean
+
+  constructor(private titleService: Title) { 
+    this.transparentNavbar = true
+  }
 
   ngOnInit(): void {
     this.setTitle("Oups, la page que vous cherchez n'existe pas !")
