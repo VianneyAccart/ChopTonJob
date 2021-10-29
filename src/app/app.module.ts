@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
+    
   ],
   providers: [Title],
   bootstrap: [AppComponent],
