@@ -3,6 +3,7 @@ import { Card } from '../shared/models/card-result.model';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-result-list',
   templateUrl: './result-list.component.html',
@@ -13,7 +14,7 @@ export class ResultListComponent implements OnInit {
 
   public isCollapsed = true;
   public buttonText: string = 'Plus d\'infos';
-  currentRate = 4.2;
+  currentRate = 3;
 
   // Bouton pour changer le texte à l'intérieur du bouton.
   buttonName():void{

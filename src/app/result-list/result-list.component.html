@@ -1,10 +1,10 @@
 <div class="container col-md-11 form-rounded mb-3">
     <div class=" mb-3 ">
         <!-- PARTIE VISIBLE -->
-        <div class="card-body bg-white ">
+        <div class="card-body bg-white px-0 pb-0">
             <div class="container row">
 
-                <div class="container col">
+                <div class="container col p-0">
                     <div class="row">
                         <div class="card-title row bold ">
                             Nom de l'entreprise
@@ -22,15 +22,15 @@
             </div>
 
 
-            <div class="container">
+            <div class="container p-0">
                 <div class="row">
-                    <div class="col-md-6 p-0">
+                    <div class="col-md-6 ">
                         <div class="bold">
                             Alternance : <span class="normal">Oui</span>
                         </div>
                     </div>
 
-                    <div class="col-md-6 p-0 mt-2 mt-md-0">
+                    <div class="col-md-6 mt-2 mt-md-0">
                         <div class=" bold alignRight">
                             Potentiel d'embauche
                         </div>
@@ -46,7 +46,7 @@
             </div>
 
             <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
-            <p>
+            <p class="m-0">
                 <button type="button" class="newSearch  mt-4" (click)="collapse.toggle()" (click)='buttonName()'
                     [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
                     {{ buttonText }}
@@ -55,7 +55,7 @@
             </p>
 
             <!-- PARTIE PLUS D'INFOS ( cachée ) -->
-            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-5">
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-4 mb-0 p-0">
                 <div class="row">
 
                     <div class=" col-md-6">
