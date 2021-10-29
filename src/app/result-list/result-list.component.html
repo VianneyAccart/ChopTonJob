@@ -1,7 +1,7 @@
 <div class="container col-md-6 form-rounded">
     <div class=" mb-3 ">
         <!-- PARTIE VISIBLE -->
-        <div class="card-body bg-white ">
+        <div class="card-body bg-white px-0 pb-0">
             <div class="container row">
 
                 <div class="container col">
@@ -48,7 +48,7 @@
             </div>
 
             <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
-            <p>
+            <p class="m-0">
                 <button type="button" class="newSearch  mt-4" (click)="collapse.toggle()" (click)='buttonName()'
                     [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
                     {{ buttonText }}
@@ -57,7 +57,7 @@
             </p>
 
             <!-- PARTIE PLUS D'INFOS ( cachée ) -->
-            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-5">
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-4 mb-0">
                 <div class="row">
 
                     <div class=" col-md-6">
