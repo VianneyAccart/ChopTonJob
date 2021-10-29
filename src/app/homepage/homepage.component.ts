@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() {}
+  transparentNavbar: boolean
+
+  constructor() {
+    this.transparentNavbar = true
+  }
 
   ngOnInit(): void {
   }
