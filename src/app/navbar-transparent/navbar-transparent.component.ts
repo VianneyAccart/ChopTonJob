@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbar-transparent',
+  templateUrl: './navbar-transparent.component.html',
+  styleUrls: ['./navbar-transparent.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarTransparentComponent implements OnInit {
 
   openedMobileMenu:boolean
   imageSource: string
