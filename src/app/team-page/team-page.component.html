@@ -1,52 +1,46 @@
 <app-navbar></app-navbar>
 <div class="container-lg">
-  <div class="row">
-    <div class="col my-4 my-sm-5">
-      <h1>Découvre notre <span class="highlightWord">équipe</span></h1>
-    </div>
+  <div class="my-4 my-sm-5">
+    <h1>Découvre notre <span class="highlightWord">équipe</span></h1>
   </div>
-  <div class="container">
-    <div class="row">
-      <div *ngFor="let teamMember of members" class="container col-lg-4">
-        <div class="row my-2 my-lg-5">
-          <div class="row align-items-center">
-            <div class="col-5 col-sm-6">
-              <img
-                src="{{ teamMember.imgSrc }}"
-                alt="{{ teamMember.imgAlt }}"
-                class="rounded-circle card-img-left img-fluid"
-              />
-            </div>
-            <div class="col-7 col-sm-6">
-              <h2>{{ teamMember.name }} {{ teamMember.lastname }}</h2>
-              <a
-                href="{{ teamMember.gitUrl }}"
-                target="_blank"
-                rel="noopener"
-                rel="noreferrer"
-              >
-                <img
-                  src="/assets/img/icons/github.svg"
-                  alt="github icon"
-                  width="32"
-                  height="32"
-                  class="mx-1 img-fluid"
-              /></a>
-              <a
-                href="{{ teamMember.linkedinUrl }}"
-                target="_blank"
-                rel="noopener"
-                rel="noreferrer"
-              >
-                <img
-                  src="/assets/img/icons/linkedin.svg"
-                  alt="linkedin icon"
-                  width="32"
-                  height="32"
-                  class="mx-1 img-fluid"
-              /></a>
-            </div>
-          </div>
+  <div class="row">
+    <div *ngFor="let teamMember of members" class="mx-auto col-lg-4">
+      <div class="row align-items-center mb-3 mb-lg-5">
+        <div class="col-5 col-sm-6">
+          <img
+            src="{{ teamMember.imgSrc }}"
+            alt="{{ teamMember.imgAlt }}"
+            class="rounded-circle card-img-left img-fluid"
+          />
+        </div>
+        <div class="col-7 col-sm-6">
+          <h2>{{ teamMember.name }} {{ teamMember.lastname }}</h2>
+          <a
+            href="{{ teamMember.gitUrl }}"
+            target="_blank"
+            rel="noopener"
+            rel="noreferrer"
+          >
+            <img
+              src="/assets/img/icons/github.svg"
+              alt="github icon"
+              width="32"
+              height="32"
+              class="mx-1 img-fluid"
+          /></a>
+          <a
+            href="{{ teamMember.linkedinUrl }}"
+            target="_blank"
+            rel="noopener"
+            rel="noreferrer"
+          >
+            <img
+              src="/assets/img/icons/linkedin.svg"
+              alt="linkedin icon"
+              width="32"
+              height="32"
+              class="mx-1 img-fluid"
+          /></a>
         </div>
       </div>
     </div>
