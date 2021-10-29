@@ -1,0 +1,57 @@
+.contentFormulaire{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allSelect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    
+    
+}
+
+.form-select{
+    margin-top: 2%;
+    width: 80%;
+    border-radius: 0.8rem;
+    box-shadow: 0px 4px 5px #cec4e9;
+    color: #6A6A6A;
+    
+}
+
+.form-check{
+    margin: 3%;
+}
+
+.form-check-label{
+    color: #6A6A6A;
+}
+
+#buttonSearch{
+    background-color: #AEA3CD;
+    color: white;
+    width: 70%;
+    padding-top: 3%;
+   padding-bottom: 3%;
+    margin-top: 20%;
+    border-radius: 2rem;
+    box-shadow: 0px 4px 5px #cec4e9;
+    border: none;
+
+}
+
+@media screen and (min-width: 1025px) {
+    #buttonSearch{
+        margin-top: 0%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 30%;
+    }
+    .allSelect{
+        width: 40%;
+        align-items:center;
+    }
+    }
