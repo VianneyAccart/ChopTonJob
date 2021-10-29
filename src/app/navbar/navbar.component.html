@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar">
+    <nav [ngClass]="{'transparent' : transparentNavbar === true}" class="navbar">
         <a routerLink=""><img [src]="imageSource" alt="logo" class="nav-logo"></a>
         <ul [ngClass]="{'active' : openedMobileMenu === true}" class="nav-menu">
             <li class="nav-item">

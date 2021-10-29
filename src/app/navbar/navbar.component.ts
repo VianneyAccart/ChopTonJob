@@ -9,10 +9,12 @@ export class NavbarComponent implements OnInit {
 
   openedMobileMenu:boolean
   imageSource: string
+  transparentNavbar: boolean
 
   constructor() { 
     this.openedMobileMenu = false
     this.imageSource = "assets/img/logo.png"
+    this.transparentNavbar = false
   }
 
   mobileMenu() {

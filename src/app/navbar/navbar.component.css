@@ -20,6 +20,10 @@ a {
   background-color: #aea2cd;
 }
 
+.transparent {
+  background-color: transparent;
+}
+
 .hamburger {
   display: none;
 }
