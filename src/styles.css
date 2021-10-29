@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
 body {
   height: 100%;
 }
@@ -20,9 +19,9 @@ h4 {
 a {
   text-decoration: none;
 }
-
 .highlightWord {
   /* Mot coloré dans les titres */
   color: #aea2cd;
   font-weight: 600;
 }
+

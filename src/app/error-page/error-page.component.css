@@ -31,9 +31,6 @@
 }
 
 .backHomeBtn:hover {
-    height: 50px;
-    width: 20rem;
-    border-radius: 50px;
     background-color: transparent;
     border: solid 1px #aea2cd;
     color: #aea2cd;
