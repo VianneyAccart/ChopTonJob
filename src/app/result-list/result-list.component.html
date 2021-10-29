@@ -1,4 +1,4 @@
-<div class="container col-md-6 form-rounded">
+<div class="container col-md-11 form-rounded mb-3">
     <div class=" mb-3 ">
         <!-- PARTIE VISIBLE -->
         <div class="card-body bg-white px-0 pb-0">
@@ -7,7 +7,7 @@
                 <div class="container col">
                     <div class="row">
                         <div class="card-title row bold ">
-                            Nom de l'entreprise 
+                            Nom de l'entreprise
                         </div>
 
                         <div class="card-title row normal ">
@@ -24,22 +24,20 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-
-                        <div class="  normal ">
-                            Alternance: Oui
+                    <div class="col-md-6 p-0">
+                        <div class="bold">
+                            Alternance : <span class="normal">Oui</span>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-
+                    <div class="col-md-6 p-0 mt-2 mt-md-0">
                         <div class=" bold alignRight">
                             Potentiel d'embauche
                         </div>
 
-                        <div class="  normal alignRight">
-                            <ngb-rating [rate]="currentRate" ></ngb-rating>
-                            <span> Rate : {{currentRate}}</span>
+                        <div class="normal alignRight">
+                            <ngb-rating [rate]="currentRate"></ngb-rating>
+                            <span> {{currentRate}}/5</span>
 
 
                         </div>
@@ -89,13 +87,8 @@
                             <p class="card-text  normal ">https://exemple.fr</p>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </div>
