@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { TeamPageComponent } from './team-page/team-page.component';
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'result',
     component: ResultPageComponent
+  },
+  {
+    path: 'mentions-legales',
+    component: MentionsLegalesComponent
   },
   {
     path: '404',
