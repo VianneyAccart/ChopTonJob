@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { teamMember } from '../shared/models/teamMember.model';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {teamMember} from '../shared/models/teamMember.model';
 
 @Component({
   selector: 'app-team-page',
@@ -11,7 +11,7 @@ export class TeamPageComponent implements OnInit {
   members: teamMember[];
 
   constructor(private titleService: Title) {
-    this.members = new Array();
+    this.members = [];
   }
 
   //generate team members and push them in the array 'members'
@@ -58,13 +58,7 @@ export class TeamPageComponent implements OnInit {
       'https://www.linkedin.com/in/adamroux/'
     );
 
-    this.members.push(
-      memberBrice,
-      memberKarim,
-      memberVianney,
-      memberCamille,
-      memberAdam
-    );
+    this.members.push(memberBrice, memberKarim, memberVianney, memberCamille, memberAdam);
   }
 
   public setTitle(newTitle: string) {
