@@ -1,8 +1,9 @@
 
 <div class="container">
-    <div class="row d-flex p5">
+    <div class="row mt-5">
         <div class="col-md-6">
-            <h1>Tout commence par une <span highlightWord>bonne</span>candidature</h1>
+            <h1>Tout commence par une <span highlightWord>bonne</span>
+                candidature</h1>
         </div>
         <div class="col-md-6 pt-3">
             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -12,10 +13,11 @@
                 veniam consequat sunt nostrud amet.
             </p>
         </div>
+        <div class="mt-5 flex">
+            <div *ngFor="let etape of etapes" class="box m-4">
+                <h2>{{ etape.titre}}</h2>
+                <p>{{etape.description}}</p>
+            </div>
+        </div>
     </div>
-</div>
-
-<div *ngFor="let etape of etapes">
-    <h2>{{ etape.titre}}</h2>
-    <p>{{etape.description}}</p>
 </div>
