@@ -14,25 +14,25 @@ export class GuideComponent implements OnInit {
   //generate cardsGuide and push them in the array 'etapes'
   ngOnInit(): void {
     const etape1 = new cardsGuide(
-      'Etape1',
+      'Etape 1',
       'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       'assets/img/icons/calendarDateFill.svg',
       'Icone calendrier'
     );
     const etape2 = new cardsGuide(
-      'Etape2',
+      'Etape 2',
       'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       'assets/img/icons/github.svg',
       'assets/img/icons/linkedin.svg'
     );
     const etape3 = new cardsGuide(
-      'Etape3',
+      'Etape 3',
       'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       'assets/img/icons/fileText.svg',
       'Icone fichier'
     );
     const etape4 = new cardsGuide(
-      'Etape4',
+      'Etape 4',
       'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       '',
       ''
