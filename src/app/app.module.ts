@@ -16,7 +16,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-
+import { GuideComponent } from './guide/guide.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ContactFormComponent,
     ResultPageComponent,
     ErrorPageComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,
