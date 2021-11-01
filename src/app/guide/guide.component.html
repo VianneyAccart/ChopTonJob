@@ -1,6 +1,6 @@
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-5 texte">
         <div class="col-md-6">
             <h1>Tout commence par une <span highlightWord>bonne</span>
                 candidature</h1>
@@ -13,10 +13,16 @@
                 veniam consequat sunt nostrud amet.
             </p>
         </div>
-        <div class="mt-5 flex">
-            <div *ngFor="let etape of etapes" class="box m-4">
-                <h2>{{ etape.titre}}</h2>
-                <p class="w-50 pt-3 pb-3">{{etape.description}}</p>
+        <div class="flex">
+            <div *ngFor="let etape of etapes" class="box">
+                <div class="icone d-flex justify-content-around
+                    align-items-center">
+                    <div>
+                        <h2>{{ etape.titre}}</h2>
+                        <p class="w-75 pt-3 description">{{etape.description}}</p>
+                    </div>
+                    <img src="{{etape.imgSrc}}" alt="{{etape.imgAlt}}">
+                </div>
             </div>
         </div>
     </div>
