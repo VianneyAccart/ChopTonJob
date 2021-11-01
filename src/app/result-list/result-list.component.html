@@ -1,4 +1,4 @@
-<div class="container col-md-11 form-rounded mb-3">
+<div class="container col-md-11 form-rounded mb-3" *ngFor="let card of cards">
     <div class=" mb-3 ">
         <!-- PARTIE VISIBLE -->
         <div class="card-body bg-white px-0 pb-0">
@@ -7,15 +7,15 @@
                 <div class="container col p-0">
                     <div class="row">
                         <div class="card-title row bold ">
-                            Nom de l'entreprise
+                            {{card.companyName}}
                         </div>
 
                         <div class="card-title row normal ">
-                            Secteur d'activité ou raison sociale
+                            {{card.companyRaisonSociale}}
                         </div>
 
                         <div class="card-title row normal">
-                            Ville
+                            {{card.companyCity}}
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="bold">
-                            Alternance : <span class="normal">Oui</span>
+                            Alternance : <span class="normal">{{card.companyAlternance}}</span>
                         </div>
                     </div>
 
@@ -36,8 +36,8 @@
                         </div>
 
                         <div class="normal alignRight">
-                            <ngb-rating [rate]="currentRate"></ngb-rating>
-                            <span> {{currentRate}}/5</span>
+                            <ngb-rating [rate]="card.companyStars"></ngb-rating>
+                            <span> {{card.companyStars}}/5</span>
 
 
                         </div>
@@ -61,30 +61,30 @@
                     <div class=" col-md-6">
 
                         <div class="card-title  bold "> Raison Sociale
-                            <p class="card-text  normal ">Blalala</p>
+                            <p class="card-text  normal ">{{card.companyRaisonSociale}}</p>
                         </div>
 
                         <div class="card-title bold "> SIRET
-                            <p class="card-text  normal">86784799900035</p>
+                            <p class="card-text  normal"> {{card.companySiret}} </p>
                         </div>
 
                         <div class="card-title  bold"> Adresse
-                            <p class="card-text  normal">Adresse complète <br>XXXXX - Ville</p>
+                            <p class="card-text  normal">{{card.companyAddress}}</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 ">
 
                         <div class="card-title bold alignRight"> Nombre de salariés
-                            <p class="card-text  normal ">5 à 10 salariés</p>
+                            <p class="card-text  normal ">{{card.companyHeadcount}}</p>
                         </div>
 
                         <div class="card-title  bold alignRight"> Téléphone
-                            <p class="card-text  normal ">04 56 78 90 12</p>
+                            <p class="card-text  normal ">{{card.companyContact}}</p>
                         </div>
 
                         <div class="card-title  bold alignRight"> Site web
-                            <p class="card-text  normal ">https://exemple.fr</p>
+                            <p class="card-text  normal ">{{card.companyUrl}}</p>
                         </div>
                     </div>
                 </div>

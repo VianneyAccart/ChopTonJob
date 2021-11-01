@@ -10,6 +10,10 @@ export class Card {
     private _companyContact : string;
     private _companyAddress : string;
     private _companyNaf : string;
+    private _companyUrl : string;
+
+    
+   
 
     constructor(
         companyName : string,
@@ -20,8 +24,9 @@ export class Card {
         companyHeadcount : string,
         companySiret : string,
         companyContact : string,
-        companyAddres : string,
+        companyAddress : string,
         companyNaf : string,
+        companyUrl : string,
         ){
             this._companyName = companyName
             this._companyRaisonSociale = companyRaisonSociale
@@ -31,8 +36,9 @@ export class Card {
             this._companyHeadcount = companyHeadcount
             this._companySiret = companySiret
             this._companyContact = companyContact
-            this._companyAddress = companyAddres
+            this._companyAddress = companyAddress
             this._companyNaf = companyNaf
+            this._companyUrl = companyUrl
         }
 
     /**
@@ -193,6 +199,22 @@ export class Card {
      */
 	public set companyNaf(value: string) {
 		this._companyNaf = value;
+	}
+
+    /**
+     * Getter companyUrl
+     * @return {string}
+     */
+	public get companyUrl(): string {
+		return this._companyUrl;
+	}
+
+    /**
+     * Setter companyUrl
+     * @param {string} value
+     */
+	public set companyUrl(value: string) {
+		this._companyUrl = value;
 	}
     
 
