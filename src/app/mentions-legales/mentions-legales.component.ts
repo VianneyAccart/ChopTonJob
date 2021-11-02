@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mentions-legales',
   templateUrl: './mentions-legales.component.html',
-  styleUrls: ['./mentions-legales.component.css']
+  styleUrls: ['./mentions-legales.component.css'],
 })
 export class MentionsLegalesComponent implements OnInit {
-
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.setTitle("Découvrez nos mentions légales !")
+    this.setTitle('Découvrez nos mentions légales !');
   }
 
   public setTitle(newTitle: string) {
