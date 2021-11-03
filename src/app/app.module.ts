@@ -1,6 +1,3 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule, Title} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,7 +16,11 @@ import {ContactFormComponent} from './contact-form/contact-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ResultPageComponent} from './result-page/result-page.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
+import {FooterComponent} from './footer/footer.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
+import {GuideComponent} from './guide/guide.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.comp
     ContactFormComponent,
     ResultPageComponent,
     ErrorPageComponent,
+    FooterComponent,
     MentionsLegalesComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,
