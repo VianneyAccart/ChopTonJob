@@ -15,21 +15,29 @@ export class ResultListComponent {
 
   // Bouton pour changer le texte à l'intérieur du bouton.
   buttonName(): void {
-    if (this.isCollapsed === true) {
-      this.buttonText = "Plus d'infos";
-    } else {
+    if (this.isShown === true) {
       this.buttonText = "Moins d'infos";
+    } else {
+      this.buttonText = "Plus d'infos";
     }
   }
 
   // variable qui servira à stocker les valeurs pour chaque variable de chaque entreprise sous forme d'objets dans un tableau'.
   cards: Card[];
 
+  isShown: boolean;
+
+  displayInfo() {
+    this.isShown = !this.isShown;
+  }
+
   constructor(config: NgbRatingConfig) {
     this.cards = [];
     // Personaliser la valeur max par défaut
     config.max = 5;
     config.readonly = true;
+
+    this.isShown = false;
   }
 
   ngOnInit(): void {
@@ -50,7 +58,7 @@ export class ResultListComponent {
       'TDI',
       'Edition de logiciels applicatifs',
       '69500 Bron',
-      false,
+      true,
       4,
       '20 à 49 salariés',
       '42186646800067',

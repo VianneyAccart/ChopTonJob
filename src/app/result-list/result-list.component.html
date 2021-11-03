@@ -6,7 +6,7 @@
 
                 <div class="container col p-0">
                     <div class="row">
-                        <div class="card-title row bold ">
+                        <div class="card-title row bold companyName">
                             {{card.companyName}}
                         </div>
 
@@ -26,7 +26,8 @@
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="bold">
-                            Alternance : <span class="normal">{{card.companyAlternance}}</span>
+                            <!-- Transforme boolean en Oui ou Non -->
+                            Alternance : <span class="normal">{{card.companyAlternance ? 'Oui' : 'Non' }}</span>
                         </div>
                     </div>
 
@@ -36,10 +37,7 @@
                         </div>
 
                         <div class="normal alignRight">
-                            <ngb-rating [rate]="card.companyStars"></ngb-rating>
-                            <span> {{card.companyStars}}/5</span>
-
-
+                            <ngb-rating [rate]="card.companyStars" class="starColor"></ngb-rating> 
                         </div>
                     </div>
                 </div>
@@ -47,15 +45,14 @@
 
             <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
             <p class="m-0">
-                <button type="button" class="newSearch  mt-4" (click)="collapse.toggle()" (click)='buttonName()'
-                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                <button type="button" class="newSearch  mt-4" (click)="displayInfo(); buttonName()">
                     {{ buttonText }}
                 </button>
 
             </p>
 
             <!-- PARTIE PLUS D'INFOS ( cachée ) -->
-            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-4 mb-0 p-0">
+            <div  *ngIf='isShown' class="container mt-4 mb-0 p-0">
                 <div class="row">
 
                     <div class=" col-md-6">
