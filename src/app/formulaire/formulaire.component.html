@@ -1,32 +1,52 @@
-<div class="contentFormulaire">
-    <div class="allSelect">
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Départements</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col">
 
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Ma position</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Départements</option>
+                <option value="1">01 - Ain</option>
+                <option value="2">02 - Aisne</option>
+                <option value="3">03 - Allier</option>
+            </select>
 
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Choisir un métier</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-            <label class="form-check-label" for="flexCheckIndeterminate">
-                Alternance uniquement
-            </label>
+            <div class="row">
+                <div class="col-md-9 col-8">
+                    <div class="input-group mt-2">
+                        <button class="btn btn-light" type="button" id="button-addon1">Me localiser</button>
+                        <input readonly type="text" class="form-control readonly" placeholder="Ex: Lyon, 69000"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                </div>
+                <div class="col-md-3 col-4 rayon">
+                    <select class="form-select mt-2" aria-label="Default select example">
+                        <option selected>Rayon</option>
+                        <option value="10">10 km</option>
+                        <option value="20">20 km</option>
+                        <option value="30">30 km</option>
+                        <option value="40">40 km</option>
+                        <option value="50">50 km</option>
+                    </select>
+                </div>
+            </div>
+
+            <select class="form-select mt-2" aria-label="Default select example">
+                <option selected>Choisir un métier</option>
+                <option value="M1805">Etudes et développements informatiques</option>
+                <option value="E1205">Réalisation de contenus multimédias</option>
+                <option value="M1806">Conseil et maîtrise d'ouvrage en systèmes d'information</option>
+            </select>
+
+            <div class="form-check mt-2 d-flex justify-content-start">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Je cherche une alternance
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <a routerLink="/result"><button class="buttonSearch">Lancer la recherche</button></a>
+            </div>
         </div>
     </div>
-    <a routerLink="/result"><button id="buttonSearch">Lancer la recherche</button></a>
-
 </div>

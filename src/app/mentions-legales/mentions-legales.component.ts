@@ -2,15 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-contact-page',
-  templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.css'],
+  selector: 'app-mentions-legales',
+  templateUrl: './mentions-legales.component.html',
+  styleUrls: ['./mentions-legales.component.css'],
 })
-export class ContactPageComponent implements OnInit {
+export class MentionsLegalesComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.setTitle('Contactez notre équipe simplement !');
+    this.setTitle('Découvrez nos mentions légales !');
   }
 
   public setTitle(newTitle: string) {

@@ -1,6 +1,7 @@
 .container-fluid {
     background: linear-gradient(#B5AAD6, white);
     height: 100vh;
+    padding: 0;
 }
 
 .row {
