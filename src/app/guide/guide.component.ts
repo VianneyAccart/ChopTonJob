@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { cardsGuide } from '../shared/models/cardsGuide.model';
+import {Component, OnInit} from '@angular/core';
+import {cardsGuide} from '../shared/models/cardsGuide.model';
 
 @Component({
   selector: 'app-guide',
@@ -9,7 +9,7 @@ import { cardsGuide } from '../shared/models/cardsGuide.model';
 export class GuideComponent implements OnInit {
   etapes: cardsGuide[];
   constructor() {
-    this.etapes = new Array();
+    this.etapes = [];
   }
   //generate cardsGuide and push them in the array 'etapes'
   ngOnInit(): void {

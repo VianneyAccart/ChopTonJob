@@ -16,7 +16,7 @@ import {FooterComponent} from './footer/footer.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
-import { GuideComponent } from './guide/guide.component';
+import {GuideComponent} from './guide/guide.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { GuideComponent } from './guide/guide.component';
     ErrorPageComponent,
     FooterComponent,
     MentionsLegalesComponent,
-    GuideComponent
+    GuideComponent,
   ],
   imports: [
     BrowserModule,
