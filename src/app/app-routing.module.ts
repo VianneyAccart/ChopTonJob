@@ -6,6 +6,7 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {ResultPageComponent} from './result-page/result-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
+import {GuideComponent} from './guide/guide.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'equipe',
     component: TeamPageComponent,
+  },
+  {
+    path: 'guide',
+    component: GuideComponent,
   },
   {
     path: '',
