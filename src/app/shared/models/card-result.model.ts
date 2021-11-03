@@ -41,13 +41,26 @@ export class Card {
   public get companyName(): string {
     return this._companyName;
   }
-
+  /**
+   * Setter companyName
+   * @param {string} value
+   */
+  public set companyName(value: string) {
+    this._companyName = value;
+  }
   /**
    * Getter companyRaisonSociale
    * @return {string}
    */
   public get companyRaisonSociale(): string {
     return this._companyRaisonSociale;
+  }
+  /**
+   * Setter companyRaisonSociale
+   * @param {string} value
+   */
+  public set companyRaisonSociale(value: string) {
+    this._companyRaisonSociale = value;
   }
 
   /**
@@ -59,83 +72,19 @@ export class Card {
   }
 
   /**
-   * Getter companyAlternance
-   * @return {boolean}
-   */
-  public get companyAlternance(): boolean {
-    return this._companyAlternance;
-  }
-
-  /**
-   * Getter companyStars
-   * @return {number}
-   */
-  public get companyStars(): number {
-    return this._companyStars;
-  }
-
-  /**
-   * Getter companyHeadcount
-   * @return {string}
-   */
-  public get companyHeadcount(): string {
-    return this._companyHeadcount;
-  }
-
-  /**
-   * Getter companySiret
-   * @return {string}
-   */
-  public get companySiret(): string {
-    return this._companySiret;
-  }
-
-  /**
-   * Getter companyContact
-   * @return {string}
-   */
-  public get companyContact(): string {
-    return this._companyContact;
-  }
-
-  /**
-   * Getter companyAddress
-   * @return {string}
-   */
-  public get companyAddress(): string {
-    return this._companyAddress;
-  }
-
-  /**
-   * Getter companyNaf
-   * @return {string}
-   */
-  public get companyNaf(): string {
-    return this._companyNaf;
-  }
-
-  /**
-   * Setter companyName
-   * @param {string} value
-   */
-  public set companyName(value: string) {
-    this._companyName = value;
-  }
-
-  /**
-   * Setter companyRaisonSociale
-   * @param {string} value
-   */
-  public set companyRaisonSociale(value: string) {
-    this._companyRaisonSociale = value;
-  }
-
-  /**
    * Setter companyCity
    * @param {string} value
    */
   public set companyCity(value: string) {
     this._companyCity = value;
+  }
+
+  /**
+   * Getter companyAlternance
+   * @return {boolean}
+   */
+  public get companyAlternance(): boolean {
+    return this._companyAlternance;
   }
 
   /**
@@ -147,11 +96,27 @@ export class Card {
   }
 
   /**
+   * Getter companyStars
+   * @return {number}
+   */
+  public get companyStars(): number {
+    return this._companyStars;
+  }
+
+  /**
    * Setter companyStars
    * @param {number} value
    */
   public set companyStars(value: number) {
     this._companyStars = value;
+  }
+
+  /**
+   * Getter companyHeadcount
+   * @return {string}
+   */
+  public get companyHeadcount(): string {
+    return this._companyHeadcount;
   }
 
   /**
@@ -163,11 +128,27 @@ export class Card {
   }
 
   /**
+   * Getter companySiret
+   * @return {string}
+   */
+  public get companySiret(): string {
+    return this._companySiret;
+  }
+
+  /**
    * Setter companySiret
    * @param {string} value
    */
   public set companySiret(value: string) {
     this._companySiret = value;
+  }
+
+  /**
+   * Getter companyContact
+   * @return {string}
+   */
+  public get companyContact(): string {
+    return this._companyContact;
   }
 
   /**
@@ -179,11 +160,27 @@ export class Card {
   }
 
   /**
+   * Getter companyAddress
+   * @return {string}
+   */
+  public get companyAddress(): string {
+    return this._companyAddress;
+  }
+
+  /**
    * Setter companyAddress
    * @param {string} value
    */
   public set companyAddress(value: string) {
     this._companyAddress = value;
+  }
+
+  /**
+   * Getter companyNaf
+   * @return {string}
+   */
+  public get companyNaf(): string {
+    return this._companyNaf;
   }
 
   /**
