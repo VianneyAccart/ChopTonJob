@@ -12,7 +12,6 @@ import {departements} from '../shared/mocks/departements.mock';
   templateUrl: './formulaire.component.html',
   styleUrls: ['./formulaire.component.css'],
 })
-
 export class FormulaireComponent {
   selectable = true;
   removable = true;
@@ -21,6 +20,10 @@ export class FormulaireComponent {
   filteredDepartments: Observable<string[]>;
   departments: string[] = [];
   allDepartments: string[];
+
+  latitude: any;
+  longitude: any;
+  zoom: any;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
 
@@ -65,5 +68,20 @@ export class FormulaireComponent {
     return this.allDepartments.filter((department) =>
       department.toLowerCase().includes(filterValue)
     );
+  }
+
+  //get user current location (enable geolocalisation from browser)
+  // Console.log are temporary until link with API
+  getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 16;
+        console.log('position valid', position);
+      });
+    } else {
+      console.log('position failed');
+    }
   }
 }

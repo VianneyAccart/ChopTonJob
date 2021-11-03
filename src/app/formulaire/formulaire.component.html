@@ -1,77 +1,108 @@
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col">
+  <div class="row d-flex justify-content-center">
+    <div class="col">
+      <mat-form-field class="departments-list" appearance="fill">
+        <mat-label>Choix du/des département(s)</mat-label>
+        <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
+          <mat-chip
+            *ngFor="let department of departments"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(department)"
+          >
+            {{ department }}
+            <button matChipRemove *ngIf="removable">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            placeholder="Département(s)..."
+            #departmentInput
+            [formControl]="departmentCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let department of filteredDepartments | async" [value]="department">
+            {{ department }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
 
-            <mat-form-field class="departments-list" appearance="fill">
-                <mat-label>Choix du/des département(s)</mat-label>
-                <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
-                  <mat-chip
-                    *ngFor="let department of departments"
-                    [selectable]="selectable"
-                    [removable]="removable"
-                    (removed)="remove(department)">
-                    {{department}}
-                    <button matChipRemove *ngIf="removable">
-                      <mat-icon>cancel</mat-icon>
-                    </button>
-                  </mat-chip>
-                  <input
-                    placeholder="Département(s)..."
-                    #departmentInput
-                    [formControl]="departmentCtrl"
-                    [matAutocomplete]="auto"
-                    [matChipInputFor]="chipList"
-                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                    (matChipInputTokenEnd)="add($event)">
-                </mat-chip-list>
-                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                  <mat-option *ngFor="let department of filteredDepartments | async" [value]="department">
-                    {{department}}
-                  </mat-option>
-                </mat-autocomplete>
-              </mat-form-field>
-
-            <div class="row">
-                <div class="col-md-9 col-8">
-                    <div class="input-group mt-2">
-                        <button class="btn btn-light" type="button" id="button-addon1">Me localiser</button>
-                        <input readonly type="text" class="form-control readonly" placeholder="Ex: Lyon, 69000">
-                    </div>
-                </div>
-                <div class="col-md-3 col-4 rayon">
-                    <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance">
-                        <option disabled selected hidden>Rayon</option>
-                        <option value="10">10 km</option>
-                        <option value="20">20 km</option>
-                        <option value="30">30 km</option>
-                        <option value="40">40 km</option>
-                        <option value="50">50 km</option>
-                    </select>
-                </div>
-            </div>
-
-            <select class="form-select mt-2" aria-label="Sélection d'un groupe de métiers">
-                <option disabled selected hidden>Choisir un métier</option>
-                <option value="E1101">Animation de site multimédia (community manager, game master, animateur web...)</option>
-                <option value="E1104">Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)</option>
-                <option value="E1205">Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)</option>
-                <option value="M1403">Etudes et prospectives socio-économiques (data analyst, data scientist...)</option>
-                <option value="M1802">Expertise et support en systèmes d'information (architecture, ingéniérie, management...)</option>
-                <option value="M1805">Etudes et développements informatiques (développeur web, analyste en cybersécurité...)</option>
-                <option value="M1806">Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)</option>
-            </select>
-
-            <div class="form-check mt-2 d-flex justify-content-start">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" value="alternance">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Je cherche une alternance
-                </label>
-            </div>
+      <div class="row">
+        <div class="col-md-9 col-8">
+          <div class="input-group mt-2">
+            <button
+              class="btn btn-light"
+              type="button"
+              id="button-addon1"
+              (click)="getUserLocation()"
+            >
+              Me localiser
+            </button>
+            <input
+              readonly
+              type="text"
+              class="form-control readonly"
+              placeholder="Ex: Lyon, 69000"
+            />
+          </div>
         </div>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <a routerLink="/result"><button class="buttonSearch">Lancer la recherche</button></a>
-            </div>
+        <div class="col-md-3 col-4 rayon">
+          <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance">
+            <option disabled selected hidden>Rayon</option>
+            <option value="10">10 km</option>
+            <option value="20">20 km</option>
+            <option value="30">30 km</option>
+            <option value="40">40 km</option>
+            <option value="50">50 km</option>
+          </select>
         </div>
+      </div>
+
+      <select class="form-select mt-2" aria-label="Sélection d'un groupe de métiers">
+        <option disabled selected hidden>Choisir un métier</option>
+        <option value="E1101">
+          Animation de site multimédia (community manager, game master, animateur web...)
+        </option>
+        <option value="E1104">
+          Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)
+        </option>
+        <option value="E1205">
+          Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)
+        </option>
+        <option value="M1403">
+          Etudes et prospectives socio-économiques (data analyst, data scientist...)
+        </option>
+        <option value="M1802">
+          Expertise et support en systèmes d'information (architecture, ingéniérie, management...)
+        </option>
+        <option value="M1805">
+          Etudes et développements informatiques (développeur web, analyste en cybersécurité...)
+        </option>
+        <option value="M1806">
+          Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
+        </option>
+      </select>
+
+      <div class="form-check mt-2 d-flex justify-content-start">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+          value="alternance"
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Je cherche une alternance </label>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <a routerLink="/result"><button class="buttonSearch">Lancer la recherche</button></a>
+      </div>
+    </div>
+  </div>
 </div>
