@@ -41,7 +41,8 @@ export class FormulaireComponent {
     const value = (event.value || '').trim();
 
     // Add our department
-    if (value) {
+    // Max chips is 5, user can't select more
+    if (value && this.departments.length < 5) {
       this.departments.push(value);
     }
 
@@ -58,9 +59,12 @@ export class FormulaireComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.departments.push(event.option.viewValue);
-    if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
-    this.departmentCtrl.setValue(null);
+    // Max chips is 5, user can't select more
+    if (this.departments.length < 5) {
+      this.departments.push(event.option.viewValue);
+      if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
+      this.departmentCtrl.setValue(null);
+    }
   }
 
   private _filter(value: string): string[] {
