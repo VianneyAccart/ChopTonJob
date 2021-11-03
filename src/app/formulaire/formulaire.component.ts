@@ -12,7 +12,6 @@ import {departements} from '../shared/mocks/departements.mock';
   templateUrl: './formulaire.component.html',
   styleUrls: ['./formulaire.component.css'],
 })
-
 export class FormulaireComponent {
   selectable = true;
   removable = true;
