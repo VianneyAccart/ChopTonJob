@@ -16,52 +16,53 @@ export class FormulaireComponent {
   selectable = true;
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  fruitCtrl = new FormControl();
-  filteredFruits: Observable<string[]>;
-  fruits: string[] = [];
-  allFruits: string[];
+  departmentCtrl = new FormControl();
+  filteredDepartments: Observable<string[]>;
+  departments: string[] = [];
+  allDepartments: string[];
 
-  @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
 
   constructor() {
-    this.allFruits = departements;
-    this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
+    this.allDepartments = departements;
+    this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allFruits.slice()))
+      map((department: string | null) =>
+        department ? this._filter(department) : this.allDepartments.slice()
+      )
     );
   }
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
+    // Add our department
     if (value) {
-      this.fruits.push(value);
+      this.departments.push(value);
     }
 
     // Clear the input value
     event.chipInput?.clear();
-
-    this.fruitCtrl.setValue(null);
+    this.departmentCtrl.setValue(null);
   }
 
-  remove(fruit: string): void {
-    const index = this.fruits.indexOf(fruit);
-
+  remove(department: string): void {
+    const index = this.departments.indexOf(department);
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.departments.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.fruits.push(event.option.viewValue);
-    if (this.fruitInput !== undefined) this.fruitInput.nativeElement.value = '';
-    this.fruitCtrl.setValue(null);
+    this.departments.push(event.option.viewValue);
+    if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
+    this.departmentCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
-    return this.allFruits.filter((fruit) => fruit.toLowerCase().includes(filterValue));
+    return this.allDepartments.filter((department) =>
+      department.toLowerCase().includes(filterValue)
+    );
   }
 }
