@@ -2,12 +2,34 @@
     <div class="row d-flex justify-content-center">
         <div class="col">
 
-            <select class="form-select" aria-label="Sélection d'un ou plusieurs départements">
-                <option disabled selected hidden>Départements</option>
-                <option value="1">01 - Ain</option>
-                <option value="2">02 - Aisne</option>
-                <option value="3">03 - Allier</option>
-            </select>
+            <mat-form-field class="departments-list" appearance="fill">
+                <mat-label>Choix du/des département(s)</mat-label>
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                  <mat-chip
+                    *ngFor="let fruit of fruits"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="remove(fruit)">
+                    {{fruit}}
+                    <button matChipRemove *ngIf="removable">
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input
+                    placeholder="Département(s)..."
+                    #fruitInput
+                    [formControl]="fruitCtrl"
+                    [matAutocomplete]="auto"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                    {{fruit}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
             <div class="row">
                 <div class="col-md-9 col-8">
