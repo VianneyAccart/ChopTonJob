@@ -1,16 +1,17 @@
-<div class="all">
-    <app-navbar-transparent></app-navbar-transparent>
-    <div class="content">
-        <div class="catchPhrase">
-            <p id="text">Trouves le</p>
-            <p id="text2">tech job </p>
-            <p id="text"> de tes rêves</p>
+<div class="container-fluid">
+    <app-navbar></app-navbar>
+    <img class="img-fluid mt-5" src="/assets/img/imageDeFond.png" alt="Un homme qui travaille assis à son bureau">
+    <div class="container">
+        <div class="row mt-5 mb-4 d-flex justify-content-center">
+            <div class="col-md-4">
+                <h1>Trouve le <span class="highlightWord">tech job</span> de tes rêves</h1>
+            </div>
         </div>
-        <div class="imageBehind">
-            <img id="imageBehindId" src="/assets/img/imageDeFond.png" alt="">
-        </div>
-        <div class="formulaire">
-            <app-formulaire></app-formulaire>
+        <div class="row searchForm d-flex justify-content-center">
+            <div class="col-lg-6">
+                <app-formulaire></app-formulaire>
+            </div>
         </div>
     </div>
 </div>
+<app-footer></app-footer>
