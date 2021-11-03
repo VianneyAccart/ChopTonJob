@@ -1,29 +1,36 @@
-
 <div class="container">
-    <div class="row mt-5 texte">
-        <div class="col-md-6">
-            <h1>Tout commence par une <span highlightWord>bonne</span>
-                candidature</h1>
-        </div>
-        <div class="col-md-6 pt-3">
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet
-                sint. Velit officia consequat duis enim velit mollit.
-                Exercitation
-                veniam consequat sunt nostrud amet.
-            </p>
-        </div>
-        <div class="flex">
-            <div *ngFor="let etape of etapes" class="box">
-                <div class="icone d-flex justify-content-around
-                    align-items-center">
-                    <div>
-                        <h2>{{ etape.titre}}</h2>
-                        <p class="w-75 pt-3 description">{{etape.description}}</p>
-                    </div>
-                    <img src="{{etape.imgSrc}}" alt="{{etape.imgAlt}}">
-                </div>
-            </div>
-        </div>
+  <div class="row justify-content-center my-4 my-md-5">
+    <div class="col-md-6">
+      <h1>
+        Tout commence par une
+        <span class="highlightWord">bonne</span> candidature
+      </h1>
     </div>
+    <div class="col-md-5 pt-3">
+      <p class="textJustify">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-around mx-auto">
+    <div *ngFor="let etape of etapes" class="card col-md-5 mb-5 my-md-4 box">
+      <div class="card-body">
+        <div class="row align-items-center justify-content-between">
+          <h2 class="card-title col-9 col-lg-12 pb-3">{{ etape.titre }}</h2>
+
+          <img
+            src="{{ etape.imgSrc }}"
+            alt="{{ etape.imgAlt }}"
+            class="img-fluid order-lg-last col-3 col-lg-3 px-lg-2"
+            style="max-width: 80px"
+          />
+          <p class="card-text col-12 col-lg-9 pt-2 textJustify">
+            {{ etape.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
