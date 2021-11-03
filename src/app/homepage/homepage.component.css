@@ -1,74 +1,39 @@
-.all{
-    width:  auto;
+.container-fluid{
     height: 100vh;
     background: linear-gradient(#B5AAD6, white);
+    padding: 0;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    /* position:fixed; */
+.row {
+    text-align: center;
 }
 
-.catchPhrase{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-left: 7%;
-    margin-bottom: 10%; 
-    margin-top: 2%;  
-    width: auto;
-    z-index: 1;
-
-}
-
-
-#text{
-    font-family: 'Montserrat', sans-serif;
-    font-size:xx-large;
-    margin: 0%;
-    
-}
-
-#text2{
-    font-family: 'Montserrat', sans-serif;
-    font-size:xx-large;
-    font-weight: bolder;
-    margin: 0%;
-}
-
-.imageBehind{
-    display: flex;
+.img-fluid {
+    opacity: 25%;
     position: absolute;
-    opacity: 30%;
-    justify-content: flex-end;
-   
+    z-index: 0;
 }
 
-#imageBehindId{
-    display: flex;
-    height: 20%;
-    width: 90%;
-   margin-left: 90%;
-}
-
-.formulaire{
-    width: 100%;
-    margin-top: 10%;
+.searchForm {
+    position: relative;
     z-index: 1;
 }
 
-@media screen and (min-width: 1025px) {
-    .formulaire{
-        margin-top: 0%;
-    }
+@media screen and (max-width: 768px) {
+    .col-md-4 {
+        padding: 30px 0;
     }
 
-    @media screen and (min-width: 768px) {
-        .catchPhrase{
-            align-items:center;
-            margin-bottom: 0%;
-        }
-        }
+    .row {
+        text-align: left;
+    }
+
+    h1 {
+        width: 50%;
+        padding-left: 3.2rem;
+    }
+
+    .img-fluid {
+        padding-left: 7rem;
+    }
+}

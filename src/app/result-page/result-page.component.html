@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
-
 <div class="container-fluid">
     <div class="row">
 
         <!-- Colonne contenant les filtres pour une nouvelle recherche -->
         <div class="col-md-4">
             <div [ngClass]="{'active' : openedNewSearchMenu === true}" class="row newSearchMenu">
-                <div class="row closeBtn"> <!-- Permet l'affichage de la croix "X" pour fermer le volet sur mobile -->
+                <div class="row closeBtn">
+                    <!-- Permet l'affichage de la croix "X" pour fermer le volet sur mobile -->
                     <div class="col-10"></div>
                     <div (click)="openNewSearchMenu()" class="col-2">
                         <span class="bar"></span>
@@ -15,27 +15,43 @@
                     </div>
                 </div>
                 <h2 id="newSearchTitleBis">Tu <span class="highlightWord">changes</span><br> d'horizon ?</h2>
+                <div class="mobileForm">
+                    <app-formulaire></app-formulaire>
+                </div>
             </div>
             <!-- Row contenant le bouton de recherche et le logo Pôle Emploi sur mobile -->
             <div class="row p-3">
                 <div class="col-8 d-flex justify-content-start align-items-center">
-                    <button (click)="openNewSearchMenu()" id="newSearchBtn" type="button" class="btn newSearch">Nouvelle recherche</button>
+                    <button (click)="openNewSearchMenu()" id="newSearchBtn" type="button" class="btn newSearch">Nouvelle
+                        recherche</button>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <img class="logoPoleEmploi" src="assets/img/logo-pole-emploi.png" alt="Logo de Pôle Emploi">
+                    <img class="logoPoleEmploi img-fluid" src="assets/img/logo-pole-emploi.png"
+                        alt="Logo de Pôle Emploi">
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-8">
-                    <h2 id="newSearchTitle">Tu <span class="highlightWord">changes</span><br> d'horizon ?</h2>
-                    <!-- Insertion ici du composant de recherche de Karim -->
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2 id="newSearchTitle">Tu <span class="highlightWord">changes</span><br> d'horizon ?</h2>
+                        </div>
+                        <div class="col-4">
+                            <img class="logoPoleEmploiDesktop img-fluid" src="assets/img/logo-pole-emploi.png"
+                                alt="Logo de Pôle Emploi">
+                        </div>
+                    </div>
+                    <div class="desktopForm">
+                        <app-formulaire></app-formulaire>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Colonne contenant les résultats de la recherche -->
         <div class="col-md-8">
-            <p class="resultOfCompanies mb-4"><span class="numberOfCompanies">29</span> entreprises correspondent à votre recherche</p>
+            <p class="resultOfCompanies mb-4"><span class="numberOfCompanies">29</span> entreprises correspondent à
+                votre recherche</p>
             <app-result-list></app-result-list>
             <app-result-list></app-result-list>
             <app-result-list></app-result-list>
