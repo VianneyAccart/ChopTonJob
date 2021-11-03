@@ -17,6 +17,16 @@ ul {
     font-weight: 200;
     color: white;
     margin: 0;
+    margin-left: 1.5rem;
+  }
+
+  .item2 {
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: #aea2cd;
+    margin: 0;
+    margin-left: 1.5rem;
+
   }
 
   .navbar {
@@ -34,9 +44,6 @@ ul {
     align-items: center;
   }
   
-  .nav-item {
-    margin-left: 1.5rem;
-  }
 
   .marginRight {
       margin-right: 1.5rem;
@@ -48,6 +55,13 @@ ul {
   
   .nav-link:focus {
     color: black;
+  }
+
+  .transparent  {
+    background: transparent;
+    color: black;
+    
+    
   }
 
   
