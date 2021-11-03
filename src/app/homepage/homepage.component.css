@@ -19,6 +19,7 @@
     z-index: 1;
 }
 
+
 @media screen and (max-width: 768px) {
     .col-md-4 {
         padding: 30px 0;

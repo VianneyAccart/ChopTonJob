@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
+body,html {
   height: 100%;
 }
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
+
 html,
 p,
 a,
@@ -23,5 +24,10 @@ a {
   /* Mot coloré dans les titres */
   color: #aea2cd;
   font-weight: 600;
+}
+
+/* Faire disparaitre les (*) entre les étoiles dans les cards*/
+.sr-only {
+  display: none;
 }
 
