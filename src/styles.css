@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
+body,html {
   height: 100%;
 }
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
+
 html,
 p,
 a,
@@ -42,4 +43,9 @@ a {
   background-color: white;
   border: solid 1px lightgray;
   border-radius: 5px !important;
+}
+
+/* Faire disparaitre les (*) entre les étoiles dans les cards*/
+.sr-only {
+  display: none;
 }

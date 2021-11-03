@@ -1,4 +1,4 @@
-<div class="container col-md-11 form-rounded mb-3">
+<div class="container col-md-11 form-rounded mb-3" *ngFor="let card of cards">
     <div class=" mb-3 ">
         <!-- PARTIE VISIBLE -->
         <div class="card-body bg-white px-0 pb-0">
@@ -6,16 +6,16 @@
 
                 <div class="container col p-0">
                     <div class="row">
-                        <div class="card-title row bold ">
-                            Nom de l'entreprise
+                        <div class="card-title row bold companyName">
+                            {{card.companyName}}
                         </div>
 
                         <div class="card-title row normal ">
-                            Secteur d'activité ou raison sociale
+                            {{card.companyRaisonSociale}}
                         </div>
 
                         <div class="card-title row normal">
-                            Ville
+                            {{card.companyCity}}
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,8 @@
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="bold">
-                            Alternance : <span class="normal">Oui</span>
+                            <!-- Transforme boolean en Oui ou Non -->
+                            Alternance : <span class="normal">{{card.companyAlternance ? 'Oui' : 'Non' }}</span>
                         </div>
                     </div>
 
@@ -36,10 +37,7 @@
                         </div>
 
                         <div class="normal alignRight">
-                            <ngb-rating [rate]="currentRate"></ngb-rating>
-                            <span> {{currentRate}}/5</span>
-
-
+                            <ngb-rating [rate]="card.companyStars" class="starColor"></ngb-rating> 
                         </div>
                     </div>
                 </div>
@@ -47,44 +45,43 @@
 
             <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
             <p class="m-0">
-                <button type="button" class="newSearch  mt-4" (click)="collapse.toggle()" (click)='buttonName()'
-                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                <button type="button" class="newSearch  mt-4" (click)="displayInfo(); buttonName()">
                     {{ buttonText }}
                 </button>
 
             </p>
 
             <!-- PARTIE PLUS D'INFOS ( cachée ) -->
-            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="container mt-4 mb-0 p-0">
+            <div  *ngIf='isShown' class="container mt-4 mb-0 p-0">
                 <div class="row">
 
                     <div class=" col-md-6">
 
                         <div class="card-title  bold "> Raison Sociale
-                            <p class="card-text  normal ">Blalala</p>
+                            <p class="card-text  normal ">{{card.companyRaisonSociale}}</p>
                         </div>
 
                         <div class="card-title bold "> SIRET
-                            <p class="card-text  normal">86784799900035</p>
+                            <p class="card-text  normal"> {{card.companySiret}} </p>
                         </div>
 
                         <div class="card-title  bold"> Adresse
-                            <p class="card-text  normal">Adresse complète <br>XXXXX - Ville</p>
+                            <p class="card-text  normal">{{card.companyAddress}}</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 ">
 
                         <div class="card-title bold alignRight"> Nombre de salariés
-                            <p class="card-text  normal ">5 à 10 salariés</p>
+                            <p class="card-text  normal ">{{card.companyHeadcount}}</p>
                         </div>
 
                         <div class="card-title  bold alignRight"> Téléphone
-                            <p class="card-text  normal ">04 56 78 90 12</p>
+                            <p class="card-text  normal ">{{card.companyContact}}</p>
                         </div>
 
                         <div class="card-title  bold alignRight"> Site web
-                            <p class="card-text  normal ">https://exemple.fr</p>
+                            <p class="card-text  normal ">{{card.companyUrl}}</p>
                         </div>
                     </div>
                 </div>
