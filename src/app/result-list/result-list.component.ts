@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Card} from '../shared/models/card-result.model';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,7 +8,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./result-list.component.css'],
   providers: [NgbRatingConfig], // add NgbRatingConfig to the component providers
 })
-export class ResultListComponent implements OnInit {
+export class ResultListComponent {
   public isCollapsed = true;
   public buttonText = "Plus d'infos";
   currentRate = 3;
@@ -31,6 +31,4 @@ export class ResultListComponent implements OnInit {
       (config.max = 5);
     config.readonly = true;
   }
-
-  ngOnInit(): void {}
 }
