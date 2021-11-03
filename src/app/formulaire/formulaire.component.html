@@ -2,8 +2,8 @@
     <div class="row d-flex justify-content-center">
         <div class="col">
 
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Départements</option>
+            <select class="form-select" aria-label="Sélection d'un ou plusieurs départements">
+                <option disabled selected hidden>Départements</option>
                 <option value="1">01 - Ain</option>
                 <option value="2">02 - Aisne</option>
                 <option value="3">03 - Allier</option>
@@ -13,13 +13,12 @@
                 <div class="col-md-9 col-8">
                     <div class="input-group mt-2">
                         <button class="btn btn-light" type="button" id="button-addon1">Me localiser</button>
-                        <input readonly type="text" class="form-control readonly" placeholder="Ex: Lyon, 69000"
-                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input readonly type="text" class="form-control readonly" placeholder="Ex: Lyon, 69000">
                     </div>
                 </div>
                 <div class="col-md-3 col-4 rayon">
-                    <select class="form-select mt-2" aria-label="Default select example">
-                        <option selected>Rayon</option>
+                    <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance">
+                        <option disabled selected hidden>Rayon</option>
                         <option value="10">10 km</option>
                         <option value="20">20 km</option>
                         <option value="30">30 km</option>
@@ -29,15 +28,19 @@
                 </div>
             </div>
 
-            <select class="form-select mt-2" aria-label="Default select example">
-                <option selected>Choisir un métier</option>
-                <option value="M1805">Etudes et développements informatiques</option>
-                <option value="E1205">Réalisation de contenus multimédias</option>
-                <option value="M1806">Conseil et maîtrise d'ouvrage en systèmes d'information</option>
+            <select class="form-select mt-2" aria-label="Sélection d'un groupe de métiers">
+                <option disabled selected hidden>Choisir un métier</option>
+                <option value="E1101">Animation de site multimédia (community manager, game master, animateur web...)</option>
+                <option value="E1104">Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)</option>
+                <option value="E1205">Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)</option>
+                <option value="M1403">Etudes et prospectives socio-économiques (data analyst, data scientist...)</option>
+                <option value="M1802">Expertise et support en systèmes d'information (architecture, ingéniérie, management...)</option>
+                <option value="M1805">Etudes et développements informatiques (développeur web, analyste en cybersécurité...)</option>
+                <option value="M1806">Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)</option>
             </select>
 
             <div class="form-check mt-2 d-flex justify-content-start">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" value="alternance">
                 <label class="form-check-label" for="flexCheckDefault">
                     Je cherche une alternance
                 </label>
