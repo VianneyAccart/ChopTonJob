@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 import {cardsGuide} from '../shared/models/cardsGuide.model';
 
 @Component({
@@ -8,7 +9,7 @@ import {cardsGuide} from '../shared/models/cardsGuide.model';
 })
 export class GuideComponent implements OnInit {
   etapes: cardsGuide[];
-  constructor() {
+  constructor(private titleService: Title) {
     this.etapes = [];
   }
   //generate cardsGuide and push them in the array 'etapes'
@@ -39,5 +40,10 @@ export class GuideComponent implements OnInit {
         'Icone fichier'
       )
     );
+    this.setTitle('Découvrez comment réaliser une bonne candidature spontanée !');
+  }
+
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }
