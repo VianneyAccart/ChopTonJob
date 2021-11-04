@@ -93,6 +93,8 @@ export class FormulaireComponent {
 
   // Permet de remettre le bouton d'origine quand un département est sélectionné
   resetButton(): void {
+    // Supprime le rayon sélectionné
+    this.searchForm.controls['inputRayon'].reset('10');
     // Si elles exitent, rend undefined la latitude et la longitude
     if (this.latitude !== undefined && this.longitude !== undefined) {
       this.latitude = undefined;
