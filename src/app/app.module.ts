@@ -48,6 +48,7 @@ import {GuideComponent} from './guide/guide.component';
     MatIconModule,
     MatSelectModule,
     MatAutocompleteModule,
+    ReactiveFormsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],

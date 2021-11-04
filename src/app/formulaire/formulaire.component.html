@@ -1,3 +1,4 @@
+<form [formGroup]='searchForm' #myForm='ngForm'>
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col">
@@ -23,6 +24,7 @@
             [matChipInputFor]="chipList"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             (matChipInputTokenEnd)="add($event)"
+            formControlName = 'inputDepartement'
           />
         </mat-chip-list>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
@@ -37,30 +39,34 @@
         <div class="col-6">
           <div class="input-group mt-2">
             <button [ngClass]="{'btn-isLocalised' : isLocalised, 'btn.btn-light' : isButtonReset}"
-              class="btn btn-light"
+              class="btn btn-light "
               type="button"
               id="button-addon1"
               (click)="getUserLocation($event)"
             >
-              Être localisé
+            	
+             Être localisé
             </button>
           </div>
         </div>
 
-        <div class="col-6 rayon">
-          <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance">
-            <option disabled selected hidden>Choisir un rayon</option>
+        <div class="col-6 form-floating">
+          <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance" formControlName='inputRayon' id='rayon'>
+            <option selected disabled hidden >Choisir un rayon</option>
             <option value="10">10 km</option>
             <option value="20">20 km</option>
             <option value="30">30 km</option>
             <option value="40">40 km</option>
             <option value="50">50 km</option>
           </select>
+          <label for="rayon" class="rayon">Rayon</label>
         </div>
       </div>
 
-      <select class="form-select mt-2" aria-label="Sélection d'un groupe de métiers">
-        <option disabled selected hidden>Choisir un métier</option>
+    
+      <div class="form-floating">
+      <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier' id="metier">
+        <option selected disabled hidden >Choisir un métier</option>
         <option value="E1101">
           Animation de site multimédia (community manager, game master, animateur web...)
         </option>
@@ -83,6 +89,8 @@
           Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
         </option>
       </select>
+      <label for="metier">Métier</label>
+      </div>
 
       <div class="form-check mt-2 d-flex justify-content-start">
         <input
@@ -91,14 +99,16 @@
           value=""
           id="flexCheckDefault"
           value="alternance"
+          formControlName = 'inputAlternance'
         />
         <label class="form-check-label" for="flexCheckDefault"> Je cherche une alternance </label>
       </div>
     </div>
     <div class="row">
       <div class="col-12 d-flex justify-content-center">
-        <a routerLink="/result"><button class="buttonSearch">Lancer la recherche</button></a>
+       <button class="buttonSearch" [disabled]='myForm.invalid' type="submit">Lancer la recherche</button>
       </div>
     </div>
   </div>
 </div>
+</form>

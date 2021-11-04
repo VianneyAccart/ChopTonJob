@@ -1,6 +1,6 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
@@ -29,7 +29,14 @@ export class FormulaireComponent {
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
 
-  constructor() {
+  searchForm = this.fb.group({
+    inputDepartement: [''],
+    inputRayon: ['Choisir un rayon'],
+    inputMetier: ['Choisir un métier', Validators.required],
+    inputAlternance: [''],
+  });
+
+  constructor(private fb: FormBuilder) {
     this.allDepartments = departements;
     this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
       startWith(null),
