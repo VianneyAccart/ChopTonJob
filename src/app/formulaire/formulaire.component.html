@@ -2,7 +2,7 @@
   <div class="row d-flex justify-content-center">
     <div class="col">
       <mat-form-field class="departments-list" appearance="fill">
-        <mat-label>Choix du/des département(s)</mat-label>
+        <mat-label>Choisir un/des département(s)</mat-label>
         <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
           <mat-chip
             *ngFor="let department of departments"
@@ -33,28 +33,23 @@
       </mat-form-field>
 
       <div class="row">
-        <div class="col-md-9 col-8">
+        <div class="col-12 mt-2 d-flex align-items-center justify-content-center ou">ou cliquer pour être localisé</div>
+        <div class="col-6">
           <div class="input-group mt-2">
-            <button
+            <button [ngClass]="{'btn-isLocalised' : isLocalised, 'btn.btn-light' : isButtonReset}"
               class="btn btn-light"
               type="button"
               id="button-addon1"
-              (click)="getUserLocation()"
+              (click)="getUserLocation($event)"
             >
-              Me localiser
+              Être localisé
             </button>
-            <input
-              readonly
-              type="text"
-              class="form-control readonly"
-              placeholder="Ex: Lyon, 69000"
-            />
           </div>
         </div>
 
-        <div class="col-md-3 col-4 rayon">
+        <div class="col-6 rayon">
           <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance">
-            <option disabled selected hidden>Rayon</option>
+            <option disabled selected hidden>Choisir un rayon</option>
             <option value="10">10 km</option>
             <option value="20">20 km</option>
             <option value="30">30 km</option>

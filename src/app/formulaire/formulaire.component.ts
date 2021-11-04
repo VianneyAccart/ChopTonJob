@@ -13,6 +13,8 @@ import {departements} from '../shared/mocks/departements.mock';
   styleUrls: ['./formulaire.component.css'],
 })
 export class FormulaireComponent {
+  isLocalised = false;
+  isButtonReset = false;
   selectable = true;
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -59,6 +61,8 @@ export class FormulaireComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+    // Reset le bouton quand on ajoute un département et que la localisation est faite
+    if (this.departments.length === 0) this.resetButton();
     // Max chips is 5, user can't select more
     if (this.departments.length < 5) {
       this.departments.push(event.option.viewValue);
@@ -74,14 +78,29 @@ export class FormulaireComponent {
     );
   }
 
+  // Permet de remettre le bouton d'origine quand un département est sélectionné
+  resetButton(): void {
+    this.isButtonReset = true;
+  }
+
   //get user current location (enable geolocalisation from browser)
   // Console.log are temporary until link with API
-  getUserLocation() {
+  getUserLocation($event: any) {
+    // Change le texte du bouton
+    $event.target.innerHTML = 'En cours...';
+    // Supprime les départements sélectionnés quand on clique sur Être localisé
+    this.departments.splice(0, this.departments.length);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 16;
+        // Permet de changer l'état du bouton
+        this.isLocalised = true;
+        // Change le texte et le style du bouton
+        $event.target.innerHTML = 'Tu es localisé';
+        $event.target.style.backgroundColor = 'green';
+        $event.target.style.color = 'white';
         console.log('position valid', position);
       });
     } else {
