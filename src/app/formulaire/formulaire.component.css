@@ -15,12 +15,20 @@
     background-color:#aea2cd;
     color: white;
     font-weight: 600;
+    width: 100%;
 }
 
 .btn-light:hover {
     border: 1px solid #aea2cd;
     background-color: white;
     color: #aea2cd;
+}
+
+.btn-isLocalised {
+    border: 1px solid green;
+    background-color:green;
+    color: white;
+    font-weight: 600;
 }
 
 .allSelect{
@@ -87,6 +95,10 @@
     height: 18px;
     font-size: 18px;
     color: white;
+}
+
+.ou {
+    color: #6A6A6A;
 }
 
 @media screen and (max-width: 768px) {
