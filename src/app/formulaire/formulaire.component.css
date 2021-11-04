@@ -6,16 +6,14 @@
     background-color: white;
 }
 
-.rayon {
-    padding-left: 0;
-}
 
 .btn-light {
     border: 1px solid #aea2cd;
-    background-color:#aea2cd;
-    color: white;
+    background-color: transparent;
+    color: #aea2cd;
     font-weight: 600;
     width: 100%;
+    height: 3.6rem;
 }
 
 .allSelect{
@@ -35,6 +33,11 @@
     padding-left: 20px;
 }
 
+.rayon{
+    padding-left: 26px;
+    padding-top: 25px;
+}
+
 .form-check-input:checked {
     background-color: #aea2cd;
     border: #aea2cd;
@@ -47,12 +50,14 @@
 .buttonSearch {
     margin-top: 30px;
     height: 50px;
-    width: 20rem;
+    width: 100%;
     border-radius: 50px;
     background-color: #aea2cd;
     color: white;
     border: none;
+    
 }
+
 
 .buttonSearch:hover {
     background-color: transparent;
@@ -98,7 +103,5 @@
         font-size: .8rem;
     }
 
-    .buttonSearch {
-        width: 15rem;
-    }
+  
 }
