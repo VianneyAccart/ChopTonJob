@@ -9,17 +9,18 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbRatingConfig], // add NgbRatingConfig to the component providers
 })
 export class ResultListComponent {
-  public isCollapsed = true;
   public buttonText = "Plus d'infos";
   currentRate = 3;
 
   // Bouton pour changer le texte à l'intérieur du bouton.
-  buttonName(): void {
-    if (this.isShown === true) {
-      this.buttonText = "Moins d'infos";
-    } else {
-      this.buttonText = "Plus d'infos";
-    }
+  buttonName(cards: Card[]): void {
+    cards.forEach((e: any) => {
+      if (e.companyIsShown === true) {
+        this.buttonText = "Moins d'infos";
+      } else {
+        this.buttonText = "Plus d'infos";
+      }
+    });
   }
 
   // variable qui servira à stocker les valeurs pour chaque variable de chaque entreprise sous forme d'objets dans un tableau'.
@@ -27,8 +28,8 @@ export class ResultListComponent {
 
   isShown: boolean;
 
-  displayInfo() {
-    this.isShown = !this.isShown;
+  displayInfo(card: Card) {
+    card.companyIsShown = !card.companyIsShown;
   }
 
   constructor(config: NgbRatingConfig) {
@@ -52,7 +53,8 @@ export class ResultListComponent {
       '0660767665',
       'Service des ressources humaines, 300 ROUTE NATIONALE 6, 69760 LIMONEST',
       '6201Z',
-      'https://mailchi.mp/591a8fd7d4dc/tuanis-en-construction'
+      'https://mailchi.mp/591a8fd7d4dc/tuanis-en-construction',
+      false
     );
     const tdi = new Card(
       'TDI',
@@ -65,7 +67,8 @@ export class ResultListComponent {
       '0472040333',
       'Service des ressources humaines, 10 RUE EDISON, 69500 BRON',
       '5829C',
-      'https://www.tdi-france.com/fr/'
+      'https://www.tdi-france.com/fr/',
+      false
     );
     this.cards.push(tuanis, tdi);
   }
