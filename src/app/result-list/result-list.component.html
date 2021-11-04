@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="normal alignRight">
-                            <ngb-rating [rate]="card.companyStars" class="starColor"></ngb-rating> 
+                            <ngb-rating [rate]="card.companyStars" class="starColor"></ngb-rating>
                         </div>
                     </div>
                 </div>
@@ -45,14 +45,14 @@
 
             <!--  BOUTON POUR AFFICHER LA PARTIE CACHEE  -->
             <p class="m-0">
-                <button type="button" class="newSearch  mt-4" (click)="displayInfo(); buttonName()">
-                    {{ buttonText }}
+                <button type="button" class="newSearch  mt-4" (click)="displayInfo(card)">
+                    {{ card.companyIsShown ? 'Moins d\'infos' : 'Plus d\'infos' }}
                 </button>
 
             </p>
 
             <!-- PARTIE PLUS D'INFOS ( cachée ) -->
-            <div  *ngIf='isShown' class="container mt-4 mb-0 p-0">
+            <div *ngIf='this.card.companyIsShown' class="container mt-4 mb-0 p-0">
                 <div class="row">
 
                     <div class=" col-md-6">

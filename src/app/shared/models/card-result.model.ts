@@ -10,6 +10,7 @@ export class Card {
   private _companyAddress: string;
   private _companyNaf: string;
   private _companyUrl: string;
+  private _companyIsShown: boolean;
 
   constructor(
     companyName: string,
@@ -22,7 +23,8 @@ export class Card {
     companyContact: string,
     companyAddress: string,
     companyNaf: string,
-    companyUrl: string
+    companyUrl: string,
+    companyIsShown: boolean
   ) {
     this._companyName = companyName;
     this._companyRaisonSociale = companyRaisonSociale;
@@ -35,6 +37,23 @@ export class Card {
     this._companyAddress = companyAddress;
     this._companyNaf = companyNaf;
     this._companyUrl = companyUrl;
+    this._companyIsShown = companyIsShown;
+  }
+
+  /**
+   * Getter companyIsShown
+   * @return {boolean}
+   */
+  public get companyIsShown(): boolean {
+    return this._companyIsShown;
+  }
+
+  /**
+   * Setter companyIsShown
+   * @param {boolean} value
+   */
+  public set companyIsShown(value: boolean) {
+    this._companyIsShown = value;
   }
 
   /**
