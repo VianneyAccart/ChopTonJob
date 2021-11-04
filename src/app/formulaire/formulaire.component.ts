@@ -15,6 +15,7 @@ import {departements} from '../shared/mocks/departements.mock';
 export class FormulaireComponent {
   localisationButtonText: string;
   localisationButtonColor: string;
+  localisationButtonTextColor: string;
   isLocalised = false;
   isButtonReset = false;
   selectable = true;
@@ -39,8 +40,9 @@ export class FormulaireComponent {
   });
 
   constructor(private fb: FormBuilder) {
-    this.localisationButtonColor = '#aea2cd';
-    this.localisationButtonText = 'Être localisé';
+    this.localisationButtonColor = 'transparent';
+    this.localisationButtonText = '&#128205 Être localisé';
+    this.localisationButtonTextColor = '#aea2cd';
     this.allDepartments = departements;
     this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
       startWith(null),
@@ -97,15 +99,16 @@ export class FormulaireComponent {
       this.longitude = undefined;
       console.log(this.latitude, this.longitude);
       // Remet les valeurs par défaut du bouton
-      this.localisationButtonText = 'Être localisé';
-      this.localisationButtonColor = '#aea2cd';
+      this.localisationButtonText = '&#128205 Être localisé';
+      this.localisationButtonColor = 'transparent';
+      this.localisationButtonTextColor = '#aea2cd';
     }
     this.isButtonReset = true;
   }
 
   //get user current location (enable geolocalisation from browser)
   // Console.log are temporary until link with API
-  getUserLocation($event: any) {
+  getUserLocation() {
     // Change le texte du bouton
     this.localisationButtonText = 'En cours...';
     // Supprime les départements sélectionnés quand on clique sur Être localisé
@@ -120,7 +123,7 @@ export class FormulaireComponent {
         // Change le texte et le style du bouton
         this.localisationButtonText = 'Tu es localisé';
         this.localisationButtonColor = 'green';
-        $event.target.style.color = 'white';
+        this.localisationButtonTextColor = 'white';
         console.log('position valid', position);
         console.log(this.latitude, this.longitude);
       });

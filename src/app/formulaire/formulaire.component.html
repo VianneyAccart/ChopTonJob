@@ -39,12 +39,12 @@
         <div class="col-6">
           <div class="input-group mt-2">
 
-            <button [ngStyle]="{'background-color' : localisationButtonColor}" [innerHTML]="localisationButtonText"
+            <button [ngStyle]="{'background-color' : localisationButtonColor, 'color' : localisationButtonTextColor}" [innerHTML]="localisationButtonText"
               class="btn btn-light"
 
               type="button"
               id="button-addon1"
-              (click)="getUserLocation($event)"
+              (click)="getUserLocation()"
             >
 
             </button>
