@@ -38,14 +38,15 @@
         <div class="col-12 mt-2 d-flex align-items-center justify-content-center ou">ou cliquer pour être localisé</div>
         <div class="col-6">
           <div class="input-group mt-2">
-            <button [ngClass]="{'btn-isLocalised' : isLocalised, 'btn.btn-light' : isButtonReset}"
-              class="btn btn-light "
+
+            <button [ngStyle]="{'background-color' : localisationButtonColor}" [innerHTML]="localisationButtonText"
+              class="btn btn-light"
+
               type="button"
               id="button-addon1"
               (click)="getUserLocation($event)"
             >
-            	
-             Être localisé
+
             </button>
           </div>
         </div>
@@ -63,7 +64,6 @@
         </div>
       </div>
 
-    
       <div class="form-floating">
       <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier' id="metier">
         <option selected disabled hidden >Choisir un métier</option>

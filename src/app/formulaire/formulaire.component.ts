@@ -13,6 +13,8 @@ import {departements} from '../shared/mocks/departements.mock';
   styleUrls: ['./formulaire.component.css'],
 })
 export class FormulaireComponent {
+  localisationButtonText: string;
+  localisationButtonColor: string;
   isLocalised = false;
   isButtonReset = false;
   selectable = true;
@@ -37,6 +39,8 @@ export class FormulaireComponent {
   });
 
   constructor(private fb: FormBuilder) {
+    this.localisationButtonColor = '#aea2cd';
+    this.localisationButtonText = 'Être localisé';
     this.allDepartments = departements;
     this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
       startWith(null),
@@ -87,6 +91,15 @@ export class FormulaireComponent {
 
   // Permet de remettre le bouton d'origine quand un département est sélectionné
   resetButton(): void {
+    // Si elles exitent, rend undefined la latitude et la longitude
+    if (this.latitude !== undefined && this.longitude !== undefined) {
+      this.latitude = undefined;
+      this.longitude = undefined;
+      console.log(this.latitude, this.longitude);
+      // Remet les valeurs par défaut du bouton
+      this.localisationButtonText = 'Être localisé';
+      this.localisationButtonColor = '#aea2cd';
+    }
     this.isButtonReset = true;
   }
 
@@ -94,7 +107,7 @@ export class FormulaireComponent {
   // Console.log are temporary until link with API
   getUserLocation($event: any) {
     // Change le texte du bouton
-    $event.target.innerHTML = 'En cours...';
+    this.localisationButtonText = 'En cours...';
     // Supprime les départements sélectionnés quand on clique sur Être localisé
     this.departments.splice(0, this.departments.length);
     if (navigator.geolocation) {
@@ -105,10 +118,11 @@ export class FormulaireComponent {
         // Permet de changer l'état du bouton
         this.isLocalised = true;
         // Change le texte et le style du bouton
-        $event.target.innerHTML = 'Tu es localisé';
-        $event.target.style.backgroundColor = 'green';
+        this.localisationButtonText = 'Tu es localisé';
+        this.localisationButtonColor = 'green';
         $event.target.style.color = 'white';
         console.log('position valid', position);
+        console.log(this.latitude, this.longitude);
       });
     } else {
       console.log('position failed');
