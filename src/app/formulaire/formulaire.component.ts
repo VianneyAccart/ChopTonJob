@@ -16,8 +16,6 @@ export class FormulaireComponent {
   localisationButtonText: string;
   localisationButtonColor: string;
   localisationButtonTextColor: string;
-  isLocalised = false;
-  isButtonReset = false;
   selectable = true;
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -34,14 +32,14 @@ export class FormulaireComponent {
 
   searchForm = this.fb.group({
     inputDepartement: [''],
-    inputRayon: ['Choisir un rayon'],
+    inputRayon: [''],
     inputMetier: ['Choisir un métier', Validators.required],
     inputAlternance: [''],
   });
 
   constructor(private fb: FormBuilder) {
     this.localisationButtonColor = 'transparent';
-    this.localisationButtonText = '&#128205 Être localisé';
+    this.localisationButtonText = 'Être localisé &#128269';
     this.localisationButtonTextColor = '#aea2cd';
     this.allDepartments = departements;
     this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
@@ -93,23 +91,25 @@ export class FormulaireComponent {
 
   // Permet de remettre le bouton d'origine quand un département est sélectionné
   resetButton(): void {
-    // Supprime le rayon sélectionné
-    this.searchForm.controls['inputRayon'].reset('10');
+    // Réinitialise le <select> du rayon
+    this.searchForm.controls['inputRayon'].reset('');
     // Si elles exitent, rend undefined la latitude et la longitude
     if (this.latitude !== undefined && this.longitude !== undefined) {
       this.latitude = undefined;
       this.longitude = undefined;
-      console.log(this.latitude, this.longitude);
       // Remet les valeurs par défaut du bouton
-      this.localisationButtonText = '&#128205 Être localisé';
+      this.localisationButtonText = 'Être localisé &#128269';
       this.localisationButtonColor = 'transparent';
       this.localisationButtonTextColor = '#aea2cd';
     }
-    this.isButtonReset = true;
   }
 
-  //get user current location (enable geolocalisation from browser)
-  // Console.log are temporary until link with API
+  // Si un rayon est sélectionné, les départements sélectionnés sont supprimés
+  resetRayon($event: any): void {
+    if ($event !== undefined) this.departments.splice(0, this.departments.length);
+  }
+
+  // Get user current location (enable geolocalisation from browser)
   getUserLocation() {
     // Change le texte du bouton
     this.localisationButtonText = 'En cours...';
@@ -120,14 +120,11 @@ export class FormulaireComponent {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 16;
-        // Permet de changer l'état du bouton
-        this.isLocalised = true;
         // Change le texte et le style du bouton
-        this.localisationButtonText = 'Tu es localisé';
+        this.localisationButtonText = 'Localisation &#9989';
         this.localisationButtonColor = 'green';
         this.localisationButtonTextColor = 'white';
         console.log('position valid', position);
-        console.log(this.latitude, this.longitude);
       });
     } else {
       console.log('position failed');

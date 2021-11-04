@@ -50,3 +50,10 @@ a {
 .sr-only {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0.25em 0 0.75em 0;
+    font-size: 0.8rem;
+  }
+}
