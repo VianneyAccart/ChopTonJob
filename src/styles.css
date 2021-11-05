@@ -1,15 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-
 body,
 html {
   height: 100%;
-}
-body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-html,
 p,
 a,
 h1,
@@ -18,15 +13,18 @@ h3,
 h4 {
   font-family: 'Montserrat', sans-serif;
 }
+
 a {
   text-decoration: none;
 }
+
 .highlightWord {
   /* Mot coloré dans les titres */
   color: #aea2cd;
   font-weight: 600;
 }
 
+/* Les mat- concernent l'input des départements */
 .mat-form-field.mat-focused .mat-form-field-label {
   color: #aea2cd;
 }
@@ -49,4 +47,11 @@ a {
 /* Faire disparaitre les (*) entre les étoiles dans les cards*/
 .sr-only {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0.25em 0 0.75em 0;
+    font-size: 0.8rem;
+  }
 }

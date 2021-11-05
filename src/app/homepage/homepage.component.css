@@ -1,40 +1,39 @@
-.container-fluid{
-    height: 100vh;
-    background: linear-gradient(#B5AAD6, white);
-    padding: 0;
+.container-fluid {
+  height: 100vh;
+  background: linear-gradient(#b5aad6, white);
+  padding: 0;
 }
 
 .row {
-    text-align: center;
+  text-align: center;
 }
 
 .img-fluid {
-    opacity: 25%;
-    position: absolute;
-    z-index: 0;
+  opacity: 25%;
+  position: absolute;
+  z-index: 0;
 }
 
 .searchForm {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
-
 @media screen and (max-width: 768px) {
-    .col-md-4 {
-        padding: 30px 0;
-    }
+  .col-md-4 {
+    padding: 30px 0;
+  }
 
-    .row {
-        text-align: left;
-    }
+  .row {
+    text-align: left;
+  }
 
-    h1 {
-        width: 50%;
-        padding-left: 3.2rem;
-    }
+  h1 {
+    width: 50%;
+    padding-left: 3.2rem;
+  }
 
-    .img-fluid {
-        padding-left: 7rem;
-    }
+  .img-fluid {
+    padding-left: 7rem;
+  }
 }

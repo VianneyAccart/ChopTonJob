@@ -8,11 +8,11 @@ import {map, startWith} from 'rxjs/operators';
 import {departements} from '../shared/mocks/departements.mock';
 
 @Component({
-  selector: 'app-formulaire',
-  templateUrl: './formulaire.component.html',
-  styleUrls: ['./formulaire.component.css'],
+  selector: 'app-new-search-form',
+  templateUrl: './new-search-form.component.html',
+  styleUrls: ['./new-search-form.component.css'],
 })
-export class FormulaireComponent {
+export class NewSearchFormComponent {
   localisationButtonText: string;
   localisationButtonColor: string;
   localisationButtonTextColor: string;
