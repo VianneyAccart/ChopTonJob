@@ -10,8 +10,7 @@
 
 .img-fluid {
   opacity: 25%;
-  position: fixed;
-  z-index: 0;
+  position: absolute;
   padding-top: 15vh;
   padding-left: 5vw;
 }
