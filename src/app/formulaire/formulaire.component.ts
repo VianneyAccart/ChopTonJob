@@ -28,11 +28,32 @@ export class FormulaireComponent {
   zoom: any;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
+  // Ne fonctionne toujours pas
+  // setValidators() {
+  //   const rayon = this.searchForm.get('inputRayon');
+  //   const departements = this.searchForm.get('inputDepartement');
+
+  //   this.searchForm.get('inputDepartement')?.valueChanges.subscribe((dpt) => {
+  //     if (dpt === null) {
+  //       rayon?.setValidators([Validators.required]);
+  //     }
+
+  //     rayon?.updateValueAndValidity();
+  //   });
+
+  //   this.searchForm.get('inputRayon')?.valueChanges.subscribe((ray) => {
+  //     if (ray === null) {
+  //       departements?.setValidators([Validators.required]);
+  //     }
+
+  //     departements?.updateValueAndValidity();
+  //   });
+  // }
 
   searchForm = this.fb.group({
     inputDepartement: [''],
-    inputRayon: ['Choisir un rayon'],
-    inputMetier: ['Choisir un métier', Validators.required],
+    inputRayon: [''],
+    inputMetier: ['', Validators.required],
     inputAlternance: [''],
   });
 
