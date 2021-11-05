@@ -10,8 +10,10 @@
 
 .img-fluid {
   opacity: 25%;
-  position: absolute;
+  position: fixed;
   z-index: 0;
+  padding-top: 15vh;
+  padding-left: 5vw;
 }
 
 .searchForm {
@@ -34,6 +36,7 @@
   }
 
   .img-fluid {
-    padding-left: 7rem;
+    padding-top: 10vh;
+    padding-left: 30vw;
   }
 }
