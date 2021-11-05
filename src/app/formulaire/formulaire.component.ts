@@ -39,7 +39,7 @@ export class FormulaireComponent {
 
   constructor(private fb: FormBuilder) {
     this.localisationButtonColor = 'transparent';
-    this.localisationButtonText = 'Être localisé &#128269';
+    this.localisationButtonText = 'Être localisé';
     this.localisationButtonTextColor = '#aea2cd';
     this.allDepartments = departements;
     this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
@@ -98,7 +98,7 @@ export class FormulaireComponent {
       this.latitude = undefined;
       this.longitude = undefined;
       // Remet les valeurs par défaut du bouton
-      this.localisationButtonText = 'Être localisé &#128269';
+      this.localisationButtonText = 'Être localisé';
       this.localisationButtonColor = 'transparent';
       this.localisationButtonTextColor = '#aea2cd';
     }
@@ -121,8 +121,8 @@ export class FormulaireComponent {
         this.longitude = position.coords.longitude;
         this.zoom = 16;
         // Change le texte et le style du bouton
-        this.localisationButtonText = 'Localisation &#9989';
-        this.localisationButtonColor = 'green';
+        this.localisationButtonText = 'Localisation acquise';
+        this.localisationButtonColor = '#aea2cd';
         this.localisationButtonTextColor = 'white';
         console.log('position valid', position);
       });
