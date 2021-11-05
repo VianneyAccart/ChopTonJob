@@ -2,36 +2,57 @@
 
 
   <div class="row mb-3 d-flex justify-content-center">
-    <div class="col-sm-10 p-1">
-      <input type="text" name="firstname" formControlName="userFirstname" placeholder="Prénom"
+    <div class="col-sm-10 p-1 form-floating">
+      <input
+        [ngClass]="{'is-invalid':contactForm.get('userFirstname')?.touched && contactForm.get('userFirstname')?.errors}"
+        type="text" name="firstname" formControlName="userFirstname" placeholder="Prénom"
         class="form-control form-rounded" />
+      <label for="floatingInput">Prénom</label>
+      <div *ngIf="contactForm.get('userFirstname')?.touched && contactForm.get('userFirstname')?.errors">
+        <small>Le prénom est requis.</small>
+      </div>
     </div>
   </div>
 
   <div class="row mb-3 d-flex justify-content-center">
-    <div class="col-sm-10 p-1">
-      <input type="text" name="lastname" formControlName="userLastname" placeholder="Nom"
+    <div class="col-sm-10 p-1 form-floating">
+      <input
+        [ngClass]="{'is-invalid': contactForm.get('userLastname')?.touched && contactForm.get('userLastname')?.errors}"
+        type="text" name="lastname" formControlName="userLastname" placeholder="Nom"
         class="form-control form-rounded" />
+      <label for="floatingInput">Nom</label>
+      <div *ngIf="contactForm.get('userLastname')?.touched && contactForm.get('userLastname')?.errors">
+        <small>Le nom est requis.</small>
+      </div>
     </div>
   </div>
 
   <div class="row mb-3 d-flex justify-content-center">
-    <div class="col-sm-10 p-1">
-      <input [type="email" name="email" formControlName="userEmail" placeholder="Email"
-        class="form-control form-rounded" />
+    <div class="col-sm-10 p-1 form-floating">
+      <input [ngClass]="{'is-invalid':contactForm.get('userEmail')?.touched && contactForm.get('userEmail')?.errors}"
+        type="email" name="email" formControlName="userEmail" placeholder="Email" class="form-control form-rounded" />
+      <label for="floatingInput">Email</label>
+      <div *ngIf="contactForm.get('userEmail')?.errors && contactForm.get('userEmail')?.touched">
+        <small>Une adresse mail valide est requise.</small>
+      </div>
     </div>
   </div>
 
   <div class="row mb-3 d-flex justify-content-center">
     <div class="col-sm-10 p-1 ">
-      <textarea name="message" formControlName="userMessage" placeholder="Message..." class="form-control form-rounded"
+      <textarea
+        [ngClass]="{'is-invalid':contactForm.get('userMessage')?.touched && contactForm.get('userMessage')?.errors}"
+        name="message" formControlName="userMessage" placeholder="Message..." class="form-control form-rounded"
         rows="4"></textarea>
+      <div *ngIf="contactForm.get('userMessage')?.errors && contactForm.get('userMessage')?.touched">
+        <small>Merci de préciser votre demande.</small>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="d-flex justify-content-center">
-      <button type="submit" class="submitBtn">
+      <button [ngClass]="{'formDisabled' : myContactForm.invalid}" type="submit" class="submitBtn">
         Envoyer
       </button>
     </div>

@@ -1,22 +1,21 @@
-<app-navbar></app-navbar>
-<div class="container-sm">
-  <div class="row align-items-center">
-    <div class="col-sm-10">
-      <h1 class="p-4 my-md-4 my-sm-5 my-4">Au cas où tu veux nous <span
-          class="highlightWord">contacter</span></h1>
+<div class="d-flex flex-column h-100">
+  <app-navbar></app-navbar>
+  <div class="container-sm flex-fill">
+    <div class="row align-items-center">
+      <div class="col-sm-10">
+        <h1 class="p-4 my-md-4 my-sm-5 my-4">
+          Au cas où tu veux nous <span class="highlightWord">contacter</span>
+        </h1>
+      </div>
+    </div>
+    <div class="row align-items-center mx-2">
+      <div class="col-lg-6 col-md-10">
+        <app-contact-form></app-contact-form>
+      </div>
+      <div class="col-lg-6 hidePicture">
+        <img class="img-fluid" src="assets/img/peopleIllustration.png" alt="people talking illustration" />
+      </div>
     </div>
   </div>
-  <div class="row align-items-center mx-2">
-    <div class="col-lg-6 col-md-10">
-      <app-contact-form></app-contact-form>
-    </div>
-    <div class="col-lg-6 hidePicture">
-      <img
-        class="img-fluid"
-        src="assets/img/peopleIllustration.png"
-        alt="people talking illustration"
-        />
-    </div>
-  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

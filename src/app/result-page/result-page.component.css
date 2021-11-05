@@ -40,7 +40,6 @@
 
 /* Sur tous les écrans de moins de 768 px */
 @media screen and (max-width: 768px) {
-
   .logoPoleEmploiDesktop {
     display: none;
   }
