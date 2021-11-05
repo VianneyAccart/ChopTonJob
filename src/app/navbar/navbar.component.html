@@ -1,12 +1,12 @@
 <header class="header">
-    <nav class="navbar">
+    <nav [ngClass]="{'transparent' : url === '/' || url === '/404'}" class="navbar">
         <a routerLink=""><img [src]="imageSource" alt="logo" class="nav-logo"></a>
         <ul [ngClass]="{'active' : openedMobileMenu === true}" class="nav-menu">
             <li class="nav-item">
                 <a routerLink="" class="nav-link">Accueil</a>
             </li>
             <li class="nav-item">
-                <a routerLink="" class="nav-link">Guide</a>
+                <a routerLink="/guide" class="nav-link">Guide</a>
             </li>
             <li class="nav-item">
                 <a routerLink="/equipe" class="nav-link">L'équipe</a>
@@ -15,7 +15,7 @@
                 <a routerLink="/contact" class="nav-link">Contact</a>
             </li>
         </ul>
-        <div [ngClass]="{'active' : openedMobileMenu === true}"  (click)="mobileMenu()" class="hamburger">
+        <div [ngClass]="{'active' : openedMobileMenu === true}" (click)="mobileMenu()" class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>

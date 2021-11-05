@@ -1,32 +1,92 @@
-<div class="contentFormulaire">
-    <div class="allSelect">
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Départements</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
+<form [formGroup]='searchForm' #myForm='ngForm'>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col">
+        <mat-form-field class="departments-list" appearance="fill">
+          <mat-label>Choisir un/des département(s)</mat-label>
+          <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
+            <mat-chip *ngFor="let department of departments" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(department)">
+              {{ department }}
+              <button matChipRemove *ngIf="removable">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="5 départements maximum" #departmentInput [formControl]="departmentCtrl"
+              [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)" formControlName='inputDepartement' />
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let department of filteredDepartments | async" [value]="department">
+              {{ department }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
 
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Ma position</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
+        <div class="row">
+          <div class="col-6">
+            <div class="input-group mt-2">
+              <button [ngStyle]="{'background-color' : localisationButtonColor, 'color' : localisationButtonTextColor}"
+                [innerHTML]="localisationButtonText" class="btn btn-light" type="button" id="button-addon1"
+                (click)="getUserLocation()">
+              </button>
+            </div>
+          </div>
 
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Choisir un métier</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-            <label class="form-check-label" for="flexCheckIndeterminate">
-                Alternance uniquement
-            </label>
+          <div class="col-6 form-floating">
+            <select (change)="resetRayon($event)" class="form-select mt-2" aria-label="Sélection d'un rayon de distance"
+              formControlName='inputRayon' id='rayon'>
+              <option selected disabled value="">Choisir un rayon</option>
+              <option value="10">10 km</option>
+              <option value="20">20 km</option>
+              <option value="30">30 km</option>
+              <option value="40">40 km</option>
+              <option value="50">50 km</option>
+            </select>
+            <label for="rayon" class="rayon">Rayon</label>
+          </div>
         </div>
-    </div>
-    <a routerLink="/result"><button id="buttonSearch">Lancer la recherche</button></a>
 
-</div>
+        <div class="form-floating">
+          <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier'
+            id="metier">
+            <option selected disabled>Choisir un métier</option>
+            <option value="E1101">
+              Animation de site multimédia (community manager, game master, animateur web...)
+            </option>
+            <option value="E1104">
+              Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)
+            </option>
+            <option value="E1205">
+              Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)
+            </option>
+            <option value="M1403">
+              Etudes et prospectives socio-économiques (data analyst, data scientist...)
+            </option>
+            <option value="M1802">
+              Expertise et support en systèmes d'information (architecture, ingéniérie, management...)
+            </option>
+            <option value="M1805">
+              Etudes et développements informatiques (développeur web, analyste en cybersécurité...)
+            </option>
+            <option value="M1806">
+              Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
+            </option>
+          </select>
+          <label for="metier">Métier</label>
+        </div>
+
+        <div class="form-check mt-2 d-flex justify-content-start">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" value="alternance"
+            formControlName='inputAlternance' />
+          <label class="form-check-label" for="flexCheckDefault"> Je cherche une alternance </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <button class="buttonSearch" [disabled]='myForm.invalid' type="submit">Lancer la recherche</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

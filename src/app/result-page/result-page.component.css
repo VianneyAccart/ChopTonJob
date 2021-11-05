@@ -9,11 +9,6 @@
   display: none;
 }
 
-.logoPoleEmploi { /* A afficher quand le composant de recherche sera implémenté */
-  width: 100px;
-  display: none;
-}
-
 .row.p-3 {
   /* Sur desktop, inutile d'afficher cette row */
   display: none;
@@ -23,7 +18,8 @@
 #newSearchTitle {
   font-size: 1.5rem;
   font-weight: 400;
-  margin-left: 20%;
+  margin-left: 6%;
+  margin-bottom: 50px;
 }
 
 /* Phrase indiquant le nombre d'entreprises retournées */
@@ -44,6 +40,14 @@
 
 /* Sur tous les écrans de moins de 768 px */
 @media screen and (max-width: 768px) {
+  .logoPoleEmploiDesktop {
+    display: none;
+  }
+
+  .desktopForm {
+    display: none;
+  }
+
   .col-md-4 {
     height: 90px;
     border: none;
@@ -64,6 +68,7 @@
     font-size: 2rem;
     font-weight: 400;
     margin-top: 40px;
+    margin-bottom: 50px;
     padding-left: 40px;
   }
 
@@ -98,8 +103,8 @@
   .newSearchMenu {
     display: block;
     background-color: white;
-    height: 100vh;
-    z-index: 1;
+    height: 100%;
+    z-index: 2;
     position: absolute;
     top: 5.6rem;
     width: 100%;

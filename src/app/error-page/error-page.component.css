@@ -1,6 +1,7 @@
 .container-fluid {
     background: linear-gradient(#B5AAD6, white);
     height: 100vh;
+    padding: 0;
 }
 
 .row {
@@ -35,6 +36,7 @@
     border: solid 1px #aea2cd;
     color: #aea2cd;
 }
+
 
 @media screen and (max-width: 768px) {
 
