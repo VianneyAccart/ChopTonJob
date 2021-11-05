@@ -10,8 +10,8 @@
       </div>
       <div class="col-md-5 pt-3">
         <p class="textJustify">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-          consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+          Faire une bonne candidature spontanée n'est pas chose facile... Nous te proposons ici
+          quelques conseils pour optimiser tes candidatures et passer l'étape de la page blanche !
         </p>
       </div>
     </div>
@@ -19,10 +19,14 @@
       <div *ngFor="let etape of etapes" class="card col-md-5 mb-5 my-md-4 box">
         <div class="card-body">
           <div class="row align-items-center justify-content-between">
-            <h2 class="card-title col-9 col-lg-12 pb-3">{{ etape.titre }}</h2>
+            <h2 class="card-title h4 col-9 col-lg-12 pb-3">{{ etape.titre }}</h2>
 
-            <img src="{{ etape.imgSrc }}" alt="{{ etape.imgAlt }}"
-              class="img-fluid order-lg-last col-3 col-lg-3 px-lg-2" style="max-width: 80px" />
+            <img
+              src="{{ etape.imgSrc }}"
+              alt="{{ etape.imgAlt }}"
+              class="img-fluid order-lg-last col-3 col-lg-3 px-lg-1 mx-lg-2"
+              style="max-width: 80px"
+            />
             <p class="card-text col-12 col-lg-9 pt-2 textJustify">
               {{ etape.description }}
             </p>
