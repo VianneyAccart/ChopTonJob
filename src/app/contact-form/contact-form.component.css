@@ -1,7 +1,8 @@
 /* input form style */
 .form-rounded {
-  border-radius: 1rem;
+  border-radius: 5px;
 }
+
 /* Bouton d'envoi du formulaire */
 .submitBtn {
   height: 50px;
@@ -16,4 +17,24 @@
   background-color: transparent;
   border: solid 1px #aea2cd;
   color: #aea2cd;
+}
+
+small{
+  color: rgb(138, 137, 137);
+  padding-left: 7px;
+}
+
+.formDisabled{
+  background-color: rgb(179, 179, 179);
+  cursor: not-allowed;
+}
+
+.formDisabled:hover{
+  background-color: rgb(179, 179, 179);
+  border: solid 1px rgb(179, 179, 179);
+  color: white;
+}
+
+label{
+  color: #6a6a6a;
 }
