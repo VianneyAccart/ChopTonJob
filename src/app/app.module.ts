@@ -15,7 +15,7 @@ import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ContactFormComponent} from './contact-form/contact-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ResultPageComponent} from './result-page/result-page.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
+import {NotFoundComponent as NotFoundComponent} from './not-found/not-found.component';
 import {FooterComponent} from './footer/footer.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
@@ -34,7 +34,7 @@ import {NewSearchFormComponent} from './new-search-form/new-search-form.componen
     ContactPageComponent,
     ContactFormComponent,
     ResultPageComponent,
-    ErrorPageComponent,
+    NotFoundComponent,
     FooterComponent,
     MentionsLegalesComponent,
     GuideComponent,

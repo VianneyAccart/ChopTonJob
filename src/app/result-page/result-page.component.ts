@@ -13,12 +13,12 @@ export class ResultPageComponent implements OnInit {
     this.openedNewSearchMenu = false;
   }
 
-  // Remplacer X par la longueur du tableau cards
+  // Replace X with the length of the cards array
   ngOnInit(): void {
     this.setTitle('2 entreprises correspondent à votre recherche !');
   }
 
-  // Permet d'afficher/masquer le volet de nouvelle recherche sur mobile
+  // Show / hide the new mobile search pane
   openNewSearchMenu() {
     this.openedNewSearchMenu = !this.openedNewSearchMenu;
   }

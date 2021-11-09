@@ -104,7 +104,7 @@ export class FormulaireComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    // Reset le bouton quand on ajoute un département et que la localisation est faite
+    //Reset the button when adding a department and the localization is done
     if (this.departments.length === 0) this.resetButton();
     // Max chips is 5, user can't select more
     if (this.departments.length < 5) {
@@ -121,22 +121,23 @@ export class FormulaireComponent {
     );
   }
 
-  // Permet de remettre le bouton d'origine quand un département est sélectionné
+  // Allows you to reset the original button when a department is selected
   resetButton(): void {
-    // Réinitialise le <select> du rayon
+    // reset the ray of <select>
     this.searchForm.controls['inputRayon'].reset('');
-    // Si elles exitent, rend undefined la latitude et la longitude
+    // If they excite, make latitude and longitude undefined
     if (this.latitude !== undefined && this.longitude !== undefined) {
       this.latitude = undefined;
       this.longitude = undefined;
-      // Remet les valeurs par défaut du bouton
+
+      //Reset button to default values
       this.localisationButtonText = 'Être localisé';
       this.localisationButtonColor = 'transparent';
       this.localisationButtonTextColor = '#aea2cd';
     }
   }
 
-  // Si un rayon est sélectionné, les départements sélectionnés sont supprimés
+  //If a ray is selected, the selected departments are deleted
   resetRayon($event: any): void {
     if ($event !== undefined) {
       this.departments.splice(0, this.departments.length);
@@ -145,7 +146,7 @@ export class FormulaireComponent {
 
   // Get user current location (enable geolocalisation from browser)
   getUserLocation() {
-    // Change le texte du bouton
+    // change the button's text
     this.localisationButtonText = 'En cours...';
     // Supprime les départements sélectionnés quand on clique sur Être localisé
     this.departments.splice(0, this.departments.length);
@@ -154,7 +155,9 @@ export class FormulaireComponent {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 16;
-        // Change le texte et le style du bouton
+
+        // Change button text and style
+
         this.localisationButtonText = 'Localisation acquise';
         this.localisationButtonColor = '#aea2cd';
         this.localisationButtonTextColor = 'white';

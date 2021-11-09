@@ -2,11 +2,11 @@
   <app-navbar></app-navbar>
   <div class="container-fluid flex-fill">
     <div class="row">
-      <!-- Colonne contenant les filtres pour une nouvelle recherche -->
+      <!-- Column containing filters for a new search -->
       <div class="col-md-4">
         <div [ngClass]="{'active': openedNewSearchMenu === true}" class="row newSearchMenu">
           <div class="row closeBtn">
-            <!-- Permet l'affichage de la croix "X" pour fermer le volet sur mobile -->
+            <!-- Allows the display of the cross "X" to close the shutter on mobile -->
             <div class="col-10"></div>
             <div (click)="openNewSearchMenu()" class="col-2">
               <span class="bar"></span>
@@ -22,7 +22,7 @@
             <app-new-search-form></app-new-search-form>
           </div>
         </div>
-        <!-- Row contenant le bouton de recherche et le logo Pôle Emploi sur mobile -->
+        <!-- Row containing the search button and the Pôle Emploi logo on mobile -->
         <div class="row p-3">
           <div class="col-8 d-flex justify-content-start align-items-center">
             <button (click)="openNewSearchMenu()" id="newSearchBtn" type="button" class="btn newSearch">
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Colonne contenant les résultats de la recherche -->
+      <!-- Column containing the search results -->
       <div class="col-md-8">
         <p class="resultOfCompanies mb-4">
           <span class="numberOfCompanies">2</span> entreprises correspondent à votre recherche
