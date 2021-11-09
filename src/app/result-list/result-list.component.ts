@@ -12,7 +12,7 @@ export class ResultListComponent {
   public buttonText = "Plus d'infos";
   currentRate = 3;
 
-  // Bouton pour changer le texte à l'intérieur du bouton.
+  // Button for changes the text into the button
   buttonName(cards: Card[]): void {
     cards.forEach((e: any) => {
       if (e.companyIsShown === true) {
@@ -23,7 +23,7 @@ export class ResultListComponent {
     });
   }
 
-  // variable qui servira à stocker les valeurs pour chaque variable de chaque entreprise sous forme d'objets dans un tableau'.
+  // variable which will be used to store the values ​​for each variable of each company in the form of objects in an array 
   cards: Card[];
 
   isShown: boolean;
@@ -34,7 +34,7 @@ export class ResultListComponent {
 
   constructor(config: NgbRatingConfig) {
     this.cards = [];
-    // Personaliser la valeur max par défaut
+    // Customize the default max value
     config.max = 5;
     config.readonly = true;
 
