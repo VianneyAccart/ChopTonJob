@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-error-page',
-  templateUrl: './error-page.component.html',
-  styleUrls: ['./error-page.component.css'],
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.css'],
 })
-export class ErrorPageComponent implements OnInit {
+export class NotFoundComponent implements OnInit {
   transparentNavbar: boolean;
 
   constructor(private titleService: Title) {
