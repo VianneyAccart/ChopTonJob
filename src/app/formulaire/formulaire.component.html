@@ -4,7 +4,7 @@
       <div class="col">
         <mat-form-field class="departments-list" appearance="fill">
           <mat-label>Choisir un/des département(s)</mat-label>
-          <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
+          <mat-chip-list #chipList aria-label="Sélection du/des département(s)" >
             <mat-chip *ngFor="let department of departments" [selectable]="selectable" [removable]="removable"
               (removed)="remove(department)">
               {{ department }}
@@ -46,26 +46,12 @@
             <label for="rayon" class="rayon">Rayon</label>
           </div>
         </div>
-
-        <!-- <div class="col-6 form-floating">
-          <select class="form-select mt-2" aria-label="Sélection d'un rayon de distance" formControlName='inputRayon' id='rayon'>
-            <option selected disabled hidden value=''>Choisir un rayon</option>
-            <option value="10">10 km</option>
-            <option value="20">20 km</option>
-            <option value="30">30 km</option>
-            <option value="40">40 km</option>
-            <option value="50">50 km</option>
-
-          </select>
-          <label for="metier">Métier</label>
-        </div> -->
-
       </div>
 
     
       <div class="form-floating">
       <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier' id="metier">
-        <option selected disabled hidden value="" >Choisir un métier</option>
+        <option selected disabled value="" >Choisir un métier</option>
         <option value="E1101">
           Animation de site multimédia (community manager, game master, animateur web...)
         </option>
@@ -88,7 +74,7 @@
           Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
         </option>
       </select>
-      <label for="metier">Métier</label>
+      <label for="metier" class="metier ">Métier</label>
       </div>
 
 
