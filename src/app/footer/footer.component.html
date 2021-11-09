@@ -1,16 +1,16 @@
 <footer class="mt-5">
-    <nav class="navbar" [ngClass]="{'transparent' : url === '/' || url === '/404'}">
+  <nav class="navbar" [ngClass]="{'transparent': url === '/' || url === '/404'}">
+    <div class="col-6 d-flex justify-content-start">
+      <p class="item" [ngClass]="{'item2': url === '/' || url === '/404'}">
+        ©{{ date }} Chop' Ton Job
+      </p>
+    </div>
 
-        <div>
-            <p class="item" [ngClass]="{'item2' : url === '/' || url === '/404'}">© {{date}} Chop' Ton Job Inc.</p>
-        </div>
-        
-        <ul class="nav-menu">
-            <li class="">
-                <a routerLink="/mentions-legales" class="nav-link marginRight" [ngClass]="{'item2' : url === '/' || url === '/404'}">Mentions Légales</a>
-            </li>
-        </ul>
-        
-    </nav>
+    <ul class="nav-menu col-6 d-flex justify-content-end">
+      <li class="">
+        <a routerLink="/mentions-legales" class="nav-link marginRight"
+          [ngClass]="{'item2': url === '/' || url === '/404'}">Mentions Légales</a>
+      </li>
+    </ul>
+  </nav>
 </footer>
-

@@ -19,14 +19,6 @@ export class TeamPageComponent implements OnInit {
     this.setTitle('Découvrez notre équipe !');
     this.members.push(
       new teamMember(
-        'Brice',
-        'Ducroux',
-        'assets/img/brice.jpeg',
-        'Portrait Brice Ducroux',
-        'https://github.com/Brice-Ducroux',
-        'https://www.linkedin.com/in/brice-ducroux-473854121/'
-      ),
-      new teamMember(
         'Karim',
         'Boudjemai',
         'assets/img/karim.png',

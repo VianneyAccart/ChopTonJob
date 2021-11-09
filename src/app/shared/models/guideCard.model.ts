@@ -1,4 +1,4 @@
-export class cardsGuide {
+export class GuideCard {
   titre: string;
   description: string;
   imgSrc: string;

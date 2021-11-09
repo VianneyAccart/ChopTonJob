@@ -1,120 +1,104 @@
 .container-fluid {
-    padding: 0;
+  padding: 0;
 }
 
 .readonly {
-    background-color: white;
+  background-color: white;
 }
 
-
 .btn-light {
-    border: 1px solid #aea2cd;
-    background-color: transparent;
-    color: #aea2cd;
-    font-weight: 600;
-    width: 100%;
-    height: 3.6rem;
+  border: 1px solid #aea2cd;
+  background-color: transparent;
+  color: #aea2cd;
+  font-weight: 600;
+  width: 100%;
+  height: 3.6rem;
 }
 
 .btn-light:hover {
-    border: 1px solid #aea2cd;
-    background-color: white;
-    color: #aea2cd;
+  background-color: white;
 }
 
-.btn-isLocalised {
-    border: 1px solid green;
-    background-color:green;
-    color: white;
-    font-weight: 600;
+.allSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
 }
 
-.allSelect{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
+.form-select {
+  border-radius: 5px;
+  color: #6a6a6a;
 }
 
-.form-select{
-    border-radius: 5px;
-    color: #6A6A6A;
+.form-check-label {
+  color: #6a6a6a;
+  padding-left: 20px;
 }
 
-.form-check-label{
-    color: #6A6A6A;
-    padding-left: 20px;
-}
-
-.rayon{
-    padding-left: 26px;
-    padding-top: 25px;
+.rayon {
+  padding-left: 26px;
+  padding-top: 25px;
 }
 
 .form-check-input:checked {
-    background-color: #aea2cd;
-    border: #aea2cd;
+  background-color: #aea2cd;
+  border: #aea2cd;
 }
 
 ::placeholder {
-    opacity: 50%;
+  opacity: 50%;
 }
 
 .buttonSearch {
-    margin-top: 30px;
-    height: 50px;
-    width: 100%;
-    border-radius: 50px;
-    background-color: #aea2cd;
-    color: white;
-    border: none;
-    
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+  border-radius: 50px;
+  background-color: #aea2cd;
+  color: white;
+  border: none;
 }
 
-
 .buttonSearch:hover {
-    background-color: transparent;
-    border: solid 1px #aea2cd;
-    color: #aea2cd;
+  background-color: transparent;
+  border: solid 1px #aea2cd;
+  color: #aea2cd;
 }
 
 .departments-list {
-    width: 100%;
-    font-family: "Montserrat";
+  width: 100%;
+  font-family: 'Montserrat';
 }
 
 .mat-input-element {
-    caret-color: #aea2cd;
+  caret-color: #aea2cd;
 }
 
 /* Color of the chips */
 .mat-chip.mat-standard-chip {
-    background-color: #aea2cd;
-    color: white;
-    font-family: "Montserrat";
+  background-color: #aea2cd;
+  color: white;
+  font-family: 'Montserrat';
 }
 
 /* Color of the X to remove a chips */
-.mat-standard-chip .mat-chip-remove.mat-icon, .mat-standard-chip .mat-chip-remove .mat-icon {
-    width: 18px;
-    height: 18px;
-    font-size: 18px;
-    color: white;
-}
-
-.ou {
-    color: #6A6A6A;
+.mat-standard-chip .mat-chip-remove.mat-icon,
+.mat-standard-chip .mat-chip-remove .mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
+  .allSelect {
+    width: 100%;
+  }
 
-    .allSelect{
-        width: 100%;
-    }
-
-    .form-select, .form-control, .btn {
-        font-size: .8rem;
-    }
-
-  
+  .form-select,
+  .form-control,
+  .btn {
+    font-size: 0.8rem;
+  }
 }

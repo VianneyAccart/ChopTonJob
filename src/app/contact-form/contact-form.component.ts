@@ -17,6 +17,6 @@ export class ContactFormComponent {
   constructor(private formBuilder: FormBuilder) {}
 
   onSubmit(): void {
-    alert('valid');
+    alert('Votre message a bien été envoyé');
   }
 }
