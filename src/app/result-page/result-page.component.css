@@ -10,7 +10,7 @@
   display: none;
 }
 
-.row.p-3 {
+.row.py-3 {
   /*  On desktop, no need to display this row */
   display: none;
 }
@@ -39,8 +39,7 @@
   display: none;
 }
 
-/* On all screens smaller than 768px */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .logoPoleEmploiDesktop {
     display: none;
   }
@@ -54,7 +53,7 @@
     border: none;
   }
 
-  .row.p-3 {
+  .row.py-3 {
     /* Is hidden on desktop, need to display it on mobile */
     display: flex;
   }
@@ -95,9 +94,9 @@
 
   /* Sentence indicating the number of companies returned */
   .resultOfCompanies {
-    margin-top: 0;
-    margin-left: 20px;
+    margin: 0;
     font-size: 0.8rem;
+    text-align: center;
   }
 
   /* Pane containing the filters for the new search */
