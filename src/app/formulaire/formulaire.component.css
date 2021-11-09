@@ -41,6 +41,13 @@
   padding-top: 25px;
 }
 
+.metier {
+  padding-left: 26px;
+  padding-top: 25px;
+}
+
+
+
 .form-check-input:checked {
   background-color: #aea2cd;
   border: #aea2cd;
@@ -89,6 +96,11 @@
   height: 18px;
   font-size: 18px;
   color: white;
+}
+
+.col-12 > p {
+  color: #6a6a6a;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
