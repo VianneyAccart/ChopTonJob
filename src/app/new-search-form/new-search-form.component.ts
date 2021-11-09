@@ -99,7 +99,11 @@ export class NewSearchFormComponent {
     if (this.latitude !== undefined && this.longitude !== undefined) {
       this.latitude = undefined;
       this.longitude = undefined;
+
       // Reset button to default values
+
+
+      // Remet les valeurs par défaut du bouton
 
       this.localisationButtonText = 'Être localisé';
       this.localisationButtonColor = 'transparent';
@@ -124,7 +128,11 @@ export class NewSearchFormComponent {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 16;
+
         // Change button text and style
+
+        // Change le texte et le style du bouton
+
         this.localisationButtonText = 'Localisation acquise';
         this.localisationButtonColor = '#aea2cd';
         this.localisationButtonTextColor = 'white';
