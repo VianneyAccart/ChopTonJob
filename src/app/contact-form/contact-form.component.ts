@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
+import {emailPatternValidator} from '../shared/validators/emailPattern.validators';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,14 +10,15 @@ import {FormBuilder, Validators} from '@angular/forms';
 export class ContactFormComponent {
   //Form validators for each input
   contactForm = this.formBuilder.group({
-    userFirstname: ['', Validators.required],
-    userLastname: ['', Validators.required],
-    userEmail: ['', [Validators.required, Validators.email]],
-    userMessage: ['', Validators.required],
+    userFirstname: ['', [Validators.required, Validators.minLength(2)]],
+    userLastname: ['', [Validators.required, Validators.minLength(2)]],
+    userEmail: ['', [Validators.required, emailPatternValidator]],
+    userMessage: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
   });
   constructor(private formBuilder: FormBuilder) {}
 
   onSubmit(): void {
     alert('Votre message a bien été envoyé');
+    this.contactForm.reset();
   }
 }
