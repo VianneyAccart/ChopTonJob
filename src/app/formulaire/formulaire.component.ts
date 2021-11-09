@@ -36,7 +36,7 @@ export class FormulaireComponent {
   zoom: any;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
-
+  // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
   atLeastOne =
     (validator: ValidatorFn, controls: string[]) =>
     (group: FormGroup): ValidationErrors | null => {
