@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.setTitle(
-      "Chop' Ton Job - Découvrez les entreprises qui recrutent autour de chez vous et décrochez le tech job de vos rêves"
+      "Chop' Ton Job - Découvre les entreprises qui recrutent autour de chez toi et décroche le tech job de tes rêves"
     );
   }
 

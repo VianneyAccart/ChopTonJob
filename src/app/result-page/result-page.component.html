@@ -3,7 +3,7 @@
   <div class="container-fluid flex-fill">
     <div class="row">
       <!-- Column containing filters for a new search -->
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <div [ngClass]="{'active': openedNewSearchMenu === true}" class="row newSearchMenu">
           <div class="row closeBtn">
             <!-- Allows the display of the cross "X" to close the shutter on mobile -->
@@ -19,11 +19,13 @@
             d'horizon ?
           </h2>
           <div class="mobileForm">
-            <app-new-search-form></app-new-search-form>
+            <app-formulaire></app-formulaire>
           </div>
         </div>
+
         <!-- Row containing the search button and the Pôle Emploi logo on mobile -->
-        <div class="row p-3">
+        <div class="d-flex justify-content-center">
+        <div class="row col-md-10 col-sm-10 col-12 py-3">
           <div class="col-8 d-flex justify-content-start align-items-center">
             <button (click)="openNewSearchMenu()" id="newSearchBtn" type="button" class="btn newSearch">
               Nouvelle recherche
@@ -33,6 +35,8 @@
             <img class="logoPoleEmploi img-fluid" src="assets/img/logo-pole-emploi.png" alt="Logo de Pôle Emploi" />
           </div>
         </div>
+      </div>
+
         <div class="row mt-5">
           <div class="col-12">
             <div class="row">
@@ -48,15 +52,15 @@
               </div>
             </div>
             <div class="desktopForm">
-              <app-new-search-form></app-new-search-form>
+              <app-formulaire></app-formulaire>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Column containing the search results -->
-      <div class="col-md-8">
-        <p class="resultOfCompanies mb-4">
+      <div class="col-lg-8">
+        <p class="resultOfCompanies mb-4 col-md-8">
           <span class="numberOfCompanies">2</span> entreprises correspondent à votre recherche
         </p>
         <app-result-list></app-result-list>
