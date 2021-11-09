@@ -101,10 +101,6 @@ export class NewSearchFormComponent {
       this.longitude = undefined;
 
       // Reset button to default values
-
-
-      // Remet les valeurs par défaut du bouton
-
       this.localisationButtonText = 'Être localisé';
       this.localisationButtonColor = 'transparent';
       this.localisationButtonTextColor = '#aea2cd';
@@ -130,9 +126,6 @@ export class NewSearchFormComponent {
         this.zoom = 16;
 
         // Change button text and style
-
-        // Change le texte et le style du bouton
-
         this.localisationButtonText = 'Localisation acquise';
         this.localisationButtonColor = '#aea2cd';
         this.localisationButtonTextColor = 'white';

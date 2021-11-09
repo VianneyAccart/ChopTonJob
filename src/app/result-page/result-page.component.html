@@ -2,11 +2,11 @@
   <app-navbar></app-navbar>
   <div class="container-fluid flex-fill">
     <div class="row">
-      <!-- Colonne contenant les filtres pour une nouvelle recherche -->
+      <!-- Column containing filters for a new search -->
       <div class="col-md-4">
         <div [ngClass]="{'active': openedNewSearchMenu === true}" class="row newSearchMenu">
           <div class="row closeBtn">
-            <!-- Permet l'affichage de la croix "X" pour fermer le volet sur mobile -->
+            <!-- Allows the display of the cross "X" to close the shutter on mobile -->
             <div class="col-10"></div>
             <div (click)="openNewSearchMenu()" class="col-2">
               <span class="bar"></span>
