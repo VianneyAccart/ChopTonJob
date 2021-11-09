@@ -1,6 +1,13 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
@@ -29,13 +36,38 @@ export class FormulaireComponent {
   zoom: any;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
+  // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
+  atLeastOne =
+    (validator: ValidatorFn, controls: string[]) =>
+    (group: FormGroup): ValidationErrors | null => {
+      if (!controls) {
+        controls = Object.keys(group.controls);
+      }
 
-  searchForm = this.fb.group({
-    inputDepartement: [''],
-    inputRayon: [''],
-    inputMetier: ['Choisir un métier', Validators.required],
-    inputAlternance: [''],
-  });
+      const hasAtLeastOne =
+        group && group.controls && controls.some((k) => !validator(group.controls[k]));
+
+      return hasAtLeastOne
+        ? null
+        : {
+            atLeastOne: true,
+          };
+    };
+
+  searchForm = this.fb.group(
+    {
+      inputDepartement: [''],
+      inputRayon: [''],
+      inputMetier: ['Choisir un métier', Validators.required],
+      inputAlternance: [''],
+    },
+    {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
+  );
+
+  onSubmit() {
+    console.log(this.searchForm.get('inputRayon')?.value);
+    console.log(this.searchForm.get('inputDepartement')?.value);
+  }
 
   constructor(private fb: FormBuilder) {
     this.localisationButtonColor = 'transparent';
@@ -107,7 +139,9 @@ export class FormulaireComponent {
 
   //If a ray is selected, the selected departments are deleted
   resetRayon($event: any): void {
-    if ($event !== undefined) this.departments.splice(0, this.departments.length);
+    if ($event !== undefined) {
+      this.departments.splice(0, this.departments.length);
+    }
   }
 
   // Get user current location (enable geolocalisation from browser)
