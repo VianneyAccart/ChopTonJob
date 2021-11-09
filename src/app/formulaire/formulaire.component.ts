@@ -58,7 +58,7 @@ export class FormulaireComponent {
     {
       inputDepartement: [''],
       inputRayon: [''],
-      inputMetier: ['Choisir un métier', Validators.required],
+      inputMetier: ['', Validators.required],
       inputAlternance: [''],
     },
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
