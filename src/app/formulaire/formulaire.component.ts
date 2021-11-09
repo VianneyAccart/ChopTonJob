@@ -1,6 +1,13 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
@@ -29,38 +36,38 @@ export class FormulaireComponent {
   zoom: any;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
-  // Ne fonctionne toujours pas
-  // setValidators() {
-  //   const rayon = this.searchForm.get('inputRayon');
-  //   const departements = this.searchForm.get('inputDepartement');
 
-  //   this.searchForm.get('inputDepartement')?.valueChanges.subscribe((dpt) => {
-  //     if (dpt === null) {
-  //       rayon?.setValidators([Validators.required]);
-  //     }
+  atLeastOne =
+    (validator: ValidatorFn, controls: string[]) =>
+    (group: FormGroup): ValidationErrors | null => {
+      if (!controls) {
+        controls = Object.keys(group.controls);
+      }
 
-  //     rayon?.updateValueAndValidity();
-  //   });
+      const hasAtLeastOne =
+        group && group.controls && controls.some((k) => !validator(group.controls[k]));
 
-  //   this.searchForm.get('inputRayon')?.valueChanges.subscribe((ray) => {
-  //     if (ray === null) {
-  //       departements?.setValidators([Validators.required]);
-  //     }
+      return hasAtLeastOne
+        ? null
+        : {
+            atLeastOne: true,
+          };
+    };
 
-  //     departements?.updateValueAndValidity();
-  //   });
-  // }
+  searchForm = this.fb.group(
+    {
+      inputDepartement: [''],
+      inputRayon: [''],
+      inputMetier: ['Choisir un métier', Validators.required],
+      inputAlternance: [''],
+    },
+    {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
+  );
 
-  searchForm = this.fb.group({
-    inputDepartement: [''],
-    inputRayon: [''],
-<<<<<<< HEAD
-    inputMetier: ['', Validators.required],
-=======
-    inputMetier: ['Choisir un métier', Validators.required],
->>>>>>> dev
-    inputAlternance: [''],
-  });
+  onSubmit() {
+    console.log(this.searchForm.get('inputRayon')?.value);
+    console.log(this.searchForm.get('inputDepartement')?.value);
+  }
 
   constructor(private fb: FormBuilder) {
     this.localisationButtonColor = 'transparent';
@@ -131,7 +138,9 @@ export class FormulaireComponent {
 
   // Si un rayon est sélectionné, les départements sélectionnés sont supprimés
   resetRayon($event: any): void {
-    if ($event !== undefined) this.departments.splice(0, this.departments.length);
+    if ($event !== undefined) {
+      this.departments.splice(0, this.departments.length);
+    }
   }
 
   // Get user current location (enable geolocalisation from browser)
