@@ -13,7 +13,7 @@ export class ContactFormComponent {
     userFirstname: ['', [Validators.required, Validators.minLength(2)]],
     userLastname: ['', [Validators.required, Validators.minLength(2)]],
     userEmail: ['', [Validators.required, emailPatternValidator]],
-    userMessage: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
+    userMessage: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
   });
   constructor(private formBuilder: FormBuilder) {}
 

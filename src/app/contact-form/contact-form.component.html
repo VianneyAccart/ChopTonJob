@@ -66,9 +66,6 @@
       <div *ngIf="contactForm.get('userEmail')?.errors && contactForm.get('userEmail')?.touched">
         <small>Une adresse mail valide est requise.</small>
       </div>
-      <div *ngIf="myContactForm.submitted && myContactForm.controls.userEmail.errors?.pattern">
-        {{ myContactForm.controls.userEmail.errors?.pattern }}
-      </div>
     </div>
   </div>
 
