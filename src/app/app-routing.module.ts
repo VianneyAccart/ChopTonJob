@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ContactPageComponent} from './contact-page/contact-page.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {ResultPageComponent} from './result-page/result-page.component';
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: '404',
-    component: ErrorPageComponent,
+    component: NotFoundComponent,
   },
   {
     path: '**',
