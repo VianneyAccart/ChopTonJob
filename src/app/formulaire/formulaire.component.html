@@ -4,7 +4,7 @@
       <div class="col">
         <mat-form-field class="departments-list" appearance="fill">
           <mat-label>Choisir un/des département(s)</mat-label>
-          <mat-chip-list #chipList aria-label="Sélection du/des département(s)" >
+          <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
             <mat-chip *ngFor="let department of departments" [selectable]="selectable" [removable]="removable"
               (removed)="remove(department)">
               {{ department }}
@@ -22,7 +22,9 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <div class="col-12 my-2"><p class="text-center">Ou utilise ta localisation</p></div>
+        <div class="col-12 my-2">
+          <p class="text-center">Ou utilise ta localisation</p>
+        </div>
 
         <div class="row">
           <div class="col-6">
@@ -48,50 +50,51 @@
           </div>
         </div>
       </div>
-    
+
       <div class="form-floating">
-      <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier' id="metier">
-        <option selected disabled value="" >Choisir un métier</option>
-        <option value="E1101">
-          Animation de site multimédia (community manager, game master, animateur web...)
-        </option>
-        <option value="E1104">
-          Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)
-        </option>
-        <option value="E1205">
-          Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)
-        </option>
-        <option value="M1403">
-          Etudes et prospectives socio-économiques (data analyst, data scientist...)
-        </option>
-        <option value="M1802">
-          Expertise et support en systèmes d'information (architecture, ingéniérie, management...)
-        </option>
-        <option value="M1805">
-          Etudes et développements informatiques (développeur web, analyste en cybersécurité...)
-        </option>
-        <option value="M1806">
-          Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
-        </option>
-      </select>
-      <label for="metier" class="metier ">Métier</label>
+        <select class="form-select mt-2 " aria-label="Sélection d'un groupe de métiers" formControlName='inputMetier'
+          id="metier">
+          <option selected disabled value="">Choisir un métier</option>
+          <option value="E1101">
+            Animation de site multimédia (community manager, game master, animateur web...)
+          </option>
+          <option value="E1104">
+            Conception de contenus multimédias (concepteur jeux vidéos, directeur artistique...)
+          </option>
+          <option value="E1205">
+            Réalisation de contenus multimédias (infographiste, UI/UX designer, graphiste 3D...)
+          </option>
+          <option value="M1403">
+            Etudes et prospectives socio-économiques (data analyst, data scientist...)
+          </option>
+          <option value="M1802">
+            Expertise et support en systèmes d'information (architecture, ingéniérie, management...)
+          </option>
+          <option value="M1805">
+            Etudes et développements informatiques (développeur web, analyste en cybersécurité...)
+          </option>
+          <option value="M1806">
+            Conseil et maîtrise d'ouvrage en systèmes d'information (product owner, consulting...)
+          </option>
+        </select>
+        <label for="metier" class="metier ">Métier</label>
       </div>
 
+      <div class="form-check mt-2 d-flex justify-content-start">
+        <input (change)="isChecked($event)" class="form-check-input" value="{{contract}}" type="checkbox"
+          id="flexCheckDefault" formControlName="inputAlternance" />
+        <label class="form-check-label" for="flexCheckDefault">Je cherche une alternance</label>
+      </div>
 
-        <div class="form-check mt-2 d-flex justify-content-start">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" value="alternance"
-            formControlName='inputAlternance' />
-          <label class="form-check-label" for="flexCheckDefault"> Je cherche une alternance </label>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <button class="buttonSearch" [disabled]='myForm.invalid' type="submit" (click)='onSubmit()'>Lancer la recherche</button>
       </div>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-          <button class="buttonSearch" [disabled]='myForm.invalid' type="submit" (click)='onSubmit()'>Lancer la recherche</button>
-        </div>
-      </div>
-      <div *ngIf="searchForm.get('inputRayon')?.errors?.required">
-        erreur sur le rayon
-      </div>
-    </div> 
-  
+    </div>
+    <div *ngIf="searchForm.get('inputRayon')?.errors?.required">
+      erreur sur le rayon
+    </div>
+  </div>
+
 </form>
