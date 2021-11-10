@@ -27,8 +27,6 @@ export const departements: string[] = [
   '27 - Eure',
   '28 - Eure-et-Loire',
   '29 - Finistère',
-  '2A - Corse-du-Sud',
-  '2B - Haute-Corse',
   '30 - Gard',
   '31 - Haute-Garonne',
   '32 - Gers',
@@ -95,9 +93,4 @@ export const departements: string[] = [
   '93 - Seine-Saint-Denis',
   '94 - Val-de-Marne',
   "95 - Val-d'Oise",
-  '971 - Guadeloupe',
-  '972 - Martinique',
-  '973 - Guyane',
-  '974 - La Réunion',
-  '976 - Mayotte',
 ];
