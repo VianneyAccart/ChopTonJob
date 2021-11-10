@@ -89,12 +89,10 @@ export class FormulaireComponent {
   // Add departments on the input
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-
     // Max departments is 5, user can't select more
     if (value && this.departments.length < 5) {
       this.departments.push(value);
     }
-
     // Clear the input value
     event.chipInput?.clear();
     this.departmentCtrl.setValue(null);
@@ -110,11 +108,14 @@ export class FormulaireComponent {
 
   // What happens when user select a department from the list
   selected(event: MatAutocompleteSelectedEvent): void {
-    //Reset the button when adding a department and the localization is done
+    // Reset the button when adding a department and the localization is done
     if (this.departments.length === 0) this.resetButton();
     // Max chips is 5, user can't select more
     if (this.departments.length < 5) {
       this.departments.push(event.option.viewValue);
+      // Remove department from list when added
+      const index = this.allDepartments.indexOf(event.option.viewValue);
+      this.allDepartments.splice(index, 1);
       if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
       this.departmentCtrl.setValue(null);
       // Add transformed string in a new array used for API request
