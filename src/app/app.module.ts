@@ -21,7 +21,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {GuideComponent} from './guide/guide.component';
-import {NewSearchFormComponent} from './new-search-form/new-search-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import {NewSearchFormComponent} from './new-search-form/new-search-form.componen
     FooterComponent,
     MentionsLegalesComponent,
     GuideComponent,
-    NewSearchFormComponent,
   ],
   imports: [
     BrowserModule,
