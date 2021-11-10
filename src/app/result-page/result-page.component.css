@@ -1,20 +1,21 @@
-/* Colonne contenant les options de nouvelle recherche */
+/* Column containing new search options */
+
 .col-md-4 {
   height: auto;
   border-right: solid 0.1px rgb(218, 216, 216);
 }
 
 #newSearchBtn {
-  /* Le bouton de nouvelle recherche est masqué sur desktop */
+  /* The new search button is hidden on desktop */
   display: none;
 }
 
-.row.p-3 {
-  /* Sur desktop, inutile d'afficher cette row */
+.row.py-3 {
+  /*  On desktop, no need to display this row */
   display: none;
 }
 
-/* Titre de la colonne de nouvelle recherche */
+/* New search column title */
 #newSearchTitle {
   font-size: 1.5rem;
   font-weight: 400;
@@ -22,24 +23,23 @@
   margin-bottom: 50px;
 }
 
-/* Phrase indiquant le nombre d'entreprises retournées */
+/* Sentence indicating the number of companies returned */
 .resultOfCompanies {
   margin: 50px 0 0 50px;
   font-size: 1.2rem;
 }
 
-/* Nombre d'entreprises retournées */
+/* Number of businesses returned */
 .numberOfCompanies {
   font-weight: 700;
 }
 
 .newSearchMenu {
-  /* Sur desktop, le bouton de nouvelle recherche est masqué car une colonne entière est dédiée à cela */
+  /* On desktop, the new search button is hidden because an entire column is dedicated to it */
   display: none;
 }
 
-/* Sur tous les écrans de moins de 768 px */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .logoPoleEmploiDesktop {
     display: none;
   }
@@ -53,14 +53,14 @@
     border: none;
   }
 
-  .row.p-3 {
-    /* Est masqué sur desktop, nécessité de l'afficher sur mobile */
+  .row.py-3 {
+    /* Is hidden on desktop, need to display it on mobile */
     display: flex;
   }
 
-  /* Titre de la colonne de nouvelle recherche */
+  /* Title of the new search column */
   #newSearchTitle {
-    /* Masqué car on en crée un nouveau ci-dessous pour le mobile */
+    /* Hidden because we create a new one below for the mobile */
     display: none;
   }
 
@@ -72,12 +72,12 @@
     padding-left: 40px;
   }
 
-  /* Bouton de nouvelle recherche */
+  /* New search button */
   #newSearchBtn {
     display: block;
   }
 
-  /* Bouton de nouvelle recherche */
+  /* New search button  */
   .newSearch {
     background-color: #aea1cd;
     height: 35px;
@@ -92,14 +92,14 @@
     width: 100px;
   }
 
-  /* Phrase indiquant le nombre d'entreprises retournées */
+  /* Sentence indicating the number of companies returned */
   .resultOfCompanies {
-    margin-top: 0;
-    margin-left: 20px;
+    margin: 0;
     font-size: 0.8rem;
+    text-align: center;
   }
 
-  /* Volet contenant les filtres de la nouvelle recherche */
+  /* Pane containing the filters for the new search */
   .newSearchMenu {
     display: block;
     background-color: white;
@@ -113,13 +113,13 @@
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.2);
   }
 
-  /* Quand le volet est ouvert, left passe de -100% à 0 donc devient visible */
+  /* When the pane is open, left goes from -100% to 0 therefore becomes visible */
   .newSearchMenu.active {
-    /* La classe active est ajoutée via la méthode openNewSearchMenu() */
+    /* The active class is added via the method openNewSearchMenu() */
     left: 0;
   }
 
-  /* Barres qui forment la croix "X" pour fermer le volet */
+  /* Bars that form the cross "X" to close the pane */
   .bar {
     display: block;
     width: 25px;
@@ -130,7 +130,7 @@
     background-color: #aea2cd;
   }
 
-  /* Diverses propriétés de la croix "X" de fermeture */
+  /* Various properties of the closing cross "X" */
   .bar:nth-child(2) {
     opacity: 0;
   }
