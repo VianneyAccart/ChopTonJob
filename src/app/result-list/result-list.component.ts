@@ -12,23 +12,21 @@ import {companies} from '../shared/mocks/companies.mock';
 export class ResultListComponent {
   // variable which will be used to store the values ​​for each variable of each company in the form of objects in an array
   cards: Card[];
-
   isShown: boolean;
-
-  displayInfo(card: Card) {
-    card.companyIsShown = !card.companyIsShown;
-  }
 
   constructor(config: NgbRatingConfig) {
     this.cards = [];
     // Customize the default max value
     config.max = 5;
     config.readonly = true;
-
     this.isShown = false;
   }
 
   ngOnInit(): void {
     this.cards = companies;
+  }
+
+  displayInfo(card: Card) {
+    card.companyIsShown = !card.companyIsShown;
   }
 }
