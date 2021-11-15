@@ -1,4 +1,4 @@
-import {Card} from './card-result.model';
+import {Card} from './Card.model';
 
 export class ResultCompanies {
   private _companies: Card[] | undefined;

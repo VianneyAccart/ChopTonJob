@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Card} from '../models/card-result.model';
+import {Card} from '../models/Card.model';
 import {Request} from '../models/Request.model';
 import {ResultCompanies} from '../models/ResultCompanies.model';
 
@@ -9,6 +9,7 @@ import {ResultCompanies} from '../models/ResultCompanies.model';
 })
 export class CompanyService {
   resultList: Card[] | undefined;
+  // Useful in case of error during API call
   errorRequest = {
     numero: 0,
     message: '',
@@ -23,23 +24,31 @@ export class CompanyService {
     this.resultList = [];
   }
 
+  // Get datas from API thanks to parameters given by form component
   public getCompanies(requestParams: Request) {
-    // Permet de récupérer le résultat de setParams dans request
+    // Use request in getCompanies
     const request = this.setParams(requestParams);
+    // Concat baseUrl and request to create perfect matching request
     this.http.get<ResultCompanies>(this.baseUrl + request).subscribe(
+      // If everything is good
       (response) => {
-        console.log(response.companies);
+        // First, empty the resultList to avoid double informations
         this.resultList?.splice(0, this.resultList.length);
+        // Push all elements of the response in resultList
         if (response.companies !== undefined) this.resultList?.push(...response.companies);
+        // Param the errorRequest
         this.errorRequest.numero = 0;
       },
+      // If there's an error
       (error) => {
+        // Param the errorRequest
         this.errorRequest.numero = 1;
         this.errorRequest.message = error;
       }
     );
   }
 
+  // Param the request according to user's choices to match the API pattern
   private setParams(requestParams: Request): string {
     let request = `rome_codes=${requestParams.romeCode}&contract=${requestParams.contract}&page_size=${this.pageSize}`;
     // If user uses geolocalization
@@ -56,6 +65,7 @@ export class CompanyService {
       requestParams.selectedDepartments !== undefined &&
       requestParams.selectedDepartments.length !== 0
     ) {
+      // Convert array of selected departments to string
       const stringDepartments = requestParams.selectedDepartments.toString();
       request = request.concat(`&departments=${stringDepartments}`);
     }

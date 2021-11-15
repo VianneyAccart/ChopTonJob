@@ -211,6 +211,7 @@ export class FormulaireComponent {
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
 
+    // What we'll send to CompanyService (Request type needed)
     const requestParameters = new Request(
       this.contract,
       this.romeCode,
@@ -220,7 +221,9 @@ export class FormulaireComponent {
       this.distance
     );
 
+    // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
+    // Navigate to result component
     this.router.navigate(['/result']);
   }
 }
