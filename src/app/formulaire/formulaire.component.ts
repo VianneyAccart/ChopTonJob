@@ -11,8 +11,6 @@ import {
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import {departements} from '../shared/mocks/departements.mock';
 
 @Component({
@@ -28,7 +26,7 @@ export class FormulaireComponent {
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   departmentCtrl = new FormControl();
-  filteredDepartments: Observable<string[]>;
+  filteredDepartments: string[];
   departments: string[];
   allDepartments: string[];
   zoom: any;
@@ -85,12 +83,7 @@ export class FormulaireComponent {
     this.departments = [];
     this.requestDepartments = [];
     this.allDepartments = departements;
-    this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
-      startWith(null),
-      map((department: string | null) =>
-        department ? this._filter(department) : this.allDepartments.slice()
-      )
-    );
+    this.filteredDepartments = this.allDepartments;
   }
 
   // Add departments on the input
@@ -105,11 +98,22 @@ export class FormulaireComponent {
     this.departmentCtrl.setValue(null);
   }
 
-  // Remove departments from the input
+  // Remove departments from the input and push them in allDepartments
   remove(department: string): void {
     const index = this.departments.indexOf(department);
     if (index >= 0) {
       this.departments.splice(index, 1);
+      this.allDepartments.unshift(department);
+      //Sort the allDepartments array
+      this.allDepartments.sort(function (a, b) {
+        if (a < b) {
+          return -1;
+        }
+        if (a > b) {
+          return 1;
+        }
+        return 0;
+      });
     }
   }
 
@@ -121,20 +125,13 @@ export class FormulaireComponent {
     if (this.departments.length < 5) {
       this.departments.push(event.option.viewValue);
       // Remove department from list when added
-      const index = this.allDepartments.indexOf(event.option.viewValue);
-      this.allDepartments.splice(index, 1);
+      const indexAllDepartments = this.allDepartments.indexOf(event.option.viewValue);
+      this.allDepartments.splice(indexAllDepartments, 1);
       if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
       this.departmentCtrl.setValue(null);
       // Add transformed string in a new array used for API request
       this.requestDepartments = this.departments.map((department) => department.substring(0, 2));
     }
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.allDepartments.filter((department) =>
-      department.toLowerCase().includes(filterValue)
-    );
   }
 
   // Allows user to reset localisation and ray when a department is selected
