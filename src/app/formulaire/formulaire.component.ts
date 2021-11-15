@@ -11,6 +11,7 @@ import {
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Router} from '@angular/router';
+import {AuthGuard} from '../shared/guards/auth.guard';
 import {departements} from '../shared/mocks/departements.mock';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
@@ -90,7 +91,8 @@ export class FormulaireComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private authGuard: AuthGuard
   ) {
     this.page = 1;
     this.pageSize = 100;
@@ -208,6 +210,8 @@ export class FormulaireComponent {
 
   // What happens when searchform is sent
   onSubmit() {
+    // Allow access to result component (blocked by default)
+    this.authGuard.canAccess = true;
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
 
