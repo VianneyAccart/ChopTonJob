@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
+import {Router} from '@angular/router';
 import {departements} from '../shared/mocks/departements.mock';
 
 @Component({
@@ -31,12 +32,15 @@ export class FormulaireComponent {
   zoom: any;
 
   // Used for API request
+  request: string;
   latitude: any;
   longitude: any;
   requestDepartments: string[];
   distance: string | undefined;
   contract: string;
   romeCode: string;
+  pageSize: number;
+  page: number;
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
   // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
@@ -67,9 +71,12 @@ export class FormulaireComponent {
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
 
-  constructor(private fb: FormBuilder) {
-    this.contract = 'dpae';
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.page = 1;
+    this.pageSize = 100;
     this.romeCode = '';
+    this.request = '';
+    this.contract = 'dpae';
     this.localisationButtonColor = 'transparent';
     this.localisationButtonText = 'Être localisé';
     this.localisationButtonTextColor = '#aea2cd';
@@ -181,10 +188,21 @@ export class FormulaireComponent {
 
   // What happens when searchform is sent
   onSubmit() {
+    // Component must be fully charged to implement those variables
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
-    alert(
-      `https://api.emploi-store.fr/partenaire/labonneboite/v1/company/?departments=${this.requestDepartments}&distance=${this.distance}&latitude=${this.latitude}&longitude=${this.longitude}&rome_codes=${this.romeCode}&contract=${this.contract}`
-    );
+    let request = `https://rechercheinformatique.fr/queryapi.php?&rome_codes=${this.romeCode}&contract=${this.contract}&page_size=${this.pageSize}`;
+    // If user uses geolocalization
+    if (this.latitude !== '' && this.longitude !== '' && this.distance !== undefined) {
+      request = request.concat(
+        `&latitude=${this.latitude}&longitude=${this.longitude}&distance=${this.distance}`
+      );
+      // If user uses departments instead of geolocalization
+    } else if (this.requestDepartments.length !== 0) {
+      const stringDepartments = this.requestDepartments.toString();
+      request = request.concat(`&departments=${stringDepartments}`);
+    }
+    this.router.navigate(['/result']);
+    alert(request);
   }
 }
