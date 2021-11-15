@@ -21,6 +21,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {GuideComponent} from './guide/guide.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {GuideComponent} from './guide/guide.component';
     MatSelectModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],

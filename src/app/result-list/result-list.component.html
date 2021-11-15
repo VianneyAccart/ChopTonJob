@@ -7,15 +7,15 @@
                 <div class="container col p-0">
                     <div class="row">
                         <div class="card-title row bold companyName">
-                            {{card.companyName}}
+                            {{card.name}}
                         </div>
 
                         <div class="card-title row normal ">
-                            {{card.companyRaisonSociale}}
+                            {{card.naf_text}}
                         </div>
 
                         <div class="card-title row normal">
-                            {{card.companyCity}}
+                            {{card.city}}
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-6 ">
                         <div class="bold">
                             <!-- Transform boolean into Yes or No-->
-                            Alternance : <span class="normal">{{card.companyAlternance ? 'Oui' : 'Non' }}</span>
+                            Alternance : <span class="normal">{{card.alternance ? 'Oui' : 'Non' }}</span>
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="normal alignRight">
-                            <ngb-rating [rate]="card.companyStars" class="starColor"></ngb-rating>
+                            <ngb-rating [rate]="card.stars" class="starColor"></ngb-rating>
                         </div>
                     </div>
                 </div>
@@ -46,43 +46,47 @@
             <!-- BUTTON TO DISPLAY THE HIDDEN PART  -->
             <p class="m-0">
                 <button type="button" class="newSearch  mt-4" (click)="displayInfo(card)">
-                    {{ card.companyIsShown ? 'Moins d\'infos' : 'Plus d\'infos' }}
+                    {{ card.is_shown ? 'Moins d\'infos' : 'Plus d\'infos' }}
                 </button>
 
             </p>
 
             <!--MORE INFO PART (hidden) -->
-            <div *ngIf='this.card.companyIsShown' class="container mt-4 mb-0 p-0">
+            <div *ngIf='this.card.is_shown' class="container mt-4 mb-0 p-0">
                 <div class="row">
 
                     <div class=" col-md-6">
 
-                        <div class="card-title  bold "> Raison Sociale
-                            <p class="card-text  normal ">{{card.companyRaisonSociale}}</p>
+                        <div class="card-title  bold "> Activité
+                            <p class="card-text  normal ">{{card.naf_text}}</p>
                         </div>
 
                         <div class="card-title bold "> SIRET
-                            <p class="card-text  normal"> {{card.companySiret}} </p>
+                            <p class="card-text  normal"> {{card.siret}} </p>
                         </div>
 
                         <div class="card-title  bold"> Adresse
-                            <p class="card-text  normal">{{card.companyAddress}}</p>
+                            <p class="card-text  normal">{{card.address}}</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 ">
 
                         <div class="card-title bold alignRight"> Nombre de salariés
-                            <p class="card-text  normal ">{{card.companyHeadcount}}</p>
+                            <p class="card-text  normal ">{{card.headcount_text}}</p>
                         </div>
 
-                        <div class="card-title  bold alignRight"> Téléphone
-                            <p class="card-text  normal ">{{card.companyContact}}</p>
+                        <div class="card-title  bold alignRight"> Mode de contact
+                            <p class="card-text  normal ">{{card.contact_mode}}</p>
                         </div>
 
                         <div class="card-title  bold alignRight"> Site web <br>
-                            <a href="{{card.companyUrl}}" class="card-text  normal" target="_blank" rel="noopener" rel="noreferrer">{{card.companyName}}</a>
+                            <div *ngIf='card.website else noWebsite' class="normal">
+                                <a href="{{card.website}}" class="card-text  normal" target="_blank" rel="noopener" rel="noreferrer">{{card.name}}</a>
+                            </div>
                         </div>
+
+                        <ng-template #noWebsite class="normal">Pas de site web</ng-template>
                     </div>
                 </div>
             </div>

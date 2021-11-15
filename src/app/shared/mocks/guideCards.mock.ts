@@ -1,4 +1,4 @@
-import {GuideCard} from '../models/guideCard.model';
+import {GuideCard} from '../models/GuideCard.model';
 
 export const cards: GuideCard[] = [
   new GuideCard(

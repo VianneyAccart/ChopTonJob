@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {GuideCard} from '../shared/models/guideCard.model';
+import {GuideCard} from '../shared/models/GuideCard.model';
 import {cards} from '../shared/mocks/guideCards.mock';
 
 @Component({
