@@ -1,4 +1,4 @@
-export class teamMember {
+export class TeamMember {
   private _name: string;
   private _lastname: string;
   private _imgSrc: string;

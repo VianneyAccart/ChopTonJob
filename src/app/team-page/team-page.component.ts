@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {teamMember} from '../shared/models/teamMember.model';
+import {TeamMember} from '../shared/models/TeamMember.model';
 
 @Component({
   selector: 'app-team-page',
@@ -8,7 +8,7 @@ import {teamMember} from '../shared/models/teamMember.model';
   styleUrls: ['./team-page.component.css'],
 })
 export class TeamPageComponent implements OnInit {
-  members: teamMember[];
+  members: TeamMember[];
 
   constructor(private titleService: Title) {
     this.members = [];
@@ -18,7 +18,7 @@ export class TeamPageComponent implements OnInit {
   ngOnInit(): void {
     this.setTitle('Découvrez notre équipe !');
     this.members.push(
-      new teamMember(
+      new TeamMember(
         'Karim',
         'Boudjemai',
         'assets/img/karim.png',
@@ -26,7 +26,7 @@ export class TeamPageComponent implements OnInit {
         'https://github.com/Kariim42',
         'https://www.linkedin.com/in/karim-boudjemai-%F0%9F%96%A5-87490b221/'
       ),
-      new teamMember(
+      new TeamMember(
         'Vianney',
         'Accart',
         'assets/img/vianney.png',
@@ -34,7 +34,7 @@ export class TeamPageComponent implements OnInit {
         'https://github.com/VianneyAccart',
         'https://www.linkedin.com/in/vianneyaccart/'
       ),
-      new teamMember(
+      new TeamMember(
         'Camille',
         'Frelat',
         'assets/img/camille.png',
@@ -42,7 +42,7 @@ export class TeamPageComponent implements OnInit {
         'https://github.com/camfrelat',
         'www.linkedin.com/in/camillefrelat'
       ),
-      new teamMember(
+      new TeamMember(
         'Adam',
         'Roux',
         'assets/img/adam.jpg',
