@@ -9,6 +9,7 @@ import {ResultCompanies} from '../models/ResultCompanies.model';
 })
 export class CompanyService {
   resultList: Card[] | undefined;
+  totalResult: number | undefined;
   // Useful in case of error during API call
   errorRequest = {
     numero: 0,
@@ -32,6 +33,8 @@ export class CompanyService {
     this.http.get<ResultCompanies>(this.baseUrl + request).subscribe(
       // If everything is good
       (response) => {
+        this.totalResult = response.companies_count;
+        console.log(response.companies_count);
         // First, empty the resultList to avoid double informations
         this.resultList?.splice(0, this.resultList.length);
         // Push all elements of the response in resultList
