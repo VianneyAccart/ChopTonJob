@@ -1,244 +1,234 @@
 export class Card {
-  private _companyName: string;
-  private _companyRaisonSociale: string;
-  private _companyCity: string;
-  private _companyAlternance: boolean;
-  private _companyStars: number;
-  private _companyHeadcount: string;
-  private _companySiret: string;
-  private _companyContact: string;
-  private _companyAddress: string;
-  private _companyNaf: string;
-  private _companyUrl: string;
-  private _companyIsShown: boolean;
+  private _address: string;
+  private _alternance: boolean;
+  private _city: string;
+  private _headcount_text: string;
+  private _name: string;
+  private _siret: string;
+  private _stars: number;
+  private _website: string;
+  private _naf_text: string;
+  private _raison_sociale: string;
+  private _contact_mode: string;
+  private _is_shown: boolean;
 
   constructor(
-    companyName: string,
-    companyRaisonSociale: string,
-    companyCity: string,
-    companyAlternance: boolean,
-    companyStars: number,
-    companyHeadcount: string,
-    companySiret: string,
-    companyContact: string,
-    companyAddress: string,
-    companyNaf: string,
-    companyUrl: string,
-    companyIsShown: boolean
+    address: string,
+    alternance: boolean,
+    city: string,
+    headcount_text: string,
+    name: string,
+    siret: string,
+    stars: number,
+    website: string,
+    naf_text: string,
+    raison_sociale: string,
+    contact_mode: string,
+    is_shown = false
   ) {
-    this._companyName = companyName;
-    this._companyRaisonSociale = companyRaisonSociale;
-    this._companyCity = companyCity;
-    this._companyAlternance = companyAlternance;
-    this._companyStars = companyStars;
-    this._companyHeadcount = companyHeadcount;
-    this._companySiret = companySiret;
-    this._companyContact = companyContact;
-    this._companyAddress = companyAddress;
-    this._companyNaf = companyNaf;
-    this._companyUrl = companyUrl;
-    this._companyIsShown = companyIsShown;
+    this._address = address;
+    this._alternance = alternance;
+    this._city = city;
+    this._naf_text = naf_text;
+    this._headcount_text = headcount_text;
+    this._raison_sociale = raison_sociale;
+    this._name = name;
+    this._siret = siret;
+    this._stars = stars;
+    this._website = website;
+    this._contact_mode = contact_mode;
+    this._is_shown = is_shown;
   }
 
   /**
-   * Getter companyIsShown
+   * Getter is_shown
    * @return {boolean}
    */
-  public get companyIsShown(): boolean {
-    return this._companyIsShown;
+  public get is_shown(): boolean {
+    return this._is_shown;
   }
 
   /**
-   * Setter companyIsShown
+   * Setter is_shown
    * @param {boolean} value
    */
-  public set companyIsShown(value: boolean) {
-    this._companyIsShown = value;
+  public set is_shown(value: boolean) {
+    this._is_shown = value;
   }
 
   /**
-   * Getter companyName
+   * Getter address
    * @return {string}
    */
-  public get companyName(): string {
-    return this._companyName;
+  public get address(): string {
+    return this._address;
   }
 
   /**
-   * Getter companyRaisonSociale
-   * @return {string}
+   * Setter address
+   * @param {string} value
    */
-  public get companyRaisonSociale(): string {
-    return this._companyRaisonSociale;
+  public set address(value: string) {
+    this._address = value;
   }
 
   /**
-   * Getter companyCity
-   * @return {string}
-   */
-  public get companyCity(): string {
-    return this._companyCity;
-  }
-
-  /**
-   * Getter companyAlternance
+   * Getter alternance
    * @return {boolean}
    */
-  public get companyAlternance(): boolean {
-    return this._companyAlternance;
+  public get alternance(): boolean {
+    return this._alternance;
   }
 
   /**
-   * Getter companyStars
+   * Setter alternance
+   * @param {boolean} value
+   */
+  public set alternance(value: boolean) {
+    this._alternance = value;
+  }
+
+  /**
+   * Getter city
+   * @return {string}
+   */
+  public get city(): string {
+    return this._city;
+  }
+
+  /**
+   * Setter city
+   * @param {string} value
+   */
+  public set city(value: string) {
+    this._city = value;
+  }
+
+  /**
+   * Getter headcount_text
+   * @return {string}
+   */
+  public get headcount_text(): string {
+    return this._headcount_text;
+  }
+
+  /**
+   * Setter headcount_text
+   * @param {string} value
+   */
+  public set headcount_text(value: string) {
+    this._headcount_text = value;
+  }
+
+  /**
+   * Getter name
+   * @return {string}
+   */
+  public get name(): string {
+    return this._name;
+  }
+
+  /**
+   * Setter name
+   * @param {string} value
+   */
+  public set name(value: string) {
+    this._name = value;
+  }
+
+  /**
+   * Getter siret
+   * @return {string}
+   */
+  public get siret(): string {
+    return this._siret;
+  }
+
+  /**
+   * Setter siret
+   * @param {string} value
+   */
+  public set siret(value: string) {
+    this._siret = value;
+  }
+
+  /**
+   * Getter stars
    * @return {number}
    */
-  public get companyStars(): number {
-    return this._companyStars;
+  public get stars(): number {
+    return this._stars;
   }
 
   /**
-   * Getter companyHeadcount
-   * @return {string}
-   */
-  public get companyHeadcount(): string {
-    return this._companyHeadcount;
-  }
-
-  /**
-   * Getter companySiret
-   * @return {string}
-   */
-  public get companySiret(): string {
-    return this._companySiret;
-  }
-
-  /**
-   * Getter companyContact
-   * @return {string}
-   */
-  public get companyContact(): string {
-    return this._companyContact;
-  }
-
-  /**
-   * Getter companyAddress
-   * @return {string}
-   */
-  public get companyAddress(): string {
-    return this._companyAddress;
-  }
-
-  /**
-   * Getter companyNaf
-   * @return {string}
-   */
-  public get companyNaf(): string {
-    return this._companyNaf;
-  }
-
-  /**
-   * Setter companyName
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyName(value: string) {
-    this._companyName = value;
-  }
-
-  /**
-   * Setter companyRaisonSociale
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyRaisonSociale(value: string) {
-    this._companyRaisonSociale = value;
-  }
-
-  /**
-   * Setter companyCity
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyCity(value: string) {
-    this._companyCity = value;
-  }
-
-  /**
-   * Setter companyAlternance
-   * @param {boolean} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyAlternance(value: boolean) {
-    this._companyAlternance = value;
-  }
-
-  /**
-   * Setter companyStars
+   * Setter stars
    * @param {number} value
    */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyStars(value: number) {
-    this._companyStars = value;
+  public set stars(value: number) {
+    this._stars = value;
   }
 
   /**
-   * Setter companyHeadcount
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyHeadcount(value: string) {
-    this._companyHeadcount = value;
-  }
-
-  /**
-   * Setter companySiret
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companySiret(value: string) {
-    this._companySiret = value;
-  }
-
-  /**
-   * Setter companyContact
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyContact(value: string) {
-    this._companyContact = value;
-  }
-
-  /**
-   * Setter companyAddress
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyAddress(value: string) {
-    this._companyAddress = value;
-  }
-
-  /**
-   * Setter companyNaf
-   * @param {string} value
-   */
-  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-  public set companyNaf(value: string) {
-    this._companyNaf = value;
-  }
-
-  /**
-   * Getter companyUrl
+   * Getter website
    * @return {string}
    */
-  public get companyUrl(): string {
-    return this._companyUrl;
+  public get website(): string {
+    return this._website;
   }
 
   /**
-   * Setter companyUrl
+   * Setter website
    * @param {string} value
    */
-  public set companyUrl(value: string) {
-    this._companyUrl = value;
+  public set website(value: string) {
+    this._website = value;
+  }
+
+  /**
+   * Getter naf_text
+   * @return {string}
+   */
+  public get naf_text(): string {
+    return this._naf_text;
+  }
+
+  /**
+   * Setter naf_text
+   * @param {string} value
+   */
+  public set naf_text(value: string) {
+    this._naf_text = value;
+  }
+
+  /**
+   * Getter raison_sociale
+   * @return {string}
+   */
+  public get raison_sociale(): string {
+    return this._raison_sociale;
+  }
+
+  /**
+   * Setter raison_sociale
+   * @param {string} value
+   */
+  public set raison_sociale(value: string) {
+    this._raison_sociale = value;
+  }
+
+  /**
+   * Getter contact_mode
+   * @return {string}
+   */
+  public get contact_mode(): string {
+    return this._contact_mode;
+  }
+
+  /**
+   * Setter contact_mode
+   * @param {string} value
+   */
+  public set contact_mode(value: string) {
+    this._contact_mode = value;
   }
 }

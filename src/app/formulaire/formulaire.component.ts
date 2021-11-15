@@ -12,6 +12,8 @@ import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Router} from '@angular/router';
 import {departements} from '../shared/mocks/departements.mock';
+import {Request} from '../shared/models/Request.model';
+import {CompanyService} from '../shared/services/company.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -35,7 +37,7 @@ export class FormulaireComponent {
   request: string;
   latitude: any;
   longitude: any;
-  requestDepartments: string[];
+  selectedDepartments: string[];
   distance: string | undefined;
   contract: string;
   romeCode: string;
@@ -61,6 +63,20 @@ export class FormulaireComponent {
           };
     };
 
+  /*
+  private _request: string;
+  private _latitude: any;
+  private _longitude: any;
+  private _selectedDepartments: string[];
+  private _distance: string;
+  private _contract: string;
+  private _romeCode: string;
+  private _pageSize: number;
+  private _page: number;
+
+
+  
+    */
   searchForm = this.fb.group(
     {
       inputDepartement: [''],
@@ -71,7 +87,11 @@ export class FormulaireComponent {
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private companyService: CompanyService
+  ) {
     this.page = 1;
     this.pageSize = 100;
     this.romeCode = '';
@@ -81,7 +101,7 @@ export class FormulaireComponent {
     this.localisationButtonText = 'Être localisé';
     this.localisationButtonTextColor = '#aea2cd';
     this.departments = [];
-    this.requestDepartments = [];
+    this.selectedDepartments = [];
     this.allDepartments = departements;
     this.filteredDepartments = this.allDepartments;
   }
@@ -130,7 +150,7 @@ export class FormulaireComponent {
       if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
       this.departmentCtrl.setValue(null);
       // Add transformed string in a new array used for API request
-      this.requestDepartments = this.departments.map((department) => department.substring(0, 2));
+      this.selectedDepartments = this.departments.map((department) => department.substring(0, 2));
     }
   }
 
@@ -156,7 +176,7 @@ export class FormulaireComponent {
       // Remove departments from list
       this.departments.splice(0, this.departments.length);
       // Remove departments from request list too
-      this.requestDepartments.splice(0, this.requestDepartments.length);
+      this.selectedDepartments.splice(0, this.selectedDepartments.length);
     }
   }
 
@@ -188,21 +208,19 @@ export class FormulaireComponent {
 
   // What happens when searchform is sent
   onSubmit() {
-    // Component must be fully charged to implement those variables
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
-    let request = `https://rechercheinformatique.fr/queryapi.php?&rome_codes=${this.romeCode}&contract=${this.contract}&page_size=${this.pageSize}`;
-    // If user uses geolocalization
-    if (this.latitude !== '' && this.longitude !== '' && this.distance !== undefined) {
-      request = request.concat(
-        `&latitude=${this.latitude}&longitude=${this.longitude}&distance=${this.distance}`
-      );
-      // If user uses departments instead of geolocalization
-    } else if (this.requestDepartments.length !== 0) {
-      const stringDepartments = this.requestDepartments.toString();
-      request = request.concat(`&departments=${stringDepartments}`);
-    }
+
+    const requestParameters = new Request(
+      this.contract,
+      this.romeCode,
+      this.latitude,
+      this.longitude,
+      this.selectedDepartments,
+      this.distance
+    );
+
+    this.companyService.getCompanies(requestParameters);
     this.router.navigate(['/result']);
-    alert(request);
   }
 }
