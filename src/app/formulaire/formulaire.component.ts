@@ -117,10 +117,8 @@ export class FormulaireComponent {
       this.departments.push(event.option.viewValue);
       if (this.departmentInput !== undefined) this.departmentInput.nativeElement.value = '';
       this.departmentCtrl.setValue(null);
-      // Add transformed string in a new array used for API request : ["01 - Ain", "976 - Mayotte"] becomes ["01","976"]
-      this.requestDepartments = this.departments.map((department) =>
-        department.substring(0, 3).trim()
-      );
+      // Add transformed string in a new array used for API request
+      this.requestDepartments = this.departments.map((department) => department.substring(0, 2));
     }
   }
 
@@ -183,7 +181,7 @@ export class FormulaireComponent {
     event.target.checked ? (this.contract = 'alternance') : (this.contract = 'dpae');
   }
 
-  // What happens when searchform is send
+  // What happens when searchform is sent
   onSubmit() {
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
