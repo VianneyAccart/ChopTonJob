@@ -194,7 +194,7 @@ export class FormulaireComponent {
     event.target.checked ? (this.contract = 'alternance') : (this.contract = 'dpae');
   }
 
-  // What happens when searchform is sent
+  // What happens when searchform is sent.
   onSubmit() {
     // Allow access to result component (blocked by default)
     this.authGuard.canAccess = true;
