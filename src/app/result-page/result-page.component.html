@@ -25,17 +25,26 @@
 
         <!-- Row containing the search button and the Pôle Emploi logo on mobile -->
         <div class="d-flex justify-content-center">
-        <div class="row col-md-10 col-sm-10 col-12 py-3">
-          <div class="col-8 d-flex justify-content-start align-items-center">
-            <button (click)="openNewSearchMenu()" id="newSearchBtn" type="button" class="btn newSearch">
-              Nouvelle recherche
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
-            <img class="logoPoleEmploi img-fluid" src="assets/img/logo-pole-emploi.png" alt="Logo de Pôle Emploi" />
+          <div class="row col-md-10 col-sm-10 col-12 py-3">
+            <div class="col-8 d-flex justify-content-start align-items-center">
+              <button
+                (click)="openNewSearchMenu()"
+                id="newSearchBtn"
+                type="button"
+                class="btn newSearch"
+              >
+                Nouvelle recherche
+              </button>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+              <img
+                class="logoPoleEmploi img-fluid"
+                src="assets/img/logo-pole-emploi.png"
+                alt="Logo de Pôle Emploi"
+              />
+            </div>
           </div>
         </div>
-      </div>
 
         <div class="row mt-5">
           <div class="col-12">
@@ -47,8 +56,11 @@
                 </h2>
               </div>
               <div class="col-4">
-                <img class="logoPoleEmploiDesktop img-fluid" src="assets/img/logo-pole-emploi.png"
-                  alt="Logo de Pôle Emploi" />
+                <img
+                  class="logoPoleEmploiDesktop img-fluid"
+                  src="assets/img/logo-pole-emploi.png"
+                  alt="Logo de Pôle Emploi"
+                />
               </div>
             </div>
             <div class="desktopForm">
@@ -60,19 +72,28 @@
 
       <!-- Column containing the search results -->
       <div class="col-lg-8">
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf='requestInfo.count === 1'>
-          <span class="numberOfCompanies">{{requestInfo.count}}</span> entreprise correspond à votre recherche.
+        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count === 1">
+          <span class="numberOfCompanies">{{ requestInfo.count }}</span> entreprise correspond à
+          votre recherche.
         </p>
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf='requestInfo.count === 0'>
+        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count === 0">
           <span class="numberOfCompanies">Aucune</span> entreprise ne correspond à votre recherche.
         </p>
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf='requestInfo.count > 1'>
-          <span class="numberOfCompanies">{{requestInfo.count}}</span> entreprises correspondent à votre recherche.
+        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count > 1">
+          <span class="numberOfCompanies">{{ requestInfo.count }}</span> entreprises correspondent à
+          votre recherche.
         </p>
 
         <app-result-list></app-result-list>
       </div>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
   </div>
   <app-footer></app-footer>
 </div>

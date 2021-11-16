@@ -17,12 +17,14 @@ export class CompanyService {
   };
   requestInfo: any = {
     page: 1,
-    pageSize: 100,
+    pageSize: 20,
     count: 0,
   };
   pageSize: number;
   page: number;
   baseUrl: string;
+  requestParams: Request | undefined;
+
   constructor(private http: HttpClient, private titleService: Title) {
     this.pageSize = 100;
     this.page = 1;
@@ -31,7 +33,8 @@ export class CompanyService {
   }
 
   // Get datas from API thanks to parameters given by form component
-  public getCompanies(requestParams: Request): any {
+  public getCompanies(requestParams: Request, page?: number): any {
+    this.requestParams = requestParams;
     // Use request in getCompanies
     const request = this.setParams(requestParams);
     // Concat baseUrl and request to create perfect matching request
@@ -83,5 +86,19 @@ export class CompanyService {
 
   public setTitleCountCompanies(countCompanies: string) {
     this.titleService.setTitle(`${countCompanies} entreprises correspondent à votre recherche !`);
+  }
+
+  //resent request with user's parameters and change page number
+  getNextCompagnies() {
+    this.requestInfo.page++;
+    if (this.requestParams !== undefined)
+      this.getCompanies(this.requestParams, this.requestInfo.page);
+  }
+
+  //resent request with user's parameters and change page number
+  getPreviousCompagnies() {
+    this.requestInfo.page--;
+    if (this.requestParams !== undefined)
+      this.getCompanies(this.requestParams, this.requestInfo.page);
   }
 }
