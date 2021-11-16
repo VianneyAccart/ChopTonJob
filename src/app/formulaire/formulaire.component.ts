@@ -13,9 +13,9 @@ import {MatChipInputEvent} from '@angular/material/chips';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {AuthGuard} from '../shared/guards/auth.guard';
+import {departements} from '../shared/mocks/departements.mock';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
-import {DepartmentsService} from '../shared/services/departments.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -26,13 +26,15 @@ export class FormulaireComponent {
   localisationButtonText: string;
   localisationButtonColor: string;
   localisationButtonTextColor: string;
-  // selectable and removable are used in formulaire.component.html
   selectable = true;
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   departmentCtrl = new FormControl();
+  filteredDepartments: string[];
   departments: string[];
   allDepartments: string[];
+  zoom: any;
+
   // Used for API request
   request: string;
   latitude: any;
@@ -44,32 +46,8 @@ export class FormulaireComponent {
   pageSize: number;
   page: number;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private companyService: CompanyService,
-    private authGuard: AuthGuard,
-    private departmentsService: DepartmentsService
-  ) {
-    this.page = 1;
-    this.pageSize = 100;
-    this.romeCode = '';
-    this.request = '';
-    this.contract = 'dpae';
-    this.localisationButtonColor = 'transparent';
-    this.localisationButtonText = 'Être localisé';
-    this.localisationButtonTextColor = '#aea2cd';
-    this.departments = [];
-    this.selectedDepartments = [];
-    this.allDepartments = [];
-    // Call the departments.json which is list of departments
-    this.departmentsService.getDepartments().subscribe((response) => {
-      this.allDepartments = response;
-    });
-  }
-
-  // Verify if there's at least 1 input valid between departments and localisation
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
+  // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
   atLeastOne =
     (validator: ValidatorFn, controls: string[]) =>
     (group: FormGroup): ValidationErrors | null => {
@@ -97,6 +75,27 @@ export class FormulaireComponent {
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
   requestInfo: any;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private companyService: CompanyService,
+    private authGuard: AuthGuard,
+    private titleService: Title
+  ) {
+    this.page = 1;
+    this.pageSize = 100;
+    this.romeCode = '';
+    this.request = '';
+    this.contract = 'dpae';
+    this.localisationButtonColor = 'transparent';
+    this.localisationButtonText = 'Être localisé';
+    this.localisationButtonTextColor = '#aea2cd';
+    this.departments = [];
+    this.selectedDepartments = [];
+    this.allDepartments = departements;
+    this.filteredDepartments = this.allDepartments;
+  }
 
   // Add departments on the input
   add(event: MatChipInputEvent): void {
@@ -148,12 +147,12 @@ export class FormulaireComponent {
 
   // Allows user to reset localisation and ray when a department is selected
   resetButton(): void {
-    // Reset the ray value
+    // reset the ray of <select>
     this.searchForm.controls['inputRayon'].reset('');
     // If they exist, make latitude and longitude empty string
-    if (this.latitude !== '' && this.longitude !== '') {
-      this.latitude = '';
-      this.longitude = '';
+    if (this.latitude !== undefined && this.longitude !== undefined) {
+      this.latitude = undefined;
+      this.longitude = undefined;
 
       //Reset button to default values
       this.localisationButtonText = 'Être localisé';
@@ -182,6 +181,7 @@ export class FormulaireComponent {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
+        this.zoom = 16;
 
         // Change button text and style
         this.localisationButtonText = 'Localisation acquise';
@@ -199,7 +199,7 @@ export class FormulaireComponent {
 
   // What happens when searchform is sent
   onSubmit() {
-    // Allow access to result component (blocked by default in guards)
+    // Allow access to result component (blocked by default)
     this.authGuard.canAccess = true;
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
@@ -218,5 +218,18 @@ export class FormulaireComponent {
     this.companyService.getCompanies(requestParameters);
     // Navigate to result component
     this.router.navigate(['/result']);
+
+    //reset departments array on submit to have complete list of departments for new search
+    this.allDepartments.unshift(...this.departments);
+
+    this.allDepartments.sort(function (a, b) {
+      if (a < b) {
+        return -1;
+      }
+      if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
   }
 }
