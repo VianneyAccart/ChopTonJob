@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {GuideCard} from '../shared/models/GuideCard.model';
+import {GuideCard} from '../shared/models/guideCard.model';
 import {GuideService} from '../shared/services/guide.service';
 
 @Component({
