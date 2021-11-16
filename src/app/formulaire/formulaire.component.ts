@@ -15,6 +15,7 @@ import {AuthGuard} from '../shared/guards/auth.guard';
 import {departements} from '../shared/mocks/departements.mock';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
+import {DepartmentsService} from '../shared/services/departments.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -64,20 +65,6 @@ export class FormulaireComponent {
           };
     };
 
-  /*
-  private _request: string;
-  private _latitude: any;
-  private _longitude: any;
-  private _selectedDepartments: string[];
-  private _distance: string;
-  private _contract: string;
-  private _romeCode: string;
-  private _pageSize: number;
-  private _page: number;
-
-
-  
-    */
   searchForm = this.fb.group(
     {
       inputDepartement: [''],
@@ -92,7 +79,8 @@ export class FormulaireComponent {
     private fb: FormBuilder,
     private router: Router,
     private companyService: CompanyService,
-    private authGuard: AuthGuard
+    private authGuard: AuthGuard,
+    private departmentsService: DepartmentsService
   ) {
     this.page = 1;
     this.pageSize = 100;
@@ -104,7 +92,14 @@ export class FormulaireComponent {
     this.localisationButtonTextColor = '#aea2cd';
     this.departments = [];
     this.selectedDepartments = [];
-    this.allDepartments = departements;
+    this.allDepartments = [];
+    // Call the departments.json which is list of departments
+    console.log(this.allDepartments);
+    this.departmentsService.getDepartments().subscribe((response) => {
+      console.log(response);
+      this.allDepartments = response;
+    });
+    console.log(this.allDepartments);
     this.filteredDepartments = this.allDepartments;
   }
 
