@@ -229,5 +229,20 @@ export class FormulaireComponent {
     this.companyService.getCompanies(requestParameters);
     // Navigate to result component
     this.router.navigate(['/result']);
+
+    //reset departments array on submit to have complete list of departments for new search
+    this.allDepartments.unshift(...this.departments);
+
+    this.allDepartments.sort(function (a, b) {
+      if (a < b) {
+        return -1;
+      }
+      if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
+   
+   
   }
 }
