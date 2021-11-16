@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
+import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {AuthGuard} from '../shared/guards/auth.guard';
 import {departements} from '../shared/mocks/departements.mock';
@@ -73,12 +74,14 @@ export class FormulaireComponent {
     },
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
+  requestInfo: any;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private companyService: CompanyService,
-    private authGuard: AuthGuard
+    private authGuard: AuthGuard,
+    private titleService: Title
   ) {
     this.page = 1;
     this.pageSize = 100;

@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 import {Card} from '../models/Card.model';
 import {Request} from '../models/Request.model';
 import {ResultCompanies} from '../models/ResultCompanies.model';
@@ -9,16 +10,20 @@ import {ResultCompanies} from '../models/ResultCompanies.model';
 })
 export class CompanyService {
   resultList: Card[] | undefined;
-  totalResult: number | undefined;
   // Useful in case of error during API call
   errorRequest = {
     numero: 0,
     message: '',
   };
+  requestInfo: any = {
+    page: 1,
+    pageSize: 100,
+    count: 0,
+  };
   pageSize: number;
   page: number;
   baseUrl: string;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private titleService: Title) {
     this.pageSize = 100;
     this.page = 1;
     this.baseUrl = 'https://rechercheinformatique.fr/queryapi.php?';
@@ -39,8 +44,9 @@ export class CompanyService {
         if (response.companies !== undefined) this.resultList?.push(...response.companies);
         // Param the errorRequest
         this.errorRequest.numero = 0;
-        this.totalResult = response.companies_count;
-        console.log(this.totalResult);
+        this.requestInfo.count = response.companies_count;
+        if (response.companies_count !== undefined)
+          this.setTitleCountCompanies(response.companies_count.toString());
       },
       // If there's an error
       (error) => {
@@ -73,5 +79,9 @@ export class CompanyService {
       request = request.concat(`&departments=${stringDepartments}`);
     }
     return request;
+  }
+
+  public setTitleCountCompanies(countCompanies: string) {
+    this.titleService.setTitle(`${countCompanies} entreprises correspondent à votre recherche !`);
   }
 }
