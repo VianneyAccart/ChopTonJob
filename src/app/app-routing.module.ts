@@ -7,6 +7,7 @@ import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.comp
 import {ResultPageComponent} from './result-page/result-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
 import {GuideComponent} from './guide/guide.component';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path: 'result',
     component: ResultPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'mentions-legales',

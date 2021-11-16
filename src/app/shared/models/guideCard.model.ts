@@ -1,30 +1,32 @@
 export class GuideCard {
-  private _titre: string;
+  private _title: string;
   private _description: string;
-  private _imgSrc: string;
-  private _imgAlt: string;
+  private _image: string;
+  private _imageAlt: string;
 
-  constructor(titre: string, description: string, imgSrc: string, imgAlt: string) {
-    this._titre = titre;
+  constructor(title: string, description: string, image: string, imageAlt: string) {
+    this._title = title;
     this._description = description;
-    this._imgSrc = imgSrc;
-    this._imgAlt = imgAlt;
+    this._image = image;
+    this._imageAlt = imageAlt;
   }
 
   /**
-   * Getter titre
+   * Getter title
    * @return {string}
    */
-  public get titre(): string {
-    return this._titre;
+  public get title(): string {
+    return this._title;
   }
+
   /**
-   * Setter titre
+   * Setter title
    * @param {string} value
    */
-  public set titre(value: string) {
-    this._titre = value;
+  public set title(value: string) {
+    this._title = value;
   }
+
   /**
    * Getter description
    * @return {string}
@@ -40,34 +42,36 @@ export class GuideCard {
   public set description(value: string) {
     this._description = value;
   }
+
   /**
-   * Getter imgSrc
+   * Getter image
    * @return {string}
    */
-  public get imgSrc(): string {
-    return this._imgSrc;
+  public get image(): string {
+    return this._image;
   }
 
   /**
-   * Setter imgSrc
+   * Setter image
    * @param {string} value
    */
-  public set imgSrc(value: string) {
-    this._imgSrc = value;
-  }
-  /**
-   * Getter imgAlt
-   * @return {string}
-   */
-  public get imgAlt(): string {
-    return this._imgAlt;
+  public set image(value: string) {
+    this._image = value;
   }
 
   /**
-   * Setter imgAlt
+   * Getter imageAlt
+   * @return {string}
+   */
+  public get imageAlt(): string {
+    return this._imageAlt;
+  }
+
+  /**
+   * Setter imageAlt
    * @param {string} value
    */
-  public set imgAlt(value: string) {
-    this._imgAlt = value;
+  public set imageAlt(value: string) {
+    this._imageAlt = value;
   }
 }
