@@ -216,6 +216,20 @@ export class FormulaireComponent {
 
     // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
+
+    // Reset departments array on submit to have complete list of departments for new search
+    this.allDepartments.unshift(...this.departments);
+
+    this.allDepartments.sort(function (a, b) {
+      if (a < b) {
+        return -1;
+      }
+      if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
+
     // Navigate to result component
     this.router.navigate(['/result']);
   }
