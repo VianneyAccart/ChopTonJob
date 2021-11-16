@@ -64,20 +64,6 @@ export class FormulaireComponent {
           };
     };
 
-  /*
-  private _request: string;
-  private _latitude: any;
-  private _longitude: any;
-  private _selectedDepartments: string[];
-  private _distance: string;
-  private _contract: string;
-  private _romeCode: string;
-  private _pageSize: number;
-  private _page: number;
-
-
-  
-    */
   searchForm = this.fb.group(
     {
       inputDepartement: [''],

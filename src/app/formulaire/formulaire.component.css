@@ -105,6 +105,11 @@
   margin: 0;
 }
 
+.validationAlerts {
+  font-size: .8rem;
+  color: red;
+}
+
 @media screen and (max-width: 768px) {
   .allSelect {
     width: 100%;
