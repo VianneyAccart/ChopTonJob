@@ -19,21 +19,19 @@ export class CompanyService {
     page: 1,
     pageSize: 20,
     count: 0,
+    pageMax: 0,
   };
-  pageSize: number;
-  page: number;
+
   baseUrl: string;
   requestParams: Request | undefined;
 
   constructor(private http: HttpClient, private titleService: Title) {
-    this.pageSize = 100;
-    this.page = 1;
     this.baseUrl = 'https://rechercheinformatique.fr/queryapi.php?';
     this.resultList = [];
   }
 
   // Get datas from API thanks to parameters given by form component
-  public getCompanies(requestParams: Request, page?: number): any {
+  public getCompanies(requestParams: Request): any {
     this.requestParams = requestParams;
     // Use request in getCompanies
     const request = this.setParams(requestParams);
@@ -48,8 +46,11 @@ export class CompanyService {
         // Param the errorRequest
         this.errorRequest.numero = 0;
         this.requestInfo.count = response.companies_count;
-        if (response.companies_count !== undefined)
+        if (response.companies_count !== undefined) {
           this.setTitleCountCompanies(response.companies_count.toString());
+        }
+        // Calculate number of pages
+        this.requestInfo.pageMax = Math.ceil(this.requestInfo.count / this.requestInfo.pageSize);
       },
       // If there's an error
       (error) => {
@@ -62,7 +63,7 @@ export class CompanyService {
 
   // Param the request according to user's choices to match the API pattern
   private setParams(requestParams: Request): string {
-    let request = `rome_codes=${requestParams.romeCode}&contract=${requestParams.contract}&page_size=${this.pageSize}`;
+    let request = `rome_codes=${requestParams.romeCode}&contract=${requestParams.contract}&page_size=${this.requestInfo.pageSize}&page=${this.requestInfo.page}`;
     // If user uses geolocalization
     if (
       requestParams.latitude !== undefined &&
@@ -91,14 +92,16 @@ export class CompanyService {
   //resent request with user's parameters and change page number
   getNextCompagnies() {
     this.requestInfo.page++;
-    if (this.requestParams !== undefined)
-      this.getCompanies(this.requestParams, this.requestInfo.page);
+    if (this.requestParams !== undefined) {
+      this.getCompanies(this.requestParams);
+    }
   }
 
   //resent request with user's parameters and change page number
   getPreviousCompagnies() {
     this.requestInfo.page--;
-    if (this.requestParams !== undefined)
-      this.getCompanies(this.requestParams, this.requestInfo.page);
+    if (this.requestParams !== undefined) {
+      this.getCompanies(this.requestParams);
+    }
   }
 }
