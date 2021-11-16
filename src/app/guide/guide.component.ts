@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {cards} from '../shared/mocks/guideCards.mock';
 import {GuideCard} from '../shared/models/GuideCard.model';
+import {GuideService} from '../shared/services/guide.service';
 
 @Component({
   selector: 'app-guide',
@@ -10,12 +10,14 @@ import {GuideCard} from '../shared/models/GuideCard.model';
 })
 export class GuideComponent implements OnInit {
   etapes: GuideCard[];
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private guideService: GuideService) {
     this.etapes = [];
   }
-  // Generate cardsGuide and add them in the array 'etapes'
+  // Generate guideSteps and add them in the array 'etapes'
   ngOnInit(): void {
-    this.etapes = cards;
+    this.guideService.getSteps().subscribe((response) => {
+      this.etapes = response;
+    });
     this.setTitle('Découvrez comment réaliser une bonne candidature spontanée !');
   }
 
