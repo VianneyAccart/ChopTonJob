@@ -15,7 +15,7 @@ export class ResultListComponent {
 
   constructor(config: NgbRatingConfig, private companyService: CompanyService) {
     this.cards = this.companyService.resultList;
-    // Param number of stars in rating.
+    // Param number of stars in rating
     config.max = 5;
     config.readonly = true;
   }
