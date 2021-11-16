@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 export class DepartmentsService {
   constructor(private httpClient: HttpClient) {}
 
-  getDepartments(): Observable<any> {
-    return this.httpClient.get('assets/departments.json');
+  getDepartments(): Observable<string[]> {
+    return this.httpClient.get<string[]>('assets/departments.json');
   }
 }
