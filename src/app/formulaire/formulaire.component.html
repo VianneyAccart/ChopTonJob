@@ -1,31 +1,21 @@
-<form [formGroup]="searchForm" #myForm="ngForm">
+<form (ngSubmit)="myForm.valid && onSubmit()" [formGroup]="searchForm" #myForm="ngForm">
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col">
+
         <mat-form-field class="departments-list" appearance="fill">
           <mat-label>Choisir un/des département(s)</mat-label>
           <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
-            <mat-chip
-              *ngFor="let department of departments"
-              [selectable]="selectable"
-              [removable]="removable"
-              (removed)="remove(department)"
-            >
+            <mat-chip *ngFor="let department of departments" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(department)">
               {{ department }}
               <button matChipRemove *ngIf="removable">
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
-            <input
-              placeholder="5 départements maximum"
-              #departmentInput
-              [formControl]="departmentCtrl"
-              [matAutocomplete]="auto"
-              [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event)"
-              formControlName="inputDepartement"
-            />
+            <input placeholder="5 départements maximum" #departmentInput [matAutocomplete]="auto"
+              [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)" formControlName="inputDepartement" />
           </mat-chip-list>
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let department of filteredDepartments" [value]="department">
@@ -40,28 +30,18 @@
         <div class="row">
           <div class="col-6">
             <div class="input-group mt-2">
-              <button
-                [ngStyle]="{
+              <button [ngStyle]="{
                   'background-color': localisationButtonColor,
                   'color': localisationButtonTextColor
-                }"
-                [innerHTML]="localisationButtonText"
-                class="btn btn-light"
-                type="button"
-                id="button-addon1"
-                (click)="getUserLocation()"
-              ></button>
+                }" [innerHTML]="localisationButtonText" class="btn btn-light" type="button" id="button-addon1"
+                (click)="getUserLocation()"></button>
             </div>
+            <div class="validationAlerts" *ngIf="latitude === undefined && searchForm.get('inputRayon')?.dirty">Il faut que tu sois localisé</div>
           </div>
 
           <div class="col-6 form-floating">
-            <select
-              (change)="resetRayon($event)"
-              class="form-select mt-2"
-              aria-label="Sélection d'un rayon de distance"
-              formControlName="inputRayon"
-              id="rayon"
-            >
+            <select [ngClass]="{'is-invalid' : latitude !== undefined && searchForm.get('inputRayon')?.untouched && myForm.submitted}" (change)="resetRayon($event)" class="form-select mt-2" aria-label="Sélection d'un rayon de distance"
+              formControlName="inputRayon" id="rayon">
               <option selected disabled value="">Choisir un rayon</option>
               <option value="10">10 km</option>
               <option value="20">20 km</option>
@@ -75,12 +55,11 @@
       </div>
 
       <div class="form-floating">
-        <select
-          class="form-select mt-2"
-          aria-label="Sélection d'un groupe de métiers"
-          formControlName="inputMetier"
-          id="metier"
-        >
+        <select [ngClass]="{
+          'is-invalid':
+            myForm.submitted && searchForm.get('inputMetier')?.errors
+        }" class="form-select mt-2" aria-label="Sélection d'un groupe de métiers" formControlName="inputMetier"
+          id="metier">
           <option selected disabled value="">Choisir un métier</option>
           <option value="E1101">
             Animation de site multimédia (community manager, game master, animateur web...)
@@ -108,24 +87,17 @@
       </div>
 
       <div class="form-check mt-2 d-flex justify-content-start">
-        <input
-          (change)="isChecked($event)"
-          class="form-check-input"
-          value="{{ contract }}"
-          type="checkbox"
-          id="flexCheckDefault"
-          formControlName="inputAlternance"
-        />
+        <input (change)="isChecked($event)" class="form-check-input" value="{{ contract }}" type="checkbox"
+          id="flexCheckDefault" formControlName="inputAlternance" />
         <label class="form-check-label" for="flexCheckDefault">Je cherche une alternance</label>
       </div>
     </div>
     <div class="row">
       <div class="col-12 d-flex justify-content-center">
-        <button class="buttonSearch" [disabled]="myForm.invalid" type="submit" (click)="onSubmit()">
-          Lancer la recherche
-        </button>
+        <button class="buttonSearch" [disabled]="latitude === undefined && searchForm.get('inputRayon')?.dirty" type="submit">Lancer la recherche</button>
       </div>
     </div>
-    <div *ngIf="searchForm.get('inputRayon')?.errors?.required">erreur sur le rayon</div>
   </div>
 </form>
+
+ 
