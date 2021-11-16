@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {CompanyService} from '../shared/services/company.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-result-page',
@@ -9,18 +10,21 @@ import {CompanyService} from '../shared/services/company.service';
 })
 export class ResultPageComponent implements OnInit {
   openedNewSearchMenu: boolean;
-  totalCompanies: number | undefined;
+  totalCompanies: any | undefined;
 
-  constructor(private titleService: Title, private companyService: CompanyService) {
+  constructor(
+    private titleService: Title,
+    private companyService: CompanyService,
+    private actRoute: ActivatedRoute
+  ) {
     this.openedNewSearchMenu = false;
+    this.totalCompanies = this.companyService.totalResult;
+    console.log(this.totalCompanies);
   }
 
   // Replace X with the length of the cards array
-  ngOnInit(): void {
-    this.setTitle('2 entreprises correspondent à votre recherche !');
-    this.totalCompanies = this.companyService.totalResult;
-    console.log('totalcompanies' + this.totalCompanies);
-    console.log('total result :' + this.companyService.totalResult);
+  ngOnInit() {
+    this.setTitle(`${this.totalCompanies} entreprises correspondent à votre recherche !`);
   }
 
   // Show / hide the new mobile search pane

@@ -26,21 +26,21 @@ export class CompanyService {
   }
 
   // Get datas from API thanks to parameters given by form component
-  public getCompanies(requestParams: Request) {
+  public getCompanies(requestParams: Request): any {
     // Use request in getCompanies
     const request = this.setParams(requestParams);
     // Concat baseUrl and request to create perfect matching request
     this.http.get<ResultCompanies>(this.baseUrl + request).subscribe(
       // If everything is good
       (response) => {
-        this.totalResult = response.companies_count;
-        console.log(response.companies_count);
         // First, empty the resultList to avoid double informations
         this.resultList?.splice(0, this.resultList.length);
         // Push all elements of the response in resultList
         if (response.companies !== undefined) this.resultList?.push(...response.companies);
         // Param the errorRequest
         this.errorRequest.numero = 0;
+        this.totalResult = response.companies_count;
+        console.log(this.totalResult);
       },
       // If there's an error
       (error) => {

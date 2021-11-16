@@ -7,6 +7,7 @@ import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.comp
 import {ResultPageComponent} from './result-page/result-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
 import {GuideComponent} from './guide/guide.component';
+import {RouteResolver} from './shared/resolvers/Route.resolver';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   {
     path: 'result',
     component: ResultPageComponent,
+    resolve: {
+      routeResolver: RouteResolver,
+    },
   },
   {
     path: 'mentions-legales',
@@ -47,5 +51,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [RouteResolver],
 })
 export class AppRoutingModule {}
