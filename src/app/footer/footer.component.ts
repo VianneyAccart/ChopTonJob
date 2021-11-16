@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
+  // Sert à changer le style de la navbar en fonction de l'url de la page.
   url = '';
   date = new Date().getFullYear();
 
