@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {GuideCard} from '../shared/models/GuideCard.model';
 import {cards} from '../shared/mocks/guideCards.mock';
+import {GuideCard} from '../shared/models/GuideCard.model';
 
 @Component({
   selector: 'app-guide',
