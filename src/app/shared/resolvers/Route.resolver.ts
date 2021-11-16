@@ -6,7 +6,7 @@ import {Resolve} from '@angular/router';
 export class RouteResolver implements Resolve<any> {
   constructor(public companyService: CompanyService) {}
 
-  async resolve() {
+  resolve() {
     return this.companyService.totalResult;
   }
 }

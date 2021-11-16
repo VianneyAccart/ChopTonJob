@@ -8,6 +8,7 @@ import {ResultPageComponent} from './result-page/result-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
 import {GuideComponent} from './guide/guide.component';
 import {RouteResolver} from './shared/resolvers/Route.resolver';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     resolve: {
       routeResolver: RouteResolver,
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'mentions-legales',

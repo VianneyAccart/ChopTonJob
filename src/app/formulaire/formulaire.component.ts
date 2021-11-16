@@ -11,6 +11,7 @@ import {
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Router} from '@angular/router';
+import {AuthGuard} from '../shared/guards/auth.guard';
 import {departements} from '../shared/mocks/departements.mock';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
@@ -63,20 +64,6 @@ export class FormulaireComponent {
           };
     };
 
-  /*
-  private _request: string;
-  private _latitude: any;
-  private _longitude: any;
-  private _selectedDepartments: string[];
-  private _distance: string;
-  private _contract: string;
-  private _romeCode: string;
-  private _pageSize: number;
-  private _page: number;
-
-
-  
-    */
   searchForm = this.fb.group(
     {
       inputDepartement: [''],
@@ -90,7 +77,8 @@ export class FormulaireComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private authGuard: AuthGuard
   ) {
     this.page = 1;
     this.pageSize = 100;
@@ -159,9 +147,9 @@ export class FormulaireComponent {
     // reset the ray of <select>
     this.searchForm.controls['inputRayon'].reset('');
     // If they exist, make latitude and longitude empty string
-    if (this.latitude !== '' && this.longitude !== '') {
-      this.latitude = '';
-      this.longitude = '';
+    if (this.latitude !== undefined && this.longitude !== undefined) {
+      this.latitude = undefined;
+      this.longitude = undefined;
 
       //Reset button to default values
       this.localisationButtonText = 'Être localisé';
@@ -208,6 +196,8 @@ export class FormulaireComponent {
 
   // What happens when searchform is sent
   onSubmit() {
+    // Allow access to result component (blocked by default)
+    this.authGuard.canAccess = true;
     this.distance = this.searchForm.get('inputRayon')?.value;
     this.romeCode = this.searchForm.get('inputMetier')?.value;
 
@@ -225,5 +215,18 @@ export class FormulaireComponent {
     this.companyService.getCompanies(requestParameters);
     // Navigate to result component
     this.router.navigate(['/result']);
+
+    //reset departments array on submit to have complete list of departments for new search
+    this.allDepartments.unshift(...this.departments);
+
+    this.allDepartments.sort(function (a, b) {
+      if (a < b) {
+        return -1;
+      }
+      if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
   }
 }

@@ -18,8 +18,7 @@ export class ResultPageComponent implements OnInit {
     private actRoute: ActivatedRoute
   ) {
     this.openedNewSearchMenu = false;
-    this.totalCompanies = this.companyService.totalResult;
-    console.log(this.totalCompanies);
+    console.log(this.companyService.totalResult);
   }
 
   // Replace X with the length of the cards array
