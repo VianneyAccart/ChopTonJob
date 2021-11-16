@@ -18,7 +18,7 @@
               (matChipInputTokenEnd)="add($event)" formControlName="inputDepartement" />
           </mat-chip-list>
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let department of filteredDepartments" [value]="department">
+            <mat-option *ngFor="let department of allDepartments" [value]="department">
               {{ department }}
             </mat-option>
           </mat-autocomplete>

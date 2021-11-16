@@ -10,12 +10,11 @@ import {
 } from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
-import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {AuthGuard} from '../shared/guards/auth.guard';
-import {departements} from '../shared/mocks/departements.mock';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
+import {DepartmentsService} from '../shared/services/departments.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -30,10 +29,8 @@ export class FormulaireComponent {
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   departmentCtrl = new FormControl();
-  filteredDepartments: string[];
   departments: string[];
   allDepartments: string[];
-  zoom: any;
 
   // Used for API request
   request: string;
@@ -45,6 +42,31 @@ export class FormulaireComponent {
   romeCode: string;
   pageSize: number;
   page: number;
+  requestInfo: any;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private companyService: CompanyService,
+    private authGuard: AuthGuard,
+    private departmentsService: DepartmentsService
+  ) {
+    this.page = 1;
+    this.pageSize = 100;
+    this.romeCode = '';
+    this.request = '';
+    this.contract = 'dpae';
+    this.localisationButtonColor = 'transparent';
+    this.localisationButtonText = 'Être localisé';
+    this.localisationButtonTextColor = '#aea2cd';
+    this.departments = [];
+    this.selectedDepartments = [];
+    this.allDepartments = [];
+    // Call the departments.json which is list of departments
+    this.departmentsService.getDepartments().subscribe((response) => {
+      this.allDepartments = response;
+    });
+  }
 
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
   // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
@@ -74,28 +96,6 @@ export class FormulaireComponent {
     },
     {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
-  requestInfo: any;
-
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private companyService: CompanyService,
-    private authGuard: AuthGuard,
-    private titleService: Title
-  ) {
-    this.page = 1;
-    this.pageSize = 100;
-    this.romeCode = '';
-    this.request = '';
-    this.contract = 'dpae';
-    this.localisationButtonColor = 'transparent';
-    this.localisationButtonText = 'Être localisé';
-    this.localisationButtonTextColor = '#aea2cd';
-    this.departments = [];
-    this.selectedDepartments = [];
-    this.allDepartments = departements;
-    this.filteredDepartments = this.allDepartments;
-  }
 
   // Add departments on the input
   add(event: MatChipInputEvent): void {
@@ -181,7 +181,6 @@ export class FormulaireComponent {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 16;
 
         // Change button text and style
         this.localisationButtonText = 'Localisation acquise';
