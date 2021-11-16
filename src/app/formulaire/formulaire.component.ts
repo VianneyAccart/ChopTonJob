@@ -147,9 +147,9 @@ export class FormulaireComponent {
     // reset the ray of <select>
     this.searchForm.controls['inputRayon'].reset('');
     // If they exist, make latitude and longitude empty string
-    if (this.latitude !== '' && this.longitude !== '') {
-      this.latitude = '';
-      this.longitude = '';
+    if (this.latitude !== undefined && this.longitude !== undefined) {
+      this.latitude = undefined;
+      this.longitude = undefined;
 
       //Reset button to default values
       this.localisationButtonText = 'Être localisé';
@@ -228,7 +228,5 @@ export class FormulaireComponent {
       }
       return 0;
     });
-   
-   
   }
 }
