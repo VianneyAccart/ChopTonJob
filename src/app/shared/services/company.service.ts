@@ -53,8 +53,8 @@ export class CompanyService {
     let request = `rome_codes=${requestParams.romeCode}&contract=${requestParams.contract}&page_size=${this.pageSize}`;
     // If user uses geolocalization
     if (
-      requestParams.latitude !== '' &&
-      requestParams.longitude !== '' &&
+      requestParams.latitude !== undefined &&
+      requestParams.longitude !== undefined &&
       requestParams.distance !== undefined
     ) {
       request = request.concat(
