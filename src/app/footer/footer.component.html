@@ -1,7 +1,9 @@
 <footer class="mt-5">
+  <!-- Footer is transparent if you navigate to error page or homepage -->
   <nav class="navbar" [ngClass]="{'transparent': url === '/' || url === '/404'}">
     <div class="col-6 d-flex justify-content-start">
       <p class="item" [ngClass]="{'coloredItem': url === '/' || url === '/404'}">
+        <!-- Date changes automatically with time -->
         ©{{date}} Chop' Ton Job
       </p>
     </div>

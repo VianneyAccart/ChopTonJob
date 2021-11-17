@@ -12,15 +12,18 @@ import {CompanyService} from '../shared/services/company.service';
 export class ResultListComponent {
   // Variable which will be used to store the values ​​for each variable of each company in the form of objects in an array
   cards: Card[] | undefined;
+  currentRate: number;
 
   constructor(config: NgbRatingConfig, private companyService: CompanyService) {
     this.cards = this.companyService.resultList;
     // Param number of stars in rating
     config.max = 5;
     config.readonly = true;
+    this.currentRate = 3.5;
   }
 
-  // Toggle between more infos and less infos on each card
+
+  // Is used to open/close the hidden div on each card.
   displayInfo(card: Card) {
     card.is_shown = !card.is_shown;
   }

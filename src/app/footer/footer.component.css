@@ -41,11 +41,12 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .item, .nav-link {
-    font-size: .8rem;
+  .item,
+  .nav-link {
+    font-size: 0.8rem;
   }
 
   .item {
-    margin-left: .8rem;
+    margin-left: 0.8rem;
   }
 }

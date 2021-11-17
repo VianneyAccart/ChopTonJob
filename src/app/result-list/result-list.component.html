@@ -45,7 +45,7 @@
 
             <!-- BUTTON TO DISPLAY THE HIDDEN PART  -->
             <p class="m-0">
-                <button type="button" class="newSearch  mt-4" (click)="displayInfo(card)">
+                <button type="button" class="toggleInfos  mt-4" (click)="displayInfo(card)">
                     {{ card.is_shown ? 'Moins d\'infos' : 'Plus d\'infos' }}
                 </button>
 
@@ -82,7 +82,8 @@
 
                         <div class="card-title  bold alignRight"> Site web <br>
                             <div *ngIf='card.website else noWebsite' class="normal">
-                                <a href="{{card.website}}" class="card-text  normal" target="_blank" rel="noopener" rel="noreferrer">{{card.name}}</a>
+                                <a href="{{card.website}}" class="card-text  normal" target="_blank" rel="noopener"
+                                    rel="noreferrer">{{card.name}}</a>
                             </div>
                         </div>
 
@@ -93,4 +94,3 @@
         </div>
     </div>
 </div>
-
