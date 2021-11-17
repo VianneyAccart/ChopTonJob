@@ -17,6 +17,8 @@
         class="form-control form-rounded"
       />
       <label for="floatingInput">Prénom</label>
+
+      <!-- Message for incorrect value in the input -->
       <div
         *ngIf="
           contactForm.get('userFirstname')?.touched && contactForm.get('userFirstname')?.errors
@@ -41,6 +43,8 @@
         class="form-control form-rounded"
       />
       <label for="floatingInput">Nom</label>
+
+      <!-- Message for incorrect value in the input -->
       <div
         *ngIf="contactForm.get('userLastname')?.touched && contactForm.get('userLastname')?.errors"
       >
@@ -63,6 +67,8 @@
         class="form-control form-rounded"
       />
       <label for="floatingInput">Email</label>
+
+      <!-- Message for incorrect value in the input -->
       <div *ngIf="contactForm.get('userEmail')?.errors && contactForm.get('userEmail')?.touched">
         <small>Une adresse mail valide est requise.</small>
       </div>
@@ -82,6 +88,8 @@
         class="form-control form-rounded"
         rows="4"
       ></textarea>
+
+      <!-- Message for incorrect value in the input -->
       <div
         *ngIf="contactForm.get('userMessage')?.errors && contactForm.get('userMessage')?.touched"
       >
