@@ -11,6 +11,8 @@ import {
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 import {AuthGuard} from '../shared/guards/auth.guard';
 import {Request} from '../shared/models/Request.model';
 import {CompanyService} from '../shared/services/company.service';
@@ -29,8 +31,11 @@ export class FormulaireComponent {
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   departmentCtrl = new FormControl();
-  departments: string[];
-  allDepartments: string[];
+  filteredDepartments: Observable<string[]>;
+  departments: string[]; // Selected department(s)
+  allDepartments: string[]; // List of departments
+
+  @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
 
   // Used for API request
   request: string;
@@ -51,6 +56,12 @@ export class FormulaireComponent {
     private authGuard: AuthGuard,
     private departmentsService: DepartmentsService
   ) {
+    this.filteredDepartments = this.departmentCtrl.valueChanges.pipe(
+      startWith(null),
+      map((department: string | null) =>
+        department ? this._filter(department) : this.allDepartments.slice()
+      )
+    );
     this.page = 1;
     this.pageSize = 100;
     this.romeCode = '';
@@ -68,24 +79,23 @@ export class FormulaireComponent {
     });
   }
 
-  @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
   // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
-  atLeastOne =
-    (validator: ValidatorFn, controls: string[]) =>
-    (group: FormGroup): ValidationErrors | null => {
-      if (!controls) {
-        controls = Object.keys(group.controls);
-      }
+  // atLeastOne =
+  //   (validator: ValidatorFn, controls: string[]) =>
+  //   (group: FormGroup): ValidationErrors | null => {
+  //     if (!controls) {
+  //       controls = Object.keys(group.controls);
+  //     }
 
-      const hasAtLeastOne =
-        group && group.controls && controls.some((k) => !validator(group.controls[k]));
+  //     const hasAtLeastOne =
+  //       group && group.controls && controls.some((k) => !validator(group.controls[k]));
 
-      return hasAtLeastOne
-        ? null
-        : {
-            atLeastOne: true,
-          };
-    };
+  //     return hasAtLeastOne
+  //       ? null
+  //       : {
+  //           atLeastOne: true,
+  //         };
+  //   };
 
   searchForm = this.fb.group(
     {
@@ -93,8 +103,8 @@ export class FormulaireComponent {
       inputRayon: [''],
       inputMetier: ['', Validators.required],
       inputAlternance: [''],
-    },
-    {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
+    }
+    // {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
   );
 
   // Add departments on the input
@@ -114,8 +124,9 @@ export class FormulaireComponent {
     const index = this.departments.indexOf(department);
     if (index >= 0) {
       this.departments.splice(index, 1);
+      // Then, add removed department to the allDepartments list
       this.allDepartments.unshift(department);
-      //Sort the allDepartments array
+      // Then sort allDepartments array
       this.allDepartments.sort(function (a, b) {
         if (a < b) {
           return -1;
@@ -143,6 +154,14 @@ export class FormulaireComponent {
       // Add transformed string in a new array used for API request
       this.selectedDepartments = this.departments.map((department) => department.substring(0, 2));
     }
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allDepartments.filter((department) =>
+      department.toLowerCase().includes(filterValue)
+    );
   }
 
   // Allows user to reset localisation and ray when a department is selected
@@ -216,18 +235,18 @@ export class FormulaireComponent {
     // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
 
-    // Reset departments array on submit to have complete list of departments for new search
-    this.allDepartments.unshift(...this.departments);
+    // // Reset departments array on submit to have complete list of departments for new search
+    // this.allDepartments.unshift(...this.departments);
 
-    this.allDepartments.sort(function (a, b) {
-      if (a < b) {
-        return -1;
-      }
-      if (a > b) {
-        return 1;
-      }
-      return 0;
-    });
+    // this.allDepartments.sort(function (a, b) {
+    //   if (a < b) {
+    //     return -1;
+    //   }
+    //   if (a > b) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
 
     // Navigate to result component
     this.router.navigate(['/result']);

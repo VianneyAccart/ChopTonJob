@@ -6,19 +6,27 @@
         <mat-form-field class="departments-list" appearance="fill">
           <mat-label>Choisir un/des département(s)</mat-label>
           <mat-chip-list #chipList aria-label="Sélection du/des département(s)">
-            <mat-chip *ngFor="let department of departments" [selectable]="selectable" [removable]="removable"
+            <mat-chip 
+              *ngFor="let department of departments" 
+              [selectable]="selectable" 
+              [removable]="removable"
               (removed)="remove(department)">
               {{ department }}
               <button matChipRemove *ngIf="removable">
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
-            <input placeholder="5 départements maximum" #departmentInput [matAutocomplete]="auto"
-              [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event)" formControlName="inputDepartement" />
+            <input 
+              placeholder="5 départements maximum" 
+              #departmentInput 
+              [formControl]="departmentCtrl"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)" />
           </mat-chip-list>
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let department of allDepartments" [value]="department">
+            <mat-option *ngFor="let department of filteredDepartments | async" [value]="department">
               {{ department }}
             </mat-option>
           </mat-autocomplete>
