@@ -88,10 +88,17 @@
       </div>
     </div>
     <!-- Pagination : Relaunch request with different page param -->
-    <nav aria-label="Page navigation example" *ngIf="requestInfo.pageMax > 1">
+
+    <nav aria-label="Search results pages" *ngIf="requestInfo.pageMax > 1">
       <ul class="pagination">
         <li class="page-item" [class.disabled]="requestInfo.page === 1 ? true : null">
-          <a routerLink="/result" class="page-link" (click)="goToPreviousPage()">Previous</a>
+          <a
+            routerLink="/result"
+            class="page-link"
+            (click)="goToPreviousPage()"
+            (click)="scrollToTop()"
+            >Previous</a
+          >
         </li>
         <div>
           {{ requestInfo.page }}
@@ -99,7 +106,9 @@
           {{ requestInfo.pageMax }}
         </div>
         <li class="page-item" [class.disabled]="requestInfo.page === requestInfo.pageMax">
-          <a routerLink="/result" class="page-link" (click)="goToNextPage()">Next</a>
+          <a routerLink="/result" class="page-link" (click)="goToNextPage()" (click)="scrollToTop()"
+            >Next</a
+          >
         </li>
       </ul>
     </nav>

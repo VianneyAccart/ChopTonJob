@@ -52,7 +52,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [Title],
+  providers: [Title, {provide: Window, useValue: window}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
