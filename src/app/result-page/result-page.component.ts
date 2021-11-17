@@ -15,7 +15,7 @@ export class ResultPageComponent implements OnInit {
   pageYOffset: number;
 
   // Event to anable the scroll to top linked to the function scrollToTop
-  @HostListener('window:scroll', ['$event']) onScroll(event: any) {
+  @HostListener('window:scroll', ['$event']) onScroll() {
     this.pageYOffset = this.window.scrollY;
   }
 
@@ -30,6 +30,11 @@ export class ResultPageComponent implements OnInit {
     this.pageYOffset = 0;
   }
 
+  // Receive false boolean from formulaire component (when submitted) to set openedNewSearchMenu to false
+  receiveBooleanToCloseNewSearchPanel($event: any) {
+    this.openedNewSearchMenu = $event;
+  }
+
   // Replace X with the length of the cards array
   ngOnInit() {
     this.requestInfo = this.companyService.requestInfo;
@@ -40,7 +45,8 @@ export class ResultPageComponent implements OnInit {
     this.openedNewSearchMenu = !this.openedNewSearchMenu;
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
