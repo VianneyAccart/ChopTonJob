@@ -13,7 +13,7 @@ import {TeamPageComponent} from './team-page/team-page.component';
 import {ResultListComponent} from './result-list/result-list.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ContactFormComponent} from './contact-form/contact-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ResultPageComponent} from './result-page/result-page.component';
 import {NotFoundComponent as NotFoundComponent} from './not-found/not-found.component';
 import {FooterComponent} from './footer/footer.component';
@@ -51,6 +51,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatAutocompleteModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],
