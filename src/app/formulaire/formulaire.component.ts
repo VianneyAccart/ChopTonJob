@@ -79,33 +79,12 @@ export class FormulaireComponent {
     });
   }
 
-  // Fonction qui vérifie qu'au moins 1 des inputs est rempli.
-  // atLeastOne =
-  //   (validator: ValidatorFn, controls: string[]) =>
-  //   (group: FormGroup): ValidationErrors | null => {
-  //     if (!controls) {
-  //       controls = Object.keys(group.controls);
-  //     }
-
-  //     const hasAtLeastOne =
-  //       group && group.controls && controls.some((k) => !validator(group.controls[k]));
-
-  //     return hasAtLeastOne
-  //       ? null
-  //       : {
-  //           atLeastOne: true,
-  //         };
-  //   };
-
-  searchForm = this.fb.group(
-    {
-      inputDepartement: [''],
-      inputRayon: [''],
-      inputMetier: ['', Validators.required],
-      inputAlternance: [''],
-    }
-    // {validator: this.atLeastOne(Validators.required, ['inputRayon', 'inputDepartement'])}
-  );
+  searchForm = this.fb.group({
+    inputDepartement: [''],
+    inputRayon: [''],
+    inputMetier: ['', Validators.required],
+    inputAlternance: [''],
+  });
 
   // Add departments on the input
   add(event: MatChipInputEvent): void {
@@ -136,6 +115,8 @@ export class FormulaireComponent {
         }
         return 0;
       });
+      //
+      this.departmentCtrl.reset();
     }
   }
 
@@ -234,19 +215,6 @@ export class FormulaireComponent {
 
     // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
-
-    // // Reset departments array on submit to have complete list of departments for new search
-    // this.allDepartments.unshift(...this.departments);
-
-    // this.allDepartments.sort(function (a, b) {
-    //   if (a < b) {
-    //     return -1;
-    //   }
-    //   if (a > b) {
-    //     return 1;
-    //   }
-    //   return 0;
-    // });
 
     // Navigate to result component
     this.router.navigate(['/result']);
