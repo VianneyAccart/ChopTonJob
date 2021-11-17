@@ -1,5 +1,5 @@
 import {ViewportScroller} from '@angular/common';
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {CompanyService} from '../shared/services/company.service';
 
@@ -12,22 +12,14 @@ export class ResultPageComponent implements OnInit {
   openedNewSearchMenu: boolean;
   totalCompanies: any | undefined;
   requestInfo: any;
-  pageYOffset: number;
-
-  // Event to anable the scroll to top linked to the function scrollToTop
-  @HostListener('window:scroll', ['$event']) onScroll() {
-    this.pageYOffset = this.window.scrollY;
-  }
 
   constructor(
     private titleService: Title,
     private companyService: CompanyService,
-    private scroll: ViewportScroller,
-    private window: Window
+    private scroll: ViewportScroller
   ) {
     this.openedNewSearchMenu = false;
     this.requestInfo = this.companyService.requestInfo;
-    this.pageYOffset = 0;
   }
 
   // Receive false boolean from formulaire component (when submitted) to set openedNewSearchMenu to false
@@ -53,11 +45,13 @@ export class ResultPageComponent implements OnInit {
   // Go to next page
   goToNextPage() {
     this.companyService.getNextCompagnies();
+    this.scrollToTop();
   }
 
   // Go to previous page
   goToPreviousPage() {
     this.companyService.getPreviousCompagnies();
+    this.scrollToTop();
   }
 
   // Allow to scroll to top on click

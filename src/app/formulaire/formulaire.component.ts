@@ -219,6 +219,9 @@ export class FormulaireComponent {
       this.distance
     );
 
+    // Reset page number value to 1
+    this.companyService.requestInfo.page = 1;
+
     // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
 
