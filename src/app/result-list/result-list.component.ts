@@ -20,6 +20,7 @@ export class ResultListComponent {
     config.readonly = true;
   }
 
+  // Toggle between more infos and less infos on each card
   displayInfo(card: Card) {
     card.is_shown = !card.is_shown;
   }

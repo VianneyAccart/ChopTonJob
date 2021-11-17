@@ -13,7 +13,8 @@ export class ContactPageComponent implements OnInit {
     this.setTitle('Contactez notre équipe simplement !');
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

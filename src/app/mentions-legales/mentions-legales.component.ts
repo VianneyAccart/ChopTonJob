@@ -13,7 +13,8 @@ export class MentionsLegalesComponent implements OnInit {
     this.setTitle('Découvrez nos mentions légales !');
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

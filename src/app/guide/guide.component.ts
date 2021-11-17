@@ -13,6 +13,7 @@ export class GuideComponent implements OnInit {
   constructor(private titleService: Title, private guideService: GuideService) {
     this.etapes = [];
   }
+
   // Generate guideSteps and add them in the array 'etapes'
   ngOnInit(): void {
     this.guideService.getSteps().subscribe((response) => {
@@ -21,7 +22,8 @@ export class GuideComponent implements OnInit {
     this.setTitle('Découvrez comment réaliser une bonne candidature spontanée !');
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }
