@@ -20,7 +20,7 @@ export class ContactFormComponent {
     });
   }
 
-  // What happens when form is submitted
+  // When form is submitted : alert is displayed to user and form is reset
   onSubmit(): void {
     alert('Votre message a bien été envoyé');
     this.contactForm.reset();
