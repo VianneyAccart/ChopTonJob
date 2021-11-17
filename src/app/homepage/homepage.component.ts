@@ -19,7 +19,8 @@ export class HomepageComponent implements OnInit {
     );
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

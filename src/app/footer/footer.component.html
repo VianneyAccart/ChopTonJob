@@ -2,17 +2,15 @@
   <!-- Footer is transparent if you navigate to error page or homepage -->
   <nav class="navbar" [ngClass]="{'transparent': url === '/' || url === '/404'}">
     <div class="col-6 d-flex justify-content-start">
-      <p class="item" [ngClass]="{'item2': url === '/' || url === '/404'}">
+      <p class="item" [ngClass]="{'coloredItem': url === '/' || url === '/404'}">
         <!-- Date changes automatically with time -->
-        ©{{ date }} Chop' Ton Job
+        ©{{date}} Chop' Ton Job
       </p>
     </div>
 
-    <ul class="nav-menu col-6 d-flex justify-content-end">
-      <li class="">
-        <a routerLink="/mentions-legales" class="nav-link marginRight"
-          [ngClass]="{'item2': url === '/' || url === '/404'}">Mentions Légales</a>
-      </li>
-    </ul>
+    <div class="d-flex justify-content-end align-items-center">
+        <a routerLink="/mentions-legales" class="nav-link"
+          [ngClass]="{'coloredItem': url === '/' || url === '/404'}">Mentions Légales</a>
+    </div>
   </nav>
 </footer>

@@ -17,7 +17,8 @@ export class NotFoundComponent implements OnInit {
     this.setTitle("Oups, la page que vous cherchez n'existe pas !");
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

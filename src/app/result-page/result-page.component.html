@@ -19,7 +19,9 @@
             d'horizon ?
           </h2>
           <div class="mobileForm">
-            <app-formulaire></app-formulaire>
+            <app-formulaire
+              (isNewSearchPanelOpen)="receiveBooleanToCloseNewSearchPanel($event)"
+            ></app-formulaire>
           </div>
         </div>
 
@@ -60,37 +62,45 @@
 
       <!-- Column containing the search results -->
       <div class="col-lg-8">
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count === 1">
+        <p class="resultOfCompanies mb-4 col-md-12" *ngIf="requestInfo.count === 1">
           <span class="numberOfCompanies">{{ requestInfo.count }}</span> entreprise correspond à
-          votre recherche.
+          votre recherche (page {{ requestInfo.page }} sur {{ requestInfo.pageMax }})
         </p>
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count === 0">
+        <p class="resultOfCompanies mb-4 col-md-12" *ngIf="requestInfo.count === 0">
           <span class="numberOfCompanies">Aucune</span> entreprise ne correspond à votre recherche.
         </p>
-        <p class="resultOfCompanies mb-4 col-md-8" *ngIf="requestInfo.count > 1">
+        <p class="resultOfCompanies mb-4 col-md-12" *ngIf="requestInfo.count > 1">
           <span class="numberOfCompanies">{{ requestInfo.count }}</span> entreprises correspondent à
-          votre recherche.
+          votre recherche (page {{ requestInfo.page }} sur {{ requestInfo.pageMax }})
         </p>
 
         <app-result-list></app-result-list>
       </div>
     </div>
+
     <!-- Pagination : Relaunch request with different page param -->
-    <nav aria-label="Page navigation example" *ngIf="requestInfo.pageMax > 1">
-      <ul class="pagination">
-        <li class="page-item" [class.disabled]="requestInfo.page === 1 ? true : null">
-          <a routerLink="/result" class="page-link" (click)="goToPreviousPage()">Previous</a>
-        </li>
-        <div>
-          {{ requestInfo.page }}
-          /
-          {{ requestInfo.pageMax }}
-        </div>
-        <li class="page-item" [class.disabled]="requestInfo.page === requestInfo.pageMax">
-          <a routerLink="/result" class="page-link" (click)="goToNextPage()">Next</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="row d-flex justify-content-end">
+      <nav
+        class="col-lg-6 d-flex justify-content-center mt-3"
+        aria-label="Search results pages"
+        *ngIf="requestInfo.pageMax > 1"
+      >
+        <button
+          class="navigationButton"
+          [disabled]="requestInfo.page === 1 ? true : null"
+          (click)="goToPreviousPage()"
+        >
+          Page précédente
+        </button>
+        <button
+          class="navigationButton"
+          [disabled]="requestInfo.page === requestInfo.pageMax"
+          (click)="goToNextPage()"
+        >
+          Page suivante
+        </button>
+      </nav>
+    </div>
   </div>
   <app-footer></app-footer>
 </div>

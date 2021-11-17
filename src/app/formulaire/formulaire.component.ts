@@ -1,5 +1,5 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
@@ -18,6 +18,7 @@ import {DepartmentsService} from '../shared/services/departments.service';
 })
 export class FormulaireComponent {
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
+  @Output() isNewSearchPanelOpen: EventEmitter<boolean>;
   localisationButtonText: string;
   localisationButtonColor: string;
   localisationButtonTextColor: string;
@@ -49,6 +50,7 @@ export class FormulaireComponent {
     private authGuard: AuthGuard,
     private departmentsService: DepartmentsService
   ) {
+    this.isNewSearchPanelOpen = new EventEmitter();
     this.searchForm = this.fb.group({
       radius: [''],
       jobGroup: ['', Validators.required],
@@ -129,7 +131,7 @@ export class FormulaireComponent {
       this.selectedDepartments = this.departments.map((department) => department.substring(0, 2));
     }
   }
-
+  // Transform string in lowercase
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.allDepartments.filter((department) =>
@@ -193,8 +195,15 @@ export class FormulaireComponent {
     event.target.checked ? (this.contract = 'alternance') : (this.contract = 'dpae');
   }
 
+  // Emit false boolean to result-page component to close new search panel when form is submitted
+  closeNewSearchPanel() {
+    this.isNewSearchPanelOpen.emit(false);
+  }
+
   // What happens when searchform is sent
   onSubmit() {
+    // Send false boolean to result-page component
+    this.closeNewSearchPanel();
     // Allow access to result component (blocked by default)
     this.authGuard.canAccess = true;
     this.distance = this.searchForm.get('radius')?.value;
@@ -209,6 +218,9 @@ export class FormulaireComponent {
       this.selectedDepartments,
       this.distance
     );
+
+    // Reset page number value to 1
+    this.companyService.requestInfo.page = 1;
 
     // Call getCompanies method from CompanyService. Send requestParameters (type Request) to CompanyService
     this.companyService.getCompanies(requestParameters);
