@@ -27,6 +27,7 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
+    // canActivate is used to guard acces to /result page when user try to bypass usage of search form
     path: 'result',
     component: ResultPageComponent,
     canActivate: [AuthGuard],

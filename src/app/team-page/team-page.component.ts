@@ -16,7 +16,7 @@ export class TeamPageComponent implements OnInit {
 
   // Generate team members and push them in the array 'members'
   ngOnInit(): void {
-    this.setTitle('Découvrez notre équipe !');
+    this.setTitle('Découvre notre équipe !');
     this.members.push(
       new TeamMember(
         'Karim',
@@ -53,7 +53,8 @@ export class TeamPageComponent implements OnInit {
     );
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

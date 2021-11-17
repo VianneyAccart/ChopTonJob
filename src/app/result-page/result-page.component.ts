@@ -37,11 +37,6 @@ export class ResultPageComponent implements OnInit {
     this.openedNewSearchMenu = !this.openedNewSearchMenu;
   }
 
-  // Set page title
-  setTitle(newTitle: string) {
-    this.titleService.setTitle(newTitle);
-  }
-
   // Go to next page
   goToNextPage() {
     this.companyService.getNextCompagnies();
