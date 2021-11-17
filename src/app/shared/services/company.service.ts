@@ -11,23 +11,24 @@ import {ResultCompanies} from '../models/ResultCompanies.model';
 export class CompanyService {
   resultList: Card[] | undefined;
   // Useful in case of error during API call
-  errorRequest = {
-    numero: 0,
-    message: '',
-  };
-  requestInfo: any = {
-    page: 1,
-    pageSize: 20,
-    count: 0,
-    pageMax: 0,
-  };
-
+  errorRequest: any;
+  requestInfo: any;
   baseUrl: string;
   requestParams: Request | undefined;
 
   constructor(private http: HttpClient, private titleService: Title) {
     this.baseUrl = 'https://rechercheinformatique.fr/queryapi.php?';
     this.resultList = [];
+    this.errorRequest = {
+      numero: 0,
+      message: '',
+    };
+    this.requestInfo = {
+      page: 1,
+      pageSize: 20,
+      count: 0,
+      pageMax: 0,
+    };
   }
 
   // Get datas from API thanks to parameters given by form component
@@ -85,11 +86,12 @@ export class CompanyService {
     return request;
   }
 
-  public setTitleCountCompanies(countCompanies: string) {
+  // Set title of result page component
+  setTitleCountCompanies(countCompanies: string) {
     this.titleService.setTitle(`${countCompanies} entreprises correspondent à votre recherche !`);
   }
 
-  //resent request with user's parameters and change page number
+  // Resent request with user's parameters and change page number
   getNextCompagnies() {
     this.requestInfo.page++;
     if (this.requestParams !== undefined) {
