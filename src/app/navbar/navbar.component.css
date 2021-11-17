@@ -74,7 +74,7 @@ a {
     z-index: 3;
   }
 
-  /* Display the new search menu in mobile format */
+  /* Display the new search menu in mobile format. */
   .nav-menu.active {
     left: 0;
   }
