@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
   canAccess: boolean;
 
   constructor(private router: Router) {
-    this.canAccess = false;
+    this.canAccess = true;
   }
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.canAccess === false) this.router.navigate(['/404']);
