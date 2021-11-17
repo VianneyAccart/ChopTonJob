@@ -131,7 +131,7 @@ export class FormulaireComponent {
       this.selectedDepartments = this.departments.map((department) => department.substring(0, 2));
     }
   }
-
+  // Transform string in lowercase
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.allDepartments.filter((department) =>

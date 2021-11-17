@@ -19,7 +19,7 @@ export class GuideComponent implements OnInit {
     this.guideService.getSteps().subscribe((response) => {
       this.etapes = response;
     });
-    this.setTitle('Découvrez comment réaliser une bonne candidature spontanée !');
+    this.setTitle('Découvre comment réaliser une bonne candidature spontanée !');
   }
 
   // Set page title

@@ -10,7 +10,7 @@ export class MentionsLegalesComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.setTitle('Découvrez nos mentions légales !');
+    this.setTitle('Découvre nos mentions légales !');
   }
 
   // Set page title
