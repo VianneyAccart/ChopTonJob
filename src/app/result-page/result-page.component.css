@@ -62,8 +62,8 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
 
 @media screen and (max-width: 480px) {
   .navigationButton {
-    font-size: .9rem;
-    width: 150px;
+    font-size: .8rem;
+    width: 160px;
   }
 }
 
