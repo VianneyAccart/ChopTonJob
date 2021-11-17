@@ -13,6 +13,7 @@ export class ResultPageComponent implements OnInit {
   requestInfo: any;
   constructor(private titleService: Title, private companyService: CompanyService) {
     this.openedNewSearchMenu = false;
+    this.requestInfo = this.companyService.requestInfo;
   }
 
   // Replace X with the length of the cards array
@@ -27,5 +28,15 @@ export class ResultPageComponent implements OnInit {
 
   public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+
+  // Go to next page
+  goToNextPage() {
+    this.companyService.getNextCompagnies();
+  }
+
+  // Go to previous page
+  goToPreviousPage() {
+    this.companyService.getPreviousCompagnies();
   }
 }
