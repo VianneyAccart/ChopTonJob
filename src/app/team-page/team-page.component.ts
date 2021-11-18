@@ -40,7 +40,7 @@ export class TeamPageComponent implements OnInit {
         'assets/img/camille.png',
         'Portrait Camille Frelat',
         'https://github.com/camfrelat',
-        'www.linkedin.com/in/camillefrelat'
+        'https://www.linkedin.com/in/camillefrelat'
       ),
       new TeamMember(
         'Adam',
