@@ -17,7 +17,7 @@ export class CompanyService {
   requestParams: Request | undefined;
 
   constructor(private http: HttpClient, private titleService: Title) {
-    this.baseUrl = 'https://rechercheinformatique.fr/queryapi.php?';
+    this.baseUrl = 'http://mon-casque.com/queryapi.php?';
     this.resultList = [];
     this.errorRequest = {
       numero: 0,
