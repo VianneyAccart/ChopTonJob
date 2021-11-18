@@ -7,8 +7,6 @@
     <img src="src/assets/img/logo.png" alt="Logo">
   </a>
 
-<h3 align="center">Chop'Ton Job</h3>
-
   <p align="center">
     Description
     <br />
@@ -41,10 +39,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -94,10 +89,10 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-Chop Ton Job is an application made for french users exclusively because of scope. 
-It allows users to search for recruting companies with two different ways : departments selection or localisation.
-The app returns a list of companies with high hiring potential and informations about them.
-A guide page is available to access advices to make a good job application.
+Chop Ton Job is an application made for french users exclusively because of scope. <br>
+It allows users to search for recruting companies with two different ways : departments selection or localisation.<br>
+The app returns a list of companies with high hiring potential and informations about them.<br>
+A guide page is available to access advices to make a good job application.<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -105,10 +100,10 @@ A guide page is available to access advices to make a good job application.
 
 ## Contact
 
-Camille FRELAT - [LinkedIn](https://www.linkedin.com/in/camillefrelat) - camillefrelat2@gmail.com - [GitHub](https://github.com/camfrelat)
-Karim BOUDJEMAI - [LinkedIn](https://www.linkedin.com/in/karim-boudjemai-%F0%9F%96%A5-87490b221/) - karim.boudjemai.pro@gmail.com - [GitHub](https://github.com/Kariim42)
-Adam ROUX - [LinkedIn](https://www.linkedin.com/in/adamroux/) - roux.adam69@gmail.com - [GitHub](https://github.com/AdamRoux)
-Vianney ACCART - [LinkedIn](https://www.linkedin.com/in/vianneyaccart/) - vianneyaccart@gmail.com - [GitHub](https://github.com/VianneyAccart)
+Camille FRELAT - [LinkedIn](https://www.linkedin.com/in/camillefrelat) - camillefrelat2@gmail.com - [GitHub](https://github.com/camfrelat)<br>
+Karim BOUDJEMAI - [LinkedIn](https://www.linkedin.com/in/karim-boudjemai-%F0%9F%96%A5-87490b221/) - karim.boudjemai.pro@gmail.com - [GitHub](https://github.com/Kariim42)<br>
+Adam ROUX - [LinkedIn](https://www.linkedin.com/in/adamroux/) - roux.adam69@gmail.com - [GitHub](https://github.com/AdamRoux)<br>
+Vianney ACCART - [LinkedIn](https://www.linkedin.com/in/vianneyaccart/) - vianneyaccart@gmail.com - [GitHub](https://github.com/VianneyAccart)<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
