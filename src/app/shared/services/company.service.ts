@@ -39,7 +39,7 @@ export class CompanyService {
     // Concat baseUrl and request to create perfect matching request
     this.http.get<ResultCompanies>(this.baseUrl + request).subscribe(
       // If everything is good
-      (response) => {
+      (response: ResultCompanies) => {
         // First, empty the resultList to avoid double informations
         this.resultList?.splice(0, this.resultList.length);
         // Push all elements of the response in resultList
@@ -54,7 +54,7 @@ export class CompanyService {
         this.requestInfo.pageMax = Math.ceil(this.requestInfo.count / this.requestInfo.pageSize);
       },
       // If there's an error
-      (error) => {
+      (error: any) => {
         // Param the errorRequest
         this.errorRequest.numero = 1;
         this.errorRequest.message = error;
