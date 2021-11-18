@@ -1,27 +1,118 @@
-# ChopTonJob
+<div id="top"></div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021">
+    <img src="src/assets/img/logo.png" alt="Logo">
+  </a>
 
-## Development server
+<h3 align="center">Chop'Ton Job</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  <p align="center">
+    Description
+    <br />
+    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021"><strong>Explore the documentation</strong></a>
+    <br />
+    <br />
+    <a href="https://chop-ton-job.web.app/">Discover</a>
+    ·
+    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021/pulls">Request Feature</a>
+  </p>
+</div>
 
-## Code scaffolding
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!-- ABOUT THE PROJECT -->
 
-## Build
+## About The Project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+[![Product Name Screen Shot][product-screenshot]](https://chop-ton-job.web.app/)
 
-## Running unit tests
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Built With
 
-## Running end-to-end tests
+- [Angular](https://angular.io/)
+- [Bootstrap](https://getbootstrap.com)
+- [API La Bonne Boîte](https://pole-emploi.io/data/api/bonne-boite)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Further help
+<!-- GETTING STARTED -->
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- USAGE EXAMPLES -->
+
+## Usage
+
+Chop Ton Job is an application made for french users exclusively because of scope. 
+It allows users to search for recruting companies with two different ways : departments selection or localisation.
+The app returns a list of companies with high hiring potential and informations about them.
+A guide page is available to access advices to make a good job application.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Camille FRELAT - [LinkedIn](https://www.linkedin.com/in/camillefrelat) - camillefrelat2@gmail.com - [GitHub](https://github.com/camfrelat)
+Karim BOUDJEMAI - [LinkedIn](https://www.linkedin.com/in/karim-boudjemai-%F0%9F%96%A5-87490b221/) - karim.boudjemai.pro@gmail.com - [GitHub](https://github.com/Kariim42)
+Adam ROUX - [LinkedIn](https://www.linkedin.com/in/adamroux/) - roux.adam69@gmail.com - [GitHub](https://github.com/AdamRoux)
+Vianney ACCART - [LinkedIn](https://www.linkedin.com/in/vianneyaccart/) - vianneyaccart@gmail.com - [GitHub](https://github.com/VianneyAccart)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[product-screenshot]: src/assets/img/readme.png
