@@ -1,19 +1,19 @@
 [
     {
         "title" : "S'organiser",
-        "description" : "Planifier et suivre ses candidatures est très important. Cela te permettras de rester organisé et de prévoir des relances en cas de non réponse. Tu peux par exemple utiliser un tableau Excel pour rassembler tous les détails de tes candidatures (nom de l'entreprise, contact, date, relance...)",
+        "description" : "Planifier et suivre ses candidatures est très important. Cela te permettra de rester organisé et de prévoir des relances en cas de non réponse. Tu peux par exemple utiliser un tableau Excel pour rassembler tous les détails de tes candidatures (nom de l'entreprise, contact, date, relance, etc).",
         "image" : "assets/img/icons/calendarDateFill.svg",
         "imageAlt" : "Icône calendrier"
     },
     {
         "title" : "Mettre ses projets en avant",
-        "description" : "Crée un portfolio ou un profil Github pour montrer tes projets. Pense pas d'ajouter le lien de ton Github sur ton Linkedin et ton CV cela permettra aux recruteurs de parcourir tes différents projets et leur évolution. Diffuser ses projets sur Linkedin peut aussi être une excellente manière de créer un premier contact avec des entreprises",
+        "description" : "Tu peux créer un portfolio et/ou un profil GitHub pour montrer tes projets. Pense bien à ajouter le lien de ton GitHub et de ton CV sur LinkedIn. Cela permettra aux recruteurs de parcourir tes différents projets et leurs évolutions. Promouvior tes projets sur LinkedIn peut aussi être une excellente manière de créer un premier contact avec des entreprises.",
         "image" : "assets/img/icons/github.svg",
         "imageAlt" : "Icône Github"
     },
     {
         "title" : "Solliciter son réseau",
-        "description" : "En utilisant le réseau social Linkedin par exemple tu peux te faire de nouveaux contacts et te créer de nouvelles opportunités. N'hésite pas à faire des publications régulières pour informer ton réseau de ton évolution professionnelle et mets à jour ton profil régulièrement. Tu peux aussi prendre directement contact avec le ou la responsable RH d'une entreprise et demander quel est le meilleur moyen pour envoyer ta candidature spontanée.",
+        "description" : "En utilisant LinkedIn, par exemple, tu peux te faire de nouveaux contacts et te créer de nouvelles opportunités. N'hésite pas à faire des publications régulières pour informer ton réseau de ton évolution professionnelle et mets à jour ton profil régulièrement. Tu peux aussi prendre directement contact avec le/la responsable RH d'une entreprise et demander quel est le meilleur moyen pour envoyer ta candidature spontanée.",
         "image" : "assets/img/icons/linkedin.svg",
         "imageAlt" : "Icône LinkedIn"
     },
