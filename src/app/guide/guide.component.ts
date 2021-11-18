@@ -16,14 +16,14 @@ export class GuideComponent implements OnInit {
 
   // Generate guideSteps and add them in the array 'etapes'
   ngOnInit(): void {
-    this.guideService.getSteps().subscribe((response) => {
+    this.guideService.getSteps().subscribe((response: any) => {
       this.etapes = response;
     });
     this.setTitle('Découvre comment réaliser une bonne candidature spontanée !');
   }
 
   // Set page title
-  setTitle(newTitle: string) {
+  setTitle(newTitle: string): void {
     this.titleService.setTitle(newTitle);
   }
 }
