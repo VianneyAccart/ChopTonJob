@@ -22,7 +22,6 @@ export class ResultListComponent {
     this.currentRate = 3.5;
   }
 
-
   // Is used to open/close the hidden div on each card.
   displayInfo(card: Card) {
     card.is_shown = !card.is_shown;
