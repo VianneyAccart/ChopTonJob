@@ -32,7 +32,7 @@ export class CompanyService {
   }
 
   // Get datas from API thanks to parameters given by form component
-  public getCompanies(requestParams: Request): any {
+  public getCompanies(requestParams: Request): void {
     this.requestParams = requestParams;
     // Use request in getCompanies
     const request = this.setParams(requestParams);

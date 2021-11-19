@@ -31,9 +31,9 @@
         <div class="row">
           <div class="col-6">
             <div class="input-group mt-2">
-              <button [ngStyle]="{
-                  'background-color': localisationButtonColor,
-                  'color': localisationButtonTextColor
+              <button [ngClass]="{
+                  'unlocalisedButton': localisedButton === false,
+                  'localisedButton': localisedButton
                 }" [innerHTML]="localisationButtonText" class="btn btn-light" type="button" id="button-addon1"
                 (click)="getUserLocation()"></button>
             </div>

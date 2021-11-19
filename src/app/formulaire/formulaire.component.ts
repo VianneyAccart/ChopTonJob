@@ -19,27 +19,23 @@ import {DepartmentsService} from '../shared/services/departments.service';
 export class FormulaireComponent {
   @ViewChild('departmentInput') departmentInput: ElementRef<HTMLInputElement> | undefined;
   @Output() isNewSearchPanelOpen: EventEmitter<boolean>;
-  localisationButtonText: string;
-  localisationButtonColor: string;
-  localisationButtonTextColor: string;
+  localisationButtonText: string; // Used to set text inside localisation button
+  localisedButton: boolean; // Used to set background-color and text color of the localisation button
   selectable: boolean;
   removable: boolean;
-  separatorKeysCodes: number[];
+  separatorKeysCodes: number[]; // Create separator between chips
   departmentCtrl: FormControl;
   filteredDepartments: Observable<string[]>;
   departments: string[]; // Selected department(s)
   allDepartments: string[]; // List of departments
 
   // Used for API request
-  request: string;
   latitude: any;
   longitude: any;
   selectedDepartments: string[];
   distance: string | undefined;
   contract: string;
   romeCode: string;
-  pageSize: number;
-  page: number;
   requestInfo: any;
   searchForm: FormGroup;
 
@@ -50,6 +46,7 @@ export class FormulaireComponent {
     private authGuard: AuthGuard,
     private departmentsService: DepartmentsService
   ) {
+    this.localisedButton = false;
     this.isNewSearchPanelOpen = new EventEmitter();
     this.searchForm = this.fb.group({
       radius: [''],
@@ -59,14 +56,9 @@ export class FormulaireComponent {
     this.selectable = true;
     this.removable = true;
     this.departmentCtrl = new FormControl();
-    this.page = 1;
-    this.pageSize = 100;
     this.romeCode = '';
-    this.request = '';
     this.contract = 'dpae';
-    this.localisationButtonColor = 'transparent';
     this.localisationButtonText = 'Être localisé';
-    this.localisationButtonTextColor = '#aea2cd';
     this.departments = [];
     this.selectedDepartments = [];
     this.allDepartments = [];
@@ -150,8 +142,7 @@ export class FormulaireComponent {
 
       //Reset button to default values
       this.localisationButtonText = 'Être localisé';
-      this.localisationButtonColor = 'transparent';
-      this.localisationButtonTextColor = '#aea2cd';
+      this.localisedButton = false;
     }
   }
 
@@ -184,8 +175,7 @@ export class FormulaireComponent {
 
         // Change button text and style
         this.localisationButtonText = 'Localisation acquise';
-        this.localisationButtonColor = '#aea2cd';
-        this.localisationButtonTextColor = 'white';
+        this.localisedButton = true;
       });
     }
   }

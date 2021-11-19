@@ -1,6 +1,5 @@
 import {ViewportScroller} from '@angular/common';
 import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
 import {CompanyService} from '../shared/services/company.service';
 
 @Component({
@@ -13,21 +12,17 @@ export class ResultPageComponent implements OnInit {
   totalCompanies: any | undefined;
   requestInfo: any;
 
-  constructor(
-    private titleService: Title,
-    private companyService: CompanyService,
-    private scroll: ViewportScroller
-  ) {
+  constructor(private companyService: CompanyService, private scroll: ViewportScroller) {
     this.openedNewSearchMenu = false;
     this.requestInfo = this.companyService.requestInfo;
   }
 
   // Receive false boolean from formulaire component (when submitted) to set openedNewSearchMenu to false
-  receiveBooleanToCloseNewSearchPanel($event: any) {
-    this.openedNewSearchMenu = $event;
+  receiveBooleanToCloseNewSearchPanel(isNewSearchPanelOpen: boolean) {
+    this.openedNewSearchMenu = isNewSearchPanelOpen;
   }
 
-  // Replace X with the length of the cards array
+  // Get elements for request from Company Service
   ngOnInit() {
     this.requestInfo = this.companyService.requestInfo;
   }

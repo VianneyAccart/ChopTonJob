@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {TeamMember} from '../shared/models/teamMember.model';
+import {TeamMember} from '../shared/models/TeamMember.model';
 
 @Component({
   selector: 'app-team-page',
