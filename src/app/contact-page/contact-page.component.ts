@@ -10,10 +10,11 @@ export class ContactPageComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.setTitle('Contactez notre équipe simplement !');
+    this.setTitle('Contacte notre équipe si tu as une question ou des suggestions à nous faire !');
   }
 
-  public setTitle(newTitle: string) {
+  // Set page title
+  setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 }

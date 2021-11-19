@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 export class NavbarComponent {
   openedMobileMenu: boolean;
   imageSource: string;
+  // Change navbar style according to url
   url = '';
 
   constructor(private router: Router) {
@@ -17,6 +18,7 @@ export class NavbarComponent {
     this.url = this.router.url;
   }
 
+  // Open and close mobile menu
   mobileMenu() {
     this.openedMobileMenu = !this.openedMobileMenu;
   }

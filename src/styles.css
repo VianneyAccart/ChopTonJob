@@ -3,6 +3,7 @@ html {
   height: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  min-width: 360px;
 }
 
 p,
@@ -20,7 +21,7 @@ a {
 
 .highlightWord {
   /* Mot coloré dans les titres */
-  color: #aea2cd;
+  color: #715da5;
   font-weight: 600;
 }
 

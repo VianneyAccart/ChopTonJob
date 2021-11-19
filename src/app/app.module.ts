@@ -13,15 +13,15 @@ import {TeamPageComponent} from './team-page/team-page.component';
 import {ResultListComponent} from './result-list/result-list.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ContactFormComponent} from './contact-form/contact-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ResultPageComponent} from './result-page/result-page.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
+import {NotFoundComponent as NotFoundComponent} from './not-found/not-found.component';
 import {FooterComponent} from './footer/footer.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {GuideComponent} from './guide/guide.component';
-import {NewSearchFormComponent} from './new-search-form/new-search-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,11 +34,10 @@ import {NewSearchFormComponent} from './new-search-form/new-search-form.componen
     ContactPageComponent,
     ContactFormComponent,
     ResultPageComponent,
-    ErrorPageComponent,
+    NotFoundComponent,
     FooterComponent,
     MentionsLegalesComponent,
     GuideComponent,
-    NewSearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +50,8 @@ import {NewSearchFormComponent} from './new-search-form/new-search-form.componen
     MatSelectModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],

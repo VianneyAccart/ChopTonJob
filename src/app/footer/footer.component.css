@@ -20,11 +20,8 @@ a {
   margin-left: 1rem;
 }
 
-.item2 {
-  font-size: 1.1rem;
-  font-weight: 200;
+.coloredItem {
   color: #aea2cd;
-  margin: 0;
 }
 
 .navbar {
@@ -35,31 +32,21 @@ a {
   background-color: #aea2cd;
 }
 
-.nav-menu {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .nav-link:hover {
-  color: black;
-}
-
-.nav-link:focus {
   color: black;
 }
 
 .transparent {
   background: transparent;
-  color: black;
 }
 
 @media screen and (max-width: 768px) {
-  .item, .nav-link {
-    font-size: .8rem;
+  .item,
+  .nav-link {
+    font-size: 0.8rem;
   }
 
   .item {
-    margin-left: .8rem;
+    margin-left: 0.8rem;
   }
 }

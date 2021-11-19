@@ -1,12 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ContactPageComponent} from './contact-page/contact-page.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {ResultPageComponent} from './result-page/result-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
 import {GuideComponent} from './guide/guide.component';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,8 +27,10 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
+    // canActivate is used to guard acces to /result page when user try to bypass usage of search form
     path: 'result',
     component: ResultPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'mentions-legales',
@@ -35,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: '404',
-    component: ErrorPageComponent,
+    component: NotFoundComponent,
   },
   {
     path: '**',
@@ -45,7 +48,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
+  providers: [],
 })
 export class AppRoutingModule {}

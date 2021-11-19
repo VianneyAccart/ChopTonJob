@@ -1,5 +1,6 @@
+import {ViewportScroller} from '@angular/common';
 import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
+import {CompanyService} from '../shared/services/company.service';
 
 @Component({
   selector: 'app-result-page',
@@ -7,23 +8,44 @@ import {Title} from '@angular/platform-browser';
   styleUrls: ['./result-page.component.css'],
 })
 export class ResultPageComponent implements OnInit {
-  openedNewSearchMenu;
+  openedNewSearchMenu: boolean;
+  totalCompanies: any | undefined;
+  requestInfo: any;
 
-  constructor(private titleService: Title) {
+  constructor(private companyService: CompanyService, private scroll: ViewportScroller) {
     this.openedNewSearchMenu = false;
+    this.requestInfo = this.companyService.requestInfo;
   }
 
-  // Remplacer X par la longueur du tableau cards
-  ngOnInit(): void {
-    this.setTitle('X entreprises correspondent à votre recherche !');
+  // Receive false boolean from formulaire component (when submitted) to set openedNewSearchMenu to false
+  receiveBooleanToCloseNewSearchPanel(isNewSearchPanelOpen: boolean) {
+    this.openedNewSearchMenu = isNewSearchPanelOpen;
   }
 
-  // Permet d'afficher/masquer le volet de nouvelle recherche sur mobile
+  // Get elements for request from Company Service
+  ngOnInit() {
+    this.requestInfo = this.companyService.requestInfo;
+  }
+
+  // Show / hide the new mobile search pane
   openNewSearchMenu() {
     this.openedNewSearchMenu = !this.openedNewSearchMenu;
   }
 
-  public setTitle(newTitle: string) {
-    this.titleService.setTitle(newTitle);
+  // Go to next page
+  goToNextPage() {
+    this.companyService.getNextCompagnies();
+    this.scrollToTop();
+  }
+
+  // Go to previous page
+  goToPreviousPage() {
+    this.companyService.getPreviousCompagnies();
+    this.scrollToTop();
+  }
+
+  // Allow to scroll to top on click
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 }
