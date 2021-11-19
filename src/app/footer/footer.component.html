@@ -1,8 +1,8 @@
 <footer class="mt-5">
   <!-- Footer is transparent if you navigate to error page or homepage -->
-  <nav class="navbar" [ngClass]="{'transparent': url === '/' || url === '/404'}">
+  <nav class="navbar" [ngClass]="{'transparent': isTransparent}">
     <div class="col-6 d-flex justify-content-start">
-      <p class="item" [ngClass]="{'coloredItem': url === '/' || url === '/404'}">
+      <p class="item" [ngClass]="{'coloredItem': isTransparent}">
         <!-- Date changes automatically with time -->
         ©{{date}} Chop' Ton Job
       </p>
@@ -10,7 +10,7 @@
 
     <div class="d-flex justify-content-end align-items-center">
         <a routerLink="/mentions-legales" class="nav-link"
-          [ngClass]="{'coloredItem': url === '/' || url === '/404'}">Mentions Légales</a>
+          [ngClass]="{'coloredItem': isTransparent}">Mentions Légales</a>
     </div>
   </nav>
 </footer>
