@@ -110,6 +110,20 @@
   color: red;
 }
 
+.unlocalisedButton {
+  background-color: transparent;
+  color: #aea2cd;
+}
+
+.localisedButton {
+  background-color: #aea2cd;
+  color: white;
+}
+
+.localisedButton:hover {
+  background-color: #aea2cd;
+}
+
 @media screen and (max-width: 768px) {
   .allSelect {
     width: 100%;
