@@ -3,21 +3,21 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021">
+  <a href="https://github.com/VianneyAccart/ChopTonJob">
     <img src="src/assets/img/logo.png" alt="Logo">
   </a>
 
   <p align="center">
     Description
     <br />
-    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021"><strong>Explore the documentation</strong></a>
+    <a href="https://github.com/VianneyAccart/ChopTonJob"><strong>Explore the documentation</strong></a>
     <br />
     <br />
     <a href="https://chop-ton-job.web.app/">Discover</a>
     ·
-    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021/issues">Report Bug</a>
+    <a href="https://github.com/VianneyAccart/ChopTonJob/issues">Report Bug</a>
     ·
-    <a href="https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021/pulls">Request Feature</a>
+    <a href="https://github.com/VianneyAccart/ChopTonJob/pulls">Request Feature</a>
   </p>
 </div>
 
@@ -76,7 +76,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/WildCodeSchool/P2_Chop-Ton-Job_Lyon_Javangular_Septembre_2021.git
+   git clone https://github.com/VianneyAccart/ChopTonJob.git
    ```
 2. Install NPM packages
    ```sh
