@@ -22,6 +22,7 @@ import {BrowserModule, Title} from '@angular/platform-browser';
 import {MentionsLegalesComponent} from './mentions-legales/mentions-legales.component';
 import {GuideComponent} from './guide/guide.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     MentionsLegalesComponent,
     GuideComponent,
+    PlaceholderComponent,
   ],
   imports: [
     BrowserModule,
