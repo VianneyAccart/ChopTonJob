@@ -12,13 +12,10 @@ import {CompanyService} from '../shared/services/company.service';
 export class ResultListComponent {
   // Variable which will be used to store the values ​​for each variable of each company in the form of objects in an array
   cards: Card[] | undefined;
-  placeholderDisplayed = true;
+  placeholderDisplayed = true; // Display placeholder instead of result list
 
   constructor(config: NgbRatingConfig, private companyService: CompanyService) {
     this.cards = this.companyService.resultList;
-    setTimeout(() => {
-      this.placeholderDisplayed = false;
-    }, 300);
     // Param number of stars in rating
     config.max = 5;
     config.readonly = true;
